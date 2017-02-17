@@ -52,6 +52,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.mne = {
+    extraGroups = [ "wheel" ];
     isNormalUser = true;
     uid = 1000;
   };
@@ -59,4 +60,5 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.09";
 
+  security.sudo.enable = true;
 }
