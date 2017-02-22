@@ -5,6 +5,7 @@
     [
       ./legacy/hardware-configuration.nix
       ./legacy/system-packages.nix
+      ./legacy/custom-packages.nix
     ];
 
   boot.loader.grub.enable  = true;
