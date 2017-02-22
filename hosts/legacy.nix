@@ -23,7 +23,8 @@
 
   services.openssh.enable = true;
 
-  users.extraUsers.mne = {
+  users.defaultUserShell = "/run/current-system/sw/bin/zsh";
+  users.extraUsers.mne   = {
     extraGroups = [ "wheel" ];
     isNormalUser = true;
     uid = 1000;

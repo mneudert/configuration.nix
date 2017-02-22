@@ -10,5 +10,6 @@
     gnupg
     vim
     wget
+    zsh
   ];
 }
