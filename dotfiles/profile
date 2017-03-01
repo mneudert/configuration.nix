@@ -1,0 +1,5 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias l='ls -lah'
+
+export GPG_TTY=$(tty)
