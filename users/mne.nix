@@ -14,8 +14,10 @@ with lib;
       cd /home/mne
 
       ln -fs ${../dotfiles/profile} .profile
+      ln -fs ${../dotfiles/zshrc} .zshrc
 
       chown -h mne:users .profile
+      chown -h mne:users .zshrc
     '';
   };
 }

@@ -1,0 +1,5 @@
+source $HOME/.profile
+
+if [ -d $HOME/.zsh/ ]; then
+  for config_file ($HOME/.zsh/*.zsh) source $config_file
+fi
