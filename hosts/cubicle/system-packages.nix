@@ -6,8 +6,11 @@
 
 {
   environment.systemPackages = with pkgs; [
+    chromium
+    firefox
     git
     gnupg
+    terminator
     vim
     wget
     zsh
