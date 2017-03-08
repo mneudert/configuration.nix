@@ -7,11 +7,14 @@
 {
   environment.systemPackages = with pkgs; [
     chromium
+    docker
     firefox
     git
     gnupg
     terminator
+    vagrant
     vim
+    virtualbox
     wget
     zsh
   ];
