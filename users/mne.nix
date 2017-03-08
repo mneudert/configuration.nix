@@ -13,6 +13,13 @@ with lib;
     ''
       cd /home/mne
 
+      # symlink directories
+      rm -f .nix-shells
+      ln -fs ${../shells} .nix-shells
+
+      chown -h mne:users .nix-shells
+
+      # symlink files
       ln -fs ${../dotfiles/profile} .profile
       ln -fs ${../dotfiles/zshrc} .zshrc
 
