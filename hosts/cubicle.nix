@@ -11,6 +11,7 @@
 
       ../system/default.nix
       ../users/mne.nix
+      ../users/mne.nixpkgs.nix
     ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -19,6 +20,8 @@
   hardware.bluetooth.enable = false;
 
   networking.hostName = "cubicle";
+
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "16.09";
 }
