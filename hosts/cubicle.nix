@@ -4,9 +4,10 @@
   imports =
     [
       ./cubicle/hardware-configuration.nix
-      ./cubicle/system-packages.nix
-      ./cubicle/custom-packages.nix
       ./cubicle/xserver.nix
+
+      ./cubicle/custom-packages.nix
+      ./cubicle/system-packages.nix
 
       ../system/default.nix
       ../users/mne.nix
