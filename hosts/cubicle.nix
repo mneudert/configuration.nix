@@ -7,6 +7,7 @@
       ./cubicle/xserver.nix
 
       ./cubicle/custom-packages.nix
+      ./cubicle/unfree-packages.nix
       ./cubicle/system-packages.nix
 
       ../system/default.nix
