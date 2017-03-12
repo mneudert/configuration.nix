@@ -11,6 +11,7 @@
     firefox
     git
     gnupg
+    openvpn
     terminator
     vagrant
     vim
