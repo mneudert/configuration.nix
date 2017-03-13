@@ -16,7 +16,6 @@
     terminator
     vagrant
     vim
-    virtualbox
     wget
     zsh
   ];

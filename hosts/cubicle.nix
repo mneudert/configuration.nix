@@ -13,6 +13,7 @@
       ../system/default.nix
       ../users/mne.nix
       ../users/mne.nixpkgs.nix
+      ../users/mne.vboxusers.nix
     ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -25,4 +26,6 @@
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "16.09";
+
+  virtualisation.virtualbox.host.enable = true;
 }
