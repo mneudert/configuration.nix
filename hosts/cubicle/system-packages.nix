@@ -10,6 +10,7 @@
     docker
     firefox
     git
+    git-lfs
     gnupg
     openvpn
     terminator
