@@ -3,8 +3,8 @@ alias ...='cd ../..'
 alias l='ls -lah'
 
 if [ -d $HOME/.nix-shells/ ]; then
-  for shelldef in $(find $HOME/.nix-shells/ -type f -name '*.nix'); do
-    shellname="nix-shell-$(basename ${shelldef} .nix)"
+  for shelldef in $(find $HOME/.nix-shells/generic/ -type f -name '*.nix'); do
+    shellname="generic-shell-$(basename ${shelldef} .nix)"
 
     alias $shellname="nix-shell ${shelldef}"
   done

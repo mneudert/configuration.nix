@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "nix-shell-php-7.0";
+  name = "generic-shell-python3";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -12,6 +12,6 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [
-    php70
+    python3
   ];
 }

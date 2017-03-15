@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "nix-shell-ruby";
+  name = "generic-shell-go";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -12,10 +12,9 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [
-    libxml2
-    zlib
+    go
 
-    ruby
-    bundler
+    glide
+    go2nix
   ];
 }

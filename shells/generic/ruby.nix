@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "nix-shell-python3";
+  name = "generic-shell-ruby";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -12,6 +12,10 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [
-    python3
+    libxml2
+    zlib
+
+    ruby
+    bundler
   ];
 }

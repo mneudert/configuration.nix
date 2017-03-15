@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "nix-shell-go";
+  name = "generic-shell-elixir";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -12,9 +12,6 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [
-    go
-
-    glide
-    go2nix
+    elixir
   ];
 }

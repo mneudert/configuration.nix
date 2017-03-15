@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "nix-shell-elixir";
+  name = "generic-shell-php-7.0";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -12,6 +12,6 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [
-    elixir
+    php70
   ];
 }
