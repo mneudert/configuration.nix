@@ -15,6 +15,7 @@
       ../users/mne.docker.nix
       ../users/mne.nixpkgs.nix
       ../users/mne.vboxusers.nix
+      ../users/nolimits.nix
     ];
 
   boot.loader.efi.canTouchEfiVariables = true;
