@@ -12,6 +12,7 @@
 
       ../system/default.nix
       ../users/mne.nix
+      ../users/mne.docker.nix
       ../users/mne.nixpkgs.nix
       ../users/mne.vboxusers.nix
     ];
@@ -27,5 +28,6 @@
 
   system.stateVersion = "16.09";
 
+  virtualisation.docker.enable          = true;
   virtualisation.virtualbox.host.enable = true;
 }

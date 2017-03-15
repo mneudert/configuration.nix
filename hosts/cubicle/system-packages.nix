@@ -7,7 +7,6 @@
 {
   environment.systemPackages = with pkgs; [
     chromium
-    docker
     firefox
     git
     git-lfs
