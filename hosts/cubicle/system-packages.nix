@@ -11,11 +11,15 @@
     git
     git-lfs
     gnupg
+    iw
+    lshw
     openvpn
+    pciutils
     terminator
     vagrant
     vim
     wget
+    wirelesstools
     zsh
   ];
 }
