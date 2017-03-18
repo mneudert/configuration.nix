@@ -13,6 +13,7 @@
       ../system/default.nix
       ../users/mne.nix
       ../users/mne.docker.nix
+      ../users/mne.networkmanager.nix
       ../users/mne.nixpkgs.nix
       ../users/mne.vboxusers.nix
       ../users/nolimits.nix
