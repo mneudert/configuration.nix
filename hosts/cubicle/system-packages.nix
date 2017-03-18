@@ -21,5 +21,7 @@
     wget
     wirelesstools
     zsh
+
+    gitAndTools.diff-so-fancy
   ];
 }
