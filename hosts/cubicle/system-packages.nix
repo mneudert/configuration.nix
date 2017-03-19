@@ -15,6 +15,7 @@
     lshw
     openvpn
     pciutils
+    slack
     terminator
     vagrant
     vim
