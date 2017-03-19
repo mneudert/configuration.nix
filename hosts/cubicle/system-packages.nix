@@ -11,6 +11,7 @@
     git
     git-lfs
     gnupg
+    imagemagick
     iw
     lshw
     openvpn
