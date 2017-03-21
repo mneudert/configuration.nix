@@ -1,0 +1,11 @@
+--- cayley-v0.6.0-src/internal/http/http.go	1970-00-00 00:00:00.000000001 +0000
++++ cayley-v0.6.0-src/internal/http/http.go	1970-00-00 00:00:00.000000001 +0000
+@@ -60,7 +60,7 @@
+ 		return ".."
+ 	}
+ 
+-	gopathPath := os.ExpandEnv("$GOPATH/src/github.com/cayleygraph/cayley")
++	gopathPath := os.ExpandEnv("__NIXOS_BIN__/assets")
+ 	if hasAssets(gopathPath) {
+ 		return gopathPath
+ 	}
