@@ -8,6 +8,12 @@ if [ -d $HOME/.nix-shells/ ]; then
 
     alias $shellname="nix-shell ${shelldef}"
   done
+
+  for shelldef in $(find $HOME/.nix-shells/project/ -type f -name '*.nix'); do
+    shellname="project-shell-$(basename ${shelldef} .nix)"
+
+    alias $shellname="nix-shell ${shelldef}"
+  done
 fi
 
 export GPG_TTY=$(tty)
