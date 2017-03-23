@@ -6,6 +6,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    bind
     chromium
     firefox
     git
