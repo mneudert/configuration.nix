@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "template-shell-elasticsearch_52";
+  name = "template-shell-elasticsearch5";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -55,9 +55,9 @@ stdenv.mkDerivation rec {
     export PS1="[${name}:\w]$ "
   '';
 
-  elasticsearch_52 = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch_52 {};
+  elasticsearch5 = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch5 {};
 
   buildInputs = with pkgs; [
-    elasticsearch_52
+    elasticsearch5
   ];
 }

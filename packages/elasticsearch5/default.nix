@@ -10,8 +10,8 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    ./elasticsearch_52-home.patch
-    ./elasticsearch_52-classpath.patch
+    ./elasticsearch5-home.patch
+    ./elasticsearch5-classpath.patch
   ];
 
   buildInputs = [ makeWrapper jre utillinux ];
