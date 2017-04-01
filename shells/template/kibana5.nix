@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "template-shell-kibana_52";
+  name = "template-shell-kibana5";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -34,9 +34,9 @@ stdenv.mkDerivation rec {
     export PS1="[${name}:\w]$ "
   '';
 
-  kibana_52 = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana_52 { nodejs = nodejs-6_x; };
+  kibana5 = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana5 { nodejs = nodejs-6_x; };
 
   buildInputs = with pkgs; [
-    kibana_52
+    kibana5
   ];
 }
