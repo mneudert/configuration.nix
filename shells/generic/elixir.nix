@@ -11,6 +11,8 @@ stdenv.mkDerivation rec {
     export PS1="[${name}:\w]$ "
   '';
 
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/backports/elixir {};
+
   buildInputs = [
     elixir
   ];
