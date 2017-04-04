@@ -19,6 +19,7 @@
     pciutils
     slack
     terminator
+    unar
     vagrant
     vim
     wget
