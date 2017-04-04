@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     function finish {
-      sudo -u nolimits sh -c " \
+      sudo sh -c " \
           ps a \
           | grep 'kibana' \
           | grep -v 'grep' \
