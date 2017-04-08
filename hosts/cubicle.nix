@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 
-{
+let
+
+    host        = "cubicle";
+    secret_base = "/data/projects/secret/configuration.nix";
+    secret      = if builtins.pathExists "${secret_base}/hosts/${host}.nix"
+                  then "${secret_base}/hosts/${host}.nix"
+                  else {};
+
+in {
   imports =
     [
       ./cubicle/hardware-configuration.nix
@@ -17,6 +25,8 @@
       ../users/mne.nixpkgs.nix
       ../users/mne.vboxusers.nix
       ../users/nolimits.nix
+
+      secret
     ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -24,7 +34,7 @@
 
   hardware.bluetooth.enable = false;
 
-  networking.hostName = "cubicle";
+  networking.hostName = host;
 
   nixpkgs.config.allowUnfree = true;
 

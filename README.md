@@ -49,3 +49,8 @@ Common user setup. Based on a `[username].[package].nix` naming.
 This repository is intended to be placed under the path
 `/data/projects/private/configuration.nix`. Placing it somewhere else will
 break stuff.
+
+Every host is connected to a file located in a companion repository
+`/data/projects/secret/configuration.nix`. If you would have access to it you
+would see private SSH keys, `/etc/hosts` configuration and the like. Just
+ignore those ;)
