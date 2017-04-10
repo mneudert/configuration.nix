@@ -15,6 +15,7 @@
     imagemagick
     iw
     lshw
+    openssl
     openvpn
     pciutils
     slack
