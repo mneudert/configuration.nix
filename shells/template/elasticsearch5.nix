@@ -8,18 +8,20 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    PROJECT_ROOT="$(pwd)"
+    PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch/elasticsearch.pid"
+
     function finish {
-      sudo sh -c " \
-          ps a \
-          | grep 'org.elasticsearch.bootstrap.Elasticsearch' \
-          | grep -v 'grep' \
-          | awk '{print \$1}' \
-          | xargs kill \
-      "
+      [ -f "$PID_ELASTICSEARCH" ] && {
+        sudo -u nolimits kill -QUIT "$(cat "$PID_ELASTICSEARCH")"
+        sudo -u nolimits rm -f "$PID_ELASTICSEARCH"
+      }
     }
 
     [ ! -d './runtime/elasticsearch' ] && {
       mkdir -p runtime/elasticsearch
+
+      chmod 774 runtime/elasticsearch
 
       cd runtime/elasticsearch
         elastic_base=$(dirname $(dirname $(which elasticsearch)))
@@ -47,8 +49,8 @@ stdenv.mkDerivation rec {
 
     sudo sysctl -w vm.max_map_count=262144
     sudo -u nolimits \
-        ES_HOME="$(pwd)/runtime/elasticsearch" \
-        elasticsearch &
+        ES_HOME="$PROJECT_ROOT/runtime/elasticsearch" \
+        elasticsearch -p "$PID_ELASTICSEARCH" &
 
     trap finish EXIT
 

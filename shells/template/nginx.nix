@@ -8,14 +8,14 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    PROJECT_ROOT="$(pwd)"
+    PID_NGINX="$PROJECT_ROOT/runtime/nginx/logs/nginx.pid"
+
     function finish {
-      sudo sh -c " \
-          ps a \
-          | grep 'nginx' \
-          | grep -v 'grep' \
-          | awk '{print \$1}' \
-          | xargs kill \
-      "
+      [ -f "$PID_NGINX" ] && {
+        sudo -u nolimits kill -QUIT "$(cat "$PID_NGINX")"
+        sudo -u nolimits rm -f "$PID_NGINX"
+      }
     }
 
     [ ! -d './runtime/nginx' ] && {
@@ -24,14 +24,14 @@ stdenv.mkDerivation rec {
       chmod 774 runtime/nginx
       chmod 774 runtime/nginx/logs
 
-      sed "s|{{PATH_PROJECT}}|$(pwd)|g" \
+      sed "s|{{PATH_PROJECT}}|$PROJECT_ROOT|g" \
           runtime/etc/nginx.conf \
       > runtime/nginx/nginx.conf
     }
 
     sudo -u nolimits \
-        nginx -c "$(pwd)/runtime/nginx/nginx.conf" \
-              -p "$(pwd)/runtime/nginx"
+        nginx -c "$PROJECT_ROOT/runtime/nginx/nginx.conf" \
+              -p "$PROJECT_ROOT/runtime/nginx"
 
     trap finish EXIT
 
