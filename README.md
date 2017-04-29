@@ -35,13 +35,16 @@ Templates are provided for copy & paste when something more extravagant is
 required like starting a webserver or database. Includes moving all runtime
 data (storage, configuration, ...) to the current working directory.
 
+Some of the shells require access to the user `nolimits`. This user is called
+by sudo and, for convenience, should not ask for a password.
+
 ### System
 
 Configuration at system level, like default locale.
 
 ### Users
 
-Common user setup. Based on a `[username].[package].nix` naming.
+Common user setup. Mostly based on a `[username].[package].nix` naming.
 
 
 ## Caveats
