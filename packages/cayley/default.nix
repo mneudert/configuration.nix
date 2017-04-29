@@ -15,7 +15,7 @@ buildGoPackage rec {
     ./cayley-assets.patch
   ];
 
-  goDeps        = ./. + builtins.toPath "/cayley-deps.nix";
+  goDeps        = ./deps.nix;
   goPackagePath = "github.com/cayleygraph/cayley";
 
   preBuild =
