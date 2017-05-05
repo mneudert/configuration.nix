@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name    = "elasticsearch-${version}";
-  version = "5.3.0";
+  version = "5.4.0";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}.tar.gz";
-    sha256 = "06z204a32g51zswkrw2952r0hk2k9d51j2jyaqjzxx79fclr5zgg";
+    sha256 = "1ml2dvwxxhj3azj13wa8xd08kpapal2477lpcaxzw5gnzizgyx5z";
   };
 
   patches = [
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
     cp -R bin config lib modules $out
 
     wrapProgram $out/bin/elasticsearch \
-        --prefix ES_CLASSPATH : "$out/lib/${name}.jar":"$out/lib/*" \
+        --prefix ES_CLASSPATH : "$out/lib/*" \
         --prefix PATH : "${utillinux}/bin/" \
         --set JAVA_HOME "${jre}"
 
