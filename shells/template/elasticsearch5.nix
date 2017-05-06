@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
 
       chmod 774 runtime/elasticsearch
 
-      cd runtime/elasticsearch
+      pushd runtime/elasticsearch
         elastic_base=$(dirname $(dirname $(which elasticsearch)))
 
         ln -fs "$elastic_base/bin/"
@@ -39,12 +39,12 @@ stdenv.mkDerivation rec {
         chmod 774 data
         chmod 774 logs
 
-        cd config
+        pushd config
           ln -fs ../../etc/elasticsearch.yml
           ln -fs "$elastic_base/config/jvm.options"
           ln -fs "$elastic_base/config/log4j2.properties"
-        cd ..
-      cd ../../
+        popd
+      popd
     }
 
     sudo sysctl -w vm.max_map_count=262144
