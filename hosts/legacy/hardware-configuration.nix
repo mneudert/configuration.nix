@@ -22,6 +22,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/misc" =
+    { device = "/dev/disk/by-uuid/6b3172e2-3fd0-4d29-823b-5d06178d0d67";
+      fsType = "ext4";
+    };
+
   swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 2;
