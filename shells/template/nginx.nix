@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
     export PS1="[${name}:\w]$ "
   '';
 
-  buildInputs = with pkgs; [
+  buildInputs = [
     nginx
   ];
 }

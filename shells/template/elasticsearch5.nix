@@ -59,7 +59,7 @@ stdenv.mkDerivation rec {
 
   elasticsearch5 = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch5 {};
 
-  buildInputs = with pkgs; [
+  buildInputs = [
     elasticsearch5
   ];
 }

@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
 
   kibana5 = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana5 { nodejs = nodejs-6_x; };
 
-  buildInputs = with pkgs; [
+  buildInputs = [
     kibana5
   ];
 }
