@@ -13,8 +13,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/boltdb/bolt";
-      rev= "04a3e85793043e76d41164037d0d7f9d53eecae3";
-      sha256= "0qnc4334vba2z3jfgq1a26p4sl29lk8y6l72wsj4rwrjjqd00qdl";
+      rev= "a705895fdad108f053eae7ee011ed94a0541ee13";
+      sha256= "0ql67l2hmjhplkl80j9a49qlra4qx671il5rgn58afkvk20cgq2r";
     };
   }
   {
@@ -45,48 +45,12 @@
     };
   }
   {
-    goPackagePath= "github.com/docker/docker";
-    fetch= {
-      type= "git";
-      url= "https://github.com/docker/docker";
-      rev= "282b0aff08030a2521adf7d64bdd333f0864b720";
-      sha256= "0nyj92147r2lg350mf421wv6bsa9kfb1j0sbs29lw2qsbgqsg36c";
-    };
-  }
-  {
-    goPackagePath= "github.com/docker/engine-api";
-    fetch= {
-      type= "git";
-      url= "https://github.com/docker/engine-api";
-      rev= "c9fd33c91008b9c558a6ed1cb11a68dbe4db0493";
-      sha256= "0jhm9wxd92w71g0xakd55nhn496589z26ycq87w9xjr5ql0bblsr";
-    };
-  }
-  {
-    goPackagePath= "github.com/docker/go-units";
-    fetch= {
-      type= "git";
-      url= "https://github.com/docker/go-units";
-      rev= "eb879ae3e2b84e2a142af415b679ddeda47ec71c";
-      sha256= "0pgsbfwigx0jyag4y8hf8mjdva5qc3r3h2g0qczvvv33jn51931f";
-    };
-  }
-  {
     goPackagePath= "github.com/dop251/goja";
     fetch= {
       type= "git";
       url= "https://github.com/dop251/goja";
       rev= "64f863c4eb0329df18ecd1dab1e03609556bfaca";
       sha256= "0smipfs7fja286nvlr7q4b8f815br0nia0k4xp8y5fvprrzrm64h";
-    };
-  }
-  {
-    goPackagePath= "github.com/fsouza/go-dockerclient";
-    fetch= {
-      type= "git";
-      url= "https://github.com/fsouza/go-dockerclient";
-      rev= "4efaf0ea3c8990e1648f68672d011289f0c0cb0a";
-      sha256= "19p4a1bv283c87i4ip1ls15abk4cprmn9gp8l9dhfgi2hyv9q8pm";
     };
   }
   {
@@ -150,15 +114,6 @@
       url= "https://github.com/linkeddata/gojsonld";
       rev= "a223ef39bb925d36d4c410d3e35b0e34e370cc31";
       sha256= "1i3vl7gbkq2xl2wyv0kszj0x32vp8jw1cf0ngpdqdhdvnbfi1w7i";
-    };
-  }
-  {
-    goPackagePath= "github.com/opencontainers/runc";
-    fetch= {
-      type= "git";
-      url= "https://github.com/opencontainers/runc";
-      rev= "6df383c2f881fbdeb85060fd27d8bf61afedacd9";
-      sha256= "02l6rvakvflp3bh0hlnyjp07d0c62jpkq6cmcc5qr576zybfx8yg";
     };
   }
   {
