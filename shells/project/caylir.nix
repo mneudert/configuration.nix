@@ -8,7 +8,11 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    cayley http -db=memstore -dbpath="" &
+    cayley http \
+      -db=memstore -dbpath="" \
+      -ignoredup \
+      -logtostderr \
+    2>/dev/null &
 
     function finish {
       ps | grep 'cayley' | grep -v 'grep' | awk '{ print $1 }' | xargs kill
