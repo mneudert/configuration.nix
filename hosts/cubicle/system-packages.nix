@@ -20,6 +20,7 @@
     pciutils
     slack
     terminator
+    travis
     unar
     vagrant
     vim
