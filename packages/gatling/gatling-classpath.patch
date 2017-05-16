@@ -1,0 +1,11 @@
+--- gatling-charts-highcharts-bundle-2.2.5-bundle/bin/gatling.sh	1970-00-00 00:00:00.000000001 +0000
++++ gatling-charts-highcharts-bundle-2.2.5-bundle/bin/gatling.sh	1970-00-00 00:00:00.000000001 +0000
+@@ -45,7 +45,7 @@
+ GATLING_CLASSPATH="$GATLING_HOME/lib/*:$GATLING_HOME/user-files:$COMMON_CLASSPATH"
+ 
+ # Build compilation classpath
+-COMPILATION_CLASSPATH=`find "$GATLING_HOME/lib" -maxdepth 1 -name "*.jar" -type f -exec printf :{} ';'`
++COMPILATION_CLASSPATH=`find "$GATLING_HOME/lib/" -maxdepth 1 -name "*.jar" -type f -exec printf :{} ';'`
+ 
+ # Run the compiler
+ "$JAVA" $COMPILER_OPTS -cp "$COMPILER_CLASSPATH" io.gatling.compiler.ZincCompiler -ccp "$COMPILATION_CLASSPATH" "$@"  2> /dev/null
