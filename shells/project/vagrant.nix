@@ -8,8 +8,10 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    export PS1="[${name}:\w]$ "
+    export BUNDLE_PATH="$(pwd)/vendor"
     export VAGRANT_HOME="$(pwd)/.vagrant.d"
+
+    export PS1="[${name}:\w]$ "
   '';
 
   buildInputs = [

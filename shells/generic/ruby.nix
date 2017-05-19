@@ -8,6 +8,8 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    export BUNDLE_PATH="$(pwd)/vendor"
+
     export PS1="[${name}:\w]$ "
   '';
 
