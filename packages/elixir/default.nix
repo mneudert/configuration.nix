@@ -51,21 +51,4 @@ stdenv.mkDerivation rec {
     substituteInPlace $out/bin/mix \
           --replace "/usr/bin/env elixir" "${coreutils}/bin/env elixir"
   '';
-
-  meta = with stdenv.lib; {
-    homepage = "http://elixir-lang.org/";
-    description = "A functional, meta-programming aware language built on top of the Erlang VM";
-
-    longDescription = ''
-      Elixir is a functional, meta-programming aware language built on
-      top of the Erlang VM. It is a dynamic language with flexible
-      syntax and macro support that leverages Erlang's abilities to
-      build concurrent, distributed and fault-tolerant applications
-      with hot code upgrades.
-    '';
-
-    license = licenses.epl10;
-    platforms = platforms.unix;
-    maintainers = with maintainers; [ the-kenny havvy couchemar ];
-  };
 }

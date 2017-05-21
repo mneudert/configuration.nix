@@ -5,11 +5,6 @@ NixOS configuration files.
 
 ## Repository Layout
 
-### Backports
-
-Packages copied from the [nixpkgs master](https://github.com/nixos/nixpkgs)
-before being available in the configured channel.
-
 ### Dotfiles
 
 Files copied to a user's home directory
