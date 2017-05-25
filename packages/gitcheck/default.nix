@@ -1,6 +1,6 @@
-{ buildPythonPackage, fetchFromGitHub, pkgs }:
+{ fetchFromGitHub, pkgs }:
 
-buildPythonPackage rec {
+pkgs.python27Packages.buildPythonPackage rec {
   name    = "gitcheck";
   version = "48a7a23";
 
