@@ -6,6 +6,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    arduino
     bind
     chromium
     firefox
