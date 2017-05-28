@@ -15,4 +15,8 @@ buildGoPackage rec {
   goPackagePath = "github.com/influxdata/influxdb";
 
   excludedPackages = "test";
+
+  patchPhase = ''
+    sed -i -e 's/version = "unknown"/version = "${version}"/g' ./cmd/influxd/main.go
+  '';
 }
