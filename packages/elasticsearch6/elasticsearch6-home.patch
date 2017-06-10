@@ -1,5 +1,5 @@
---- elasticsearch-6.0.0-alpha1/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
-+++ elasticsearch-6.0.0-alpha1/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
+--- elasticsearch-6.0.0-alpha2/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
++++ elasticsearch-6.0.0-alpha2/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
 @@ -105,7 +105,10 @@
  done
  
@@ -12,8 +12,8 @@
  
  # make ELASTICSEARCH_HOME absolute
  ES_HOME=`cd "$ES_HOME"; pwd`
---- elasticsearch-6.0.0-alpha1/bin/elasticsearch-plugin	1970-00-00 00:00:00.000000001 +0000
-+++ elasticsearch-6.0.0-alpha1/bin/elasticsearch-plugin	1970-00-00 00:00:00.000000001 +0000
+--- elasticsearch-6.0.0-alpha2/bin/elasticsearch-plugin	1970-00-00 00:00:00.000000001 +0000
++++ elasticsearch-6.0.0-alpha2/bin/elasticsearch-plugin	1970-00-00 00:00:00.000000001 +0000
 @@ -16,7 +16,10 @@
  done
  
