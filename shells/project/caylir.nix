@@ -9,9 +9,9 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     cayley http \
-      -db=memstore -dbpath="" \
-      -ignoredup \
-      -logtostderr \
+      --db=memstore --dbpath="" \
+      --ignoredup \
+      --logtostderr \
     2>/dev/null &
 
     function finish {
