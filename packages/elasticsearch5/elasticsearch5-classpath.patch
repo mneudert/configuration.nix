@@ -1,5 +1,5 @@
---- elasticsearch-5.5.0/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
-+++ elasticsearch-5.5.0/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
+--- elasticsearch-5.5.1/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
++++ elasticsearch-5.5.1/bin/elasticsearch	1970-00-00 00:00:00.000000001 +0000
 @@ -128,12 +128,7 @@
  # If an include wasn't specified in the environment, then search for one...
  if [ "x$ES_INCLUDE" = "x" ]; then
@@ -14,8 +14,8 @@
          if [ -r "$include" ]; then
              . "$include"
              break
---- elasticsearch-5.5.0/bin/elasticsearch.in.sh	1970-00-00 00:00:00.000000001 +0000
-+++ elasticsearch-5.5.0/bin/elasticsearch.in.sh	1970-00-00 00:00:00.000000001 +0000
+--- elasticsearch-5.5.1/bin/elasticsearch.in.sh	1970-00-00 00:00:00.000000001 +0000
++++ elasticsearch-5.5.1/bin/elasticsearch.in.sh	1970-00-00 00:00:00.000000001 +0000
 @@ -1,13 +1 @@
  #!/bin/bash
 -
