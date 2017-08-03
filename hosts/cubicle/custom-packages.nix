@@ -6,6 +6,7 @@
     gitcheck
     iecompanion
     ievms
+    misspell
   ];
 
   nixpkgs.config.packageOverrides = pkgs: rec {
@@ -13,5 +14,6 @@
     gitcheck    = pkgs.callPackage ../../packages/gitcheck {};
     iecompanion = pkgs.callPackage ../../packages/iecompanion {};
     ievms       = pkgs.callPackage ../../packages/ievms {};
+    misspell    = pkgs.callPackage ../../packages/misspell {};
   };
 }
