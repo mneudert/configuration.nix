@@ -1,7 +1,7 @@
 { stdenv, fetchzip, makeWrapper, jre }:
 
 stdenv.mkDerivation rec {
-  name    = "gatling";
+  name    = "gatling-${version}";
   version = "2.2.5";
 
   src = fetchzip {

@@ -1,12 +1,12 @@
 { stdenv, fetchFromGitHub }:
 
 stdenv.mkDerivation rec {
-  name    = "bash-todo";
+  name    = "bash-todo-${version}";
   version = "40e3631";
 
   src = fetchFromGitHub {
     owner  = "mneudert";
-    repo   = "${name}";
+    repo   = "bash-todo";
     rev    = "40e36312dd3b91ee29c8c2594fb131f8c92723bc";
     sha256 = "01j0bwx7jlwbf509fz6dvi7gkzdvivicqpg2h8pz0761cprmb0vq";
   };

@@ -1,7 +1,7 @@
 { stdenv, fetchsvn, pkgs }:
 
 stdenv.mkDerivation rec {
-  name    = "gnu-cobol";
+  name    = "gnu-cobol-${version}";
   version = "1576";
 
   src = fetchsvn {

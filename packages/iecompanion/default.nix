@@ -2,12 +2,12 @@
 { stdenv, fetchFromGitHub }:
 
 stdenv.mkDerivation rec {
-  name    = "iecompanion";
+  name    = "iecompanion-${version}";
   version = "b8fb18e";
 
   src = fetchFromGitHub {
     owner  = "mneudert";
-    repo   = "${name}";
+    repo   = "iecompanion";
     rev    = "b8fb18e907df3a4bf01f4da27277750401f9554b";
     sha256 = "0yxr8bf08p74kl9g5dxii22rhdbcyan519kns9ndg74iwbv9mdr1";
   };

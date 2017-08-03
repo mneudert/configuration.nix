@@ -1,7 +1,7 @@
 { stdenv, fetchurl, pkgs }:
 
 stdenv.mkDerivation rec {
-  name    = "tsung";
+  name    = "tsung-${version}";
   version = "1.6.0";
 
   src = fetchurl {
