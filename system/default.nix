@@ -1,4 +1,6 @@
 {
+  boot.tmpOnTmpfs = true;
+
   i18n = {
     consoleFont   = "Lat2-Terminus16";
     consoleKeyMap = "de";
