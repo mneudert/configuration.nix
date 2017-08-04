@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   name    = "gnu-cobol-${version}";
-  version = "1576";
+  version = "1903";
 
   src = fetchsvn {
-    url    = "svn://svn.code.sf.net/p/open-cobol/code/branches/gnu-cobol-2.0";
+    url    = "svn://svn.code.sf.net/p/open-cobol/code/branches/gnucobol-2.x";
     rev    = version;
-    sha256 = "19bnqrpzxdgh5hvwf38fg3nb69pc4lqz6f9jlz0m7kp6mnv1lah7";
+    sha256 = "02nljdmjch439g8avqp8hyl1l66nj106a5jw35viwi3cal56vnzj";
   };
 
   patchPhase =
