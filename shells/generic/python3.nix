@@ -13,6 +13,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     python3
+    python3Packages.nose
     python3Packages.pip
   ];
 }
