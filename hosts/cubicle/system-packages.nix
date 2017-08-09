@@ -19,6 +19,7 @@
     openssl
     openvpn
     pciutils
+    qgis
     slack
     terminator
     travis
