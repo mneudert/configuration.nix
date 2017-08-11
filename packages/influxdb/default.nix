@@ -2,13 +2,13 @@
 
 buildGoPackage rec {
   name    = "influxdb-${version}";
-  version = "1.3.1";
+  version = "1.3.3";
 
   src = fetchFromGitHub {
     owner  = "influxdata";
     repo   = "influxdb";
     rev    = "v${version}";
-    sha256 = "113l4mkvj04fqp9lj6768zs5i6ham2mdwbmx6nlrz1qhlv00m6b3";
+    sha256 = "146dagbdnwj9spqjmf0lzlir0x7ks9p07rr7c37rfdnf0ar7j6b3";
   };
 
   goDeps        =  ./deps.nix;
