@@ -2,16 +2,15 @@
 
 stdenv.mkDerivation rec {
   name    = "elasticsearch-${version}";
-  version = "6.0.0-alpha2";
+  version = "6.0.0-beta1";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}.tar.gz";
-    sha256 = "0dna1594819vmq5px2nicl6w6rihyfjg4vr4c14kpxql4arjack6";
+    sha256 = "0kcqgdg3c4hj25b3j3lpnmgd0f8r3slvglhhibgrazq3ann0f0cd";
   };
 
   patches = [
-    ./elasticsearch6-classpath.patch
-    ./elasticsearch6-home.patch
+    ./elasticsearch6-env.patch
   ];
 
   buildInputs = [ makeWrapper jre utillinux ];
