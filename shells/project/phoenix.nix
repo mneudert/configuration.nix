@@ -8,8 +8,6 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    trap finish EXIT
-
     export PS1="[${name}:\w]$ "
   '';
 
