@@ -1,5 +1,5 @@
---- elasticsearch-6.0.0-beta1/bin/elasticsearch-env	2017-08-04 01:12:25.000000000 +0200
-+++ elasticsearch-env	2017-08-18 18:26:53.721617370 +0200
+--- elasticsearch-6.0.0-beta2/bin/elasticsearch-env	2017-08-04 01:12:25.000000000 +0200
++++ elasticsearch-6.0.0-beta2/bin/elasticsearch-env	2017-08-18 18:26:53.721617370 +0200
 @@ -20,7 +20,10 @@
  # determine Elasticsearch home; to do this, we strip from the path until we find
  # bin, and then strip bin (there is an assumption here that there is no nested
