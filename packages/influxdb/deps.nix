@@ -40,8 +40,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/cespare/xxhash.git";
-      rev= "1b6d2e40c16ba0dfce5c8eac2480ad6e7394819b";
-      sha256= "1h7dym9fmk7rwrrc26lcwi7wmf4y4rxgg7byivg55yia9wlhy00m";
+      rev= "4a94f899c20bc44d4f5f807cb14529e72aca99d6";
+      sha256= "0fpix5pikyw77wcylwhama375fi5j0fadmlqmjwiil5fbbq3kv6w";
     };
   }
   {
@@ -186,15 +186,6 @@
       url= "https://github.com/golang/crypto.git";
       rev= "9477e0b78b9ac3d0b03822fd95422e2fe07627cd";
       sha256= "1qcqai6nf1q50z9ga7r4ljnrh1qz49kwlcqpri4bknx732lqq0v5";
-    };
-  }
-  {
-    goPackagePath= "golang.org/x/sys";
-    fetch= {
-      type= "git";
-      url= "https://github.com/golang/sys.git";
-      rev= "90796e5a05ce440b41c768bd9af257005e470461";
-      sha256= "1f8liy6n9g6kq19p9kf5yn2zjjzra9bspg8arngb3rnj5rl5z3xy";
     };
   }
 ]
