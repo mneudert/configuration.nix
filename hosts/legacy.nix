@@ -27,5 +27,5 @@ in {
 
   networking.hostName = host;
 
-  system.stateVersion = "17.03";
+  system.stateVersion = "17.09";
 }
