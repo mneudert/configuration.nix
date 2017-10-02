@@ -2,7 +2,7 @@
 
 pkgs.python27Packages.buildPythonPackage rec {
   name    = "gitcheck-${version}";
-  version = "48a7a23";
+  version = "2016-11-21";
 
   src = fetchFromGitHub {
     owner  = "badele";

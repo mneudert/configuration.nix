@@ -3,7 +3,7 @@
 
 stdenv.mkDerivation rec {
   name    = "iecompanion-${version}";
-  version = "b8fb18e";
+  version = "2017-06-06";
 
   src = fetchFromGitHub {
     owner  = "mneudert";

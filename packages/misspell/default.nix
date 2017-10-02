@@ -2,7 +2,7 @@
 
 buildGoPackage rec {
   name    = "misspell-${version}";
-  version = "e1f24e3";
+  version = "2017-06-21";
 
   src = fetchFromGitHub {
     owner  = "client9";

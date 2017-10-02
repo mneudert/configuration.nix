@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name    = "bash-todo-${version}";
-  version = "40e3631";
+  version = "2017-07-17";
 
   src = fetchFromGitHub {
     owner  = "mneudert";
