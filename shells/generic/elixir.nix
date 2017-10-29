@@ -15,5 +15,6 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     elixir
+    erlang
   ];
 }
