@@ -24,6 +24,7 @@ stdenv.mkDerivation rec {
   '';
 
   cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley {};
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir {};
 
   buildInputs = [
     cayley
