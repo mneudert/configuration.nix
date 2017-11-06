@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, erlang, rebar, makeWrapper, coreutils, curl, bash,
+{ pkgs, stdenv, fetchFromGitHub, erlang, rebar, makeWrapper, coreutils, curl, bash,
   debugInfo ? false }:
 
 stdenv.mkDerivation rec {
@@ -14,8 +14,9 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ erlang rebar makeWrapper ];
 
-  # Elixir expects that UTF-8 locale to be set (see https://github.com/elixir-lang/elixir/issues/3548).
-  # In other cases there is warnings during compilation.
+  LOCALE_ARCHIVE = stdenv.lib.optionalString stdenv.isLinux
+    "${pkgs.glibcLocales}/lib/locale/locale-archive";
+
   LANG = "en_US.UTF-8";
   LC_TYPE = "en_US.UTF-8";
 
