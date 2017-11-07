@@ -8,6 +8,7 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    export ERL_AFLAGS="-kernel shell_history enabled"
     export PS1="[${name}:\w]$ "
   '';
 
