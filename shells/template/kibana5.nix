@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
-    PID_KIBANA="$PROJECT_ROOT/runtime/kibana/kibana.pid"
+    PID_KIBANA="$PROJECT_ROOT/runtime/kibana5/kibana.pid"
 
     function finish {
       [ -f "$PID_KIBANA" ] && {
@@ -18,16 +18,16 @@ stdenv.mkDerivation rec {
       }
     }
 
-    [ ! -d './runtime/elasticsearch' ] && {
-      mkdir -p runtime/kibana
+    [ ! -d './runtime/elasticsearch5' ] && {
+      mkdir -p runtime/kibana5
 
-      chmod 774 runtime/kibana
+      chmod 774 runtime/kibana5
     }
 
     sudo -u nolimits \
-        BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana/.babelcache.json" \
-        DATA_PATH="$PROJECT_ROOT/runtime/kibana/" \
-        kibana -c "$PROJECT_ROOT/runtime/kibana/kibana.yml" &
+        BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana5/.babelcache.json" \
+        DATA_PATH="$PROJECT_ROOT/runtime/kibana5/" \
+        kibana -c "$PROJECT_ROOT/runtime/kibana5/kibana.yml" &
 
     trap finish EXIT
 

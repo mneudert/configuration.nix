@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
-    PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch/elasticsearch.pid"
+    PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch6/elasticsearch.pid"
 
     function finish {
       [ -f "$PID_ELASTICSEARCH" ] && {
@@ -18,12 +18,12 @@ stdenv.mkDerivation rec {
       }
     }
 
-    [ ! -d './runtime/elasticsearch' ] && {
-      mkdir -p runtime/elasticsearch
+    [ ! -d './runtime/elasticsearch6' ] && {
+      mkdir -p runtime/elasticsearch6
 
-      chmod 774 runtime/elasticsearch
+      chmod 774 runtime/elasticsearch6
 
-      pushd runtime/elasticsearch
+      pushd runtime/elasticsearch6
         elastic_base=$(dirname $(dirname $(which elasticsearch)))
 
         ln -fs "$elastic_base/bin/"
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
         chmod 774 logs
 
         pushd config
-          ln -fs ../../etc/elasticsearch.yml
+          ln -fs ../../etc/elasticsearch6.yml elasticsearch.yml
           ln -fs "$elastic_base/config/jvm.options"
           ln -fs "$elastic_base/config/log4j2.properties"
         popd
@@ -49,7 +49,7 @@ stdenv.mkDerivation rec {
 
     sudo sysctl -w vm.max_map_count=262144
     sudo -u nolimits \
-        ES_HOME="$PROJECT_ROOT/runtime/elasticsearch/bin" \
+        ES_HOME="$PROJECT_ROOT/runtime/elasticsearch6/bin" \
         elasticsearch -p "$PID_ELASTICSEARCH" &
 
     trap finish EXIT
