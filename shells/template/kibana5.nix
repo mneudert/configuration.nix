@@ -21,7 +21,11 @@ stdenv.mkDerivation rec {
     [ ! -d './runtime/elasticsearch5' ] && {
       mkdir -p runtime/kibana5
 
-      chmod 774 runtime/kibana5
+      chmod 775 runtime/kibana5
+
+      sed "s|{{PATH_PROJECT}}|$PROJECT_ROOT|g" \
+          runtime/etc/kibana5.yml \
+      > runtime/kibana5/kibana.yml
     }
 
     sudo -u nolimits \
