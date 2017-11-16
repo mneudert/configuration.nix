@@ -133,7 +133,8 @@
       rev= "1f58ded512de5feabbe30b60c7d33a7a896c5f16";
       sha256= "08y1lgcyyaa8zrg24ck64b5dfassgb2pp1fb9x5lw9q16fb170bx";
     };
-  }  {
+  }
+  {
     goPackagePath= "github.com/influxdata/yarpc";
     fetch= {
       type= "git";
@@ -141,7 +142,8 @@
       rev= "036268cdec22b7074cd6d50cc6d7315c667063c7";
       sha256= "12xxwr451ya5h7kv7lg6lnwk04xazyxzv2g7bcgx9zifafxlhpxf";
     };
-  }  {
+  }
+  {
     goPackagePath= "github.com/jwilder/encoding";
     fetch= {
       type= "git";
