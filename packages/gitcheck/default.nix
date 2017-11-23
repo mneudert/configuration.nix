@@ -2,13 +2,13 @@
 
 pkgs.python27Packages.buildPythonPackage rec {
   name    = "gitcheck-${version}";
-  version = "2016-11-21";
+  version = "2017-11-23-fork";
 
   src = fetchFromGitHub {
-    owner  = "badele";
+    owner  = "mneudert";
     repo   = "gitcheck";
-    rev    = "48a7a2323c48bdbc00f35eafae9c14af83792fce";
-    sha256 = "047ilh4hsig3lhmn4s97n35gzhklh2k69ryz4kjd2kccn604vdqa";
+    rev    = "6329e5423fa0a5ef72d6c5be566bbdb6eaa70de4";
+    sha256 = "060abfilkbacn301wjwsbcbs98zzd18nb7dzdmfybwdz2ppb6a32";
   };
 
   doCheck = false;
