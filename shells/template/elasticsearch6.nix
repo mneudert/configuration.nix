@@ -50,7 +50,7 @@ stdenv.mkDerivation rec {
     sudo sysctl -w vm.max_map_count=262144
     sudo -u nolimits \
         ES_HOME="$PROJECT_ROOT/runtime/elasticsearch6/bin" \
-        elasticsearch -p "$PID_ELASTICSEARCH" &
+        elasticsearch -d -p "$PID_ELASTICSEARCH"
 
     trap finish EXIT
 
