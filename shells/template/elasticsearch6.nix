@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
       }
     }
 
-    [ ! -d './runtime/elasticsearch6' ] && {
+    function setup_elasticsearch {
       mkdir -p runtime/elasticsearch6
 
       chmod 774 runtime/elasticsearch6
@@ -30,11 +30,10 @@ stdenv.mkDerivation rec {
         ln -fs "$elastic_base/lib/"
         ln -fs "$elastic_base/modules/"
 
-        mkdir config
-        mkdir config/scripts
-        mkdir data
-        mkdir logs
-        mkdir plugins
+        mkdir -p config/scripts
+        mkdir -p data
+        mkdir -p logs
+        mkdir -p plugins
 
         chmod 774 data
         chmod 774 logs
@@ -46,6 +45,8 @@ stdenv.mkDerivation rec {
         popd
       popd
     }
+
+    setup_elasticsearch
 
     sudo sysctl -w vm.max_map_count=262144
     sudo -u nolimits \
