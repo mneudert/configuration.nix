@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     PROJECT_ROOT="$(pwd)"
     GATLING_HOME="$PROJECT_ROOT/runtime/gatling"
 
-    [ ! -d "$GATLING_HOME" ] && {
+    setup_gatling {
       mkdir -p "$GATLING_HOME"
 
       pushd "$GATLING_HOME"
@@ -29,6 +29,8 @@ stdenv.mkDerivation rec {
         chmod -R 774 user-files
       popd
     }
+
+    setup_gatling
 
     export GATLING_HOME="$GATLING_HOME"
     export PS1="[${name}:\w]$ "
