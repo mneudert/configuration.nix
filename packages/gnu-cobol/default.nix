@@ -2,18 +2,17 @@
 
 stdenv.mkDerivation rec {
   name    = "gnu-cobol-${version}";
-  version = "2017-08-02";
+  version = "2.2";
 
   src = fetchsvn {
-    url    = "svn://svn.code.sf.net/p/open-cobol/code/branches/gnucobol-2.x";
-    rev    = "1903";
-    sha256 = "02nljdmjch439g8avqp8hyl1l66nj106a5jw35viwi3cal56vnzj";
+    url    = "svn://svn.code.sf.net/p/open-cobol/code/tags/gnucobol-${version}";
+    rev    = "2062";
+    sha256 = "0zs3way8yrgnbvlxahaaw2f8y91h5vwcjnc4snsihnbkbz0nky5j";
   };
 
-  patchPhase =
-    ''
-      sed -i -e 's|/usr/bin/file|${pkgs.file}/bin/file|g' configure
-    '';
+  preConfigure = ''
+    ./build_aux/bootstrap
+  '';
 
   propagatedBuildInputs = with pkgs; [
     db
@@ -22,6 +21,8 @@ stdenv.mkDerivation rec {
   ];
 
   buildInputs = with pkgs; [
+    autoconf
+    automake
     file
     flex
     help2man
