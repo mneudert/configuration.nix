@@ -2,13 +2,13 @@
 
 buildGoPackage rec {
   name    = "cayley-${version}";
-  version = "0.6.1";
+  version = "0.7.0";
 
   src = fetchFromGitHub {
     owner  = "cayleygraph";
     repo   = "cayley";
     rev    = "v${version}";
-    sha256 = "1r0kw3y32bqm7g37svzrch2qj9n45p93xmsrf7dj1cg4wwkb65ry";
+    sha256 = "1npsq53cidl3vr7609rnzlma4hxdgcsi9ampp0kp57apjay2ah9g";
   };
 
   patches = [
