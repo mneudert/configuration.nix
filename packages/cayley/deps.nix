@@ -36,6 +36,15 @@
     };
   }
   {
+    goPackagePath= "github.com/dennwc/graphql";
+    fetch= {
+      type= "git";
+      url= "https://github.com/dennwc/graphql";
+      rev= "fd5c4aa13f2119414084f229600de0d73f174436";
+      sha256= "11f9jwfc2j646732gkcjb332ih9fxh04j31zmhvqswx75gvk9wzs";
+    };
+  }
+  {
     goPackagePath= "github.com/dlclark/regexp2";
     fetch= {
       type= "git";
@@ -51,6 +60,15 @@
       url= "https://github.com/dop251/goja";
       rev= "64f863c4eb0329df18ecd1dab1e03609556bfaca";
       sha256= "0smipfs7fja286nvlr7q4b8f815br0nia0k4xp8y5fvprrzrm64h";
+    };
+  }
+  {
+    goPackagePath= "github.com/go-sql-driver/mysql";
+    fetch= {
+      type= "git";
+      url= "https://github.com/go-sql-driver/mysql";
+      rev= "2e00b5cd70399450106cec6431c2e2ce3cae5034";
+      sha256= "085g48jq9hzmlcxg122n0c4pi41sc1nn2qpx1vrl2jfa8crsppa5";
     };
   }
   {
@@ -249,24 +267,6 @@
       url= "https://gopkg.in/mgo.v2";
       rev= "c6a7dce14133ccac2dcac3793f1d6e2ef048503a";
       sha256= "0rg232q1bkq3y3kd5816hgk1jpf7i38aha5q5ia7j6p9xashz7vj";
-    };
-  }
-  {
-    goPackagePath= "github.com/go-sql-driver/mysql";
-    fetch= {
-      type= "git";
-      url= "https://github.com/go-sql-driver/mysql";
-      rev= "2e00b5cd70399450106cec6431c2e2ce3cae5034";
-      sha256= "085g48jq9hzmlcxg122n0c4pi41sc1nn2qpx1vrl2jfa8crsppa5";
-    };
-  }
-  {
-    goPackagePath= "github.com/dennwc/graphql";
-    fetch= {
-      type= "git";
-      url= "https://github.com/dennwc/graphql";
-      rev= "fd5c4aa13f2119414084f229600de0d73f174436";
-      sha256= "11f9jwfc2j646732gkcjb332ih9fxh04j31zmhvqswx75gvk9wzs";
     };
   }
 ]
