@@ -10,12 +10,16 @@ stdenv.mkDerivation rec {
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
     PID_NGINX="$PROJECT_ROOT/runtime/nginx/logs/nginx.pid"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/nginx/shell.lock"
+    SHELL_NAME="${name}"
 
     function finish {
       [ -f "$PID_NGINX" ] && {
         sudo -u nolimits kill -QUIT "$(cat "$PID_NGINX")"
         sudo -u nolimits rm -f "$PID_NGINX"
       }
+
+      rm -f "$SHELL_LOCK"
     }
 
     function setup_nginx {
@@ -29,15 +33,22 @@ stdenv.mkDerivation rec {
       > runtime/nginx/nginx.conf
     }
 
-    setup_nginx
+    if [ ! -f "$SHELL_LOCK" ]; then
+      mkdir -p "$(dirname "$SHELL_LOCK")"
+      touch "$SHELL_LOCK"
 
-    sudo -u nolimits \
-        nginx -c "$PROJECT_ROOT/runtime/nginx/nginx.conf" \
-              -p "$PROJECT_ROOT/runtime/nginx"
+      SHELL_NAME="$SHELL_NAME|\[\e[1m\]master\[\e[0m\]"
 
-    trap finish EXIT
+      setup_nginx
 
-    export PS1="[${name}:\w]$ "
+      sudo -u nolimits \
+          nginx -c "$PROJECT_ROOT/runtime/nginx/nginx.conf" \
+                -p "$PROJECT_ROOT/runtime/nginx"
+
+      trap finish EXIT
+    fi
+
+    export PS1="[$SHELL_NAME:\w]$ "
   '';
 
   buildInputs = [

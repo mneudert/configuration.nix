@@ -10,17 +10,20 @@ stdenv.mkDerivation rec {
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
     PID_KIBANA="$PROJECT_ROOT/runtime/kibana6/kibana.pid"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/kibana6/shell.lock"
+    SHELL_NAME="${name}"
 
     function finish {
       [ -f "$PID_KIBANA" ] && {
         sudo -u nolimits kill -QUIT "$(cat "$PID_KIBANA")"
         sudo -u nolimits rm -f "$PID_KIBANA"
       }
+
+      rm -f "$SHELL_LOCK"
     }
 
-    [ ! -d './runtime/elasticsearch6' ] && {
+    function setup_kibana {
       mkdir -p runtime/kibana6
-
       chmod 775 runtime/kibana6
 
       sed "s|{{PATH_PROJECT}}|$PROJECT_ROOT|g" \
@@ -28,14 +31,23 @@ stdenv.mkDerivation rec {
       > runtime/kibana6/kibana.yml
     }
 
-    sudo -u nolimits \
-        BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana6/.babelcache.json" \
-        DATA_PATH="$PROJECT_ROOT/runtime/kibana6/" \
-        kibana -c "$PROJECT_ROOT/runtime/kibana6/kibana.yml" &
+    if [ ! -f "$SHELL_LOCK" ]; then
+      mkdir -p "$(dirname "$SHELL_LOCK")"
+      touch "$SHELL_LOCK"
 
-    trap finish EXIT
+      SHELL_NAME="$SHELL_NAME|\[\e[1m\]master\[\e[0m\]"
 
-    export PS1="[${name}:\w]$ "
+      setup_kibana
+
+      sudo -u nolimits \
+          BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana6/.babelcache.json" \
+          DATA_PATH="$PROJECT_ROOT/runtime/kibana6/" \
+          kibana -c "$PROJECT_ROOT/runtime/kibana6/kibana.yml" &
+
+      trap finish EXIT
+    fi
+
+    export PS1="[$SHELL_NAME:\w]$ "
   '';
 
   kibana6 = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana6 { nodejs = nodejs-6_x; };

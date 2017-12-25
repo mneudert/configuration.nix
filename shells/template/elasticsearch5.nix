@@ -10,17 +10,20 @@ stdenv.mkDerivation rec {
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
     PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch5/elasticsearch.pid"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/elasticsearch5/shell.lock"
+    SHELL_NAME="${name}"
 
     function finish {
       [ -f "$PID_ELASTICSEARCH" ] && {
         sudo -u nolimits kill -QUIT "$(cat "$PID_ELASTICSEARCH")"
         sudo -u nolimits rm -f "$PID_ELASTICSEARCH"
       }
+
+      rm -f "$SHELL_LOCK"
     }
 
     function setup_elasticsearch {
       mkdir -p runtime/elasticsearch5
-
       chmod 774 runtime/elasticsearch5
 
       pushd runtime/elasticsearch5
@@ -46,16 +49,23 @@ stdenv.mkDerivation rec {
       popd
     }
 
-    setup_elasticsearch
+    if [ ! -f "$SHELL_LOCK" ]; then
+      mkdir -p "$(dirname "$SHELL_LOCK")"
+      touch "$SHELL_LOCK"
 
-    sudo sysctl -w vm.max_map_count=262144
-    sudo -u nolimits \
-        ES_HOME="$PROJECT_ROOT/runtime/elasticsearch5" \
-        elasticsearch -p "$PID_ELASTICSEARCH" &
+      SHELL_NAME="$SHELL_NAME|\[\e[1m\]master\[\e[0m\]"
 
-    trap finish EXIT
+      setup_elasticsearch
 
-    export PS1="[${name}:\w]$ "
+      sudo sysctl -w vm.max_map_count=262144
+      sudo -u nolimits \
+          ES_HOME="$PROJECT_ROOT/runtime/elasticsearch5" \
+          elasticsearch -p "$PID_ELASTICSEARCH" &
+
+      trap finish EXIT
+    fi
+
+    export PS1="[$SHELL_NAME:\w]$ "
   '';
 
   elasticsearch5 = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch5 {};

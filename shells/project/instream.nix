@@ -9,6 +9,8 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/instream"
+    SHELL_LOCK="$PROJECT_ROOT/shell.lock"
+    SHELL_NAME="${name}"
       
     API_INFLUXDB='http://localhost:8086'
     CONF_INFLUXDB="$PROJECT_ROOT/influxdb.conf"
@@ -20,6 +22,8 @@ stdenv.mkDerivation rec {
         kill -TERM "$(cat "$PID_INFLUXDB")"
         rm -f "$PID_INFLUXDB"
       }
+
+      rm -f "$SHELL_LOCK"
     }
 
     function configure_influxdb {
@@ -63,15 +67,22 @@ stdenv.mkDerivation rec {
       echo -e "[[udp]]\n  enabled = true\n  bind-address = \":8089\"\n  database = \"test_database\"\n  batch-size = 1000\n  batch-timeout = \"1s\"\n  batch-pending = 5\n" >> "$CONF_INFLUXDB"
     }
 
-    setup_influxdb
-    restart_influxdb
+    if [ ! -f "$SHELL_LOCK" ]; then
+      mkdir -p "$(dirname "$SHELL_LOCK")"
+      touch "$SHELL_LOCK"
 
-    configure_influxdb
-    restart_influxdb
+      SHELL_NAME="$SHELL_NAME|\[\e[1m\]master\[\e[0m\]"
 
-    trap finish EXIT
+      setup_influxdb
+      restart_influxdb
 
-    export PS1="[${name}:\w]$ "
+      configure_influxdb
+      restart_influxdb
+
+      trap finish EXIT
+    fi
+
+    export PS1="[$SHELL_NAME:\w]$ "
   '';
 
   elixir   = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir {};
