@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
       }
     }
 
-    [ ! -d './runtime/nginx' ] && {
+    function setup_nginx {
       mkdir -p runtime/nginx/logs
 
       chmod 774 runtime/nginx
@@ -28,6 +28,8 @@ stdenv.mkDerivation rec {
           runtime/etc/nginx.conf \
       > runtime/nginx/nginx.conf
     }
+
+    setup_nginx
 
     sudo -u nolimits \
         nginx -c "$PROJECT_ROOT/runtime/nginx/nginx.conf" \

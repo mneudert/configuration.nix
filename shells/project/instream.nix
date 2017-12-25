@@ -22,6 +22,21 @@ stdenv.mkDerivation rec {
       }
     }
 
+    function configure_influxdb {
+      curl "$API_INFLUXDB/query" \
+          -X POST \
+          --data-urlencode "q=CREATE USER instream_test WITH PASSWORD 'instream_test' WITH ALL PRIVILEGES" \
+          -s -o /dev/null
+
+      curl "$API_INFLUXDB/query" \
+          -X POST \
+          -u instream_test:instream_test \
+          --data-urlencode "q=CREATE USER instream_guest WITH PASSWORD 'instream_guest'" \
+          -s -o /dev/null
+
+      sed -i 's/auth-enabled = false/auth-enabled = true/' "$CONF_INFLUXDB"
+    }
+
     function restart_influxdb {
       [ -f "$PID_INFLUXDB" ] && {
         kill -TERM "$(cat "$PID_INFLUXDB")"
@@ -39,23 +54,8 @@ stdenv.mkDerivation rec {
     }
 
     function setup_influxdb {
-      curl "$API_INFLUXDB/query" \
-          -X POST \
-          --data-urlencode "q=CREATE USER instream_test WITH PASSWORD 'instream_test' WITH ALL PRIVILEGES" \
-          -s -o /dev/null
-
-      curl "$API_INFLUXDB/query" \
-          -X POST \
-          -u instream_test:instream_test \
-          --data-urlencode "q=CREATE USER instream_guest WITH PASSWORD 'instream_guest'" \
-          -s -o /dev/null
-
-      sed -i 's/auth-enabled = false/auth-enabled = true/' "$CONF_INFLUXDB"
-    }
-
-    [ ! -d "$PROJECT_ROOT" ] && {
-      mkdir -p $PROJECT_ROOT
-      chmod 774 $PROJECT_ROOT
+      mkdir -p "$PROJECT_ROOT"
+      chmod 774 "$PROJECT_ROOT"
 
       influxd config > "$CONF_INFLUXDB"
 
@@ -63,8 +63,10 @@ stdenv.mkDerivation rec {
       echo -e "[[udp]]\n  enabled = true\n  bind-address = \":8089\"\n  database = \"test_database\"\n  batch-size = 1000\n  batch-timeout = \"1s\"\n  batch-pending = 5\n" >> "$CONF_INFLUXDB"
     }
 
-    restart_influxdb
     setup_influxdb
+    restart_influxdb
+
+    configure_influxdb
     restart_influxdb
 
     trap finish EXIT
