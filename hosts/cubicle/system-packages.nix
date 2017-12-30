@@ -16,6 +16,7 @@
     imagemagick
     iw
     lshw
+    nssTools
     openssl
     openvpn
     pciutils
