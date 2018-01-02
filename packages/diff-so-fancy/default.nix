@@ -33,16 +33,4 @@ stdenv.mkDerivation rec {
       --prefix PATH : "${coreutils}/bin" \
       --prefix PATH : "${ncurses.out}/bin"
   '';
-
-  meta = with stdenv.lib; {
-    homepage = https://github.com/so-fancy/diff-so-fancy;
-    description = "Good-looking diffs filter for git";
-    license = licenses.mit;
-    platforms = platforms.all;
-    longDescription = ''
-      diff-so-fancy builds on the good-lookin' output of git contrib's
-      diff-highlight to upgrade your diffs' appearances.
-    '';
-    maintainers = with maintainers; [ fpletz ];
-  };
 }
