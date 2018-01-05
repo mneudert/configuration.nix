@@ -8,6 +8,7 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    export GOPATH="$(pwd):$GOPATH"
     export PS1="[${name}:\w]$ "
   '';
 
