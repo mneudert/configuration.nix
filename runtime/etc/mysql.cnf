@@ -1,0 +1,11 @@
+[client]
+port   = 3306
+socket = {{PATH_PROJECT}}/runtime/mysql/mysqld.sock
+
+[mysqld]
+pid-file = {{PATH_PROJECT}}/runtime/mysql/mysqld.pid
+socket   = {{PATH_PROJECT}}/runtime/mysql/mysqld.sock
+port     = 3306
+datadir  = {{PATH_PROJECT}}/runtime/mysql/data
+
+log-error = {{PATH_PROJECT}}/runtime/mysql/mysqld.log
