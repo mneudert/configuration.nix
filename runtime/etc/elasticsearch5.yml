@@ -1,0 +1,2 @@
+transport.type: local
+http.type: netty4
