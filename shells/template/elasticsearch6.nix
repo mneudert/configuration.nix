@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
 
     function finish {
       [ -f "$PID_ELASTICSEARCH" ] && {
-        sudo -u nolimits kill -QUIT "$(cat "$PID_ELASTICSEARCH")"
+        sudo -u nolimits kill -TERM "$(cat "$PID_ELASTICSEARCH")"
         sudo -u nolimits rm -f "$PID_ELASTICSEARCH"
       }
 
