@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
     function finish {
       pg_ctl \
-          -D "$PROJECT_ROOT/runtime/postgresql/data" \
+          --pgdata="$PROJECT_ROOT/runtime/postgresql/data" \
           stop
 
       rm -f "$SHELL_LOCK"
@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
     function setup_postgres {
       mkdir -p runtime/postgresql/data
 
-      initdb -D "$PROJECT_ROOT/runtime/postgresql/data"
+      initdb --pgdata="$PROJECT_ROOT/runtime/postgresql/data"
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then
@@ -35,8 +35,8 @@ stdenv.mkDerivation rec {
       setup_postgres
 
       pg_ctl \
-          -D "$PROJECT_ROOT/runtime/postgresql/data" \
-          -l "$PROJECT_ROOT/runtime/postgresql/postgresql.log" \
+          --pgdata="$PROJECT_ROOT/runtime/postgresql/data" \
+          --log="$PROJECT_ROOT/runtime/postgresql/postgresql.log" \
           start
 
       trap finish EXIT
