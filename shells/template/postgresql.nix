@@ -23,7 +23,9 @@ stdenv.mkDerivation rec {
     function setup_postgres {
       mkdir -p runtime/postgresql/data
 
-      initdb --pgdata="$PROJECT_ROOT/runtime/postgresql/data"
+      initdb \
+          --pgdata="$PROJECT_ROOT/runtime/postgresql/data" \
+      >/dev/null
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then
