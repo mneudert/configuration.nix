@@ -41,6 +41,7 @@ stdenv.mkDerivation rec {
       pg_ctl \
           --pgdata="$PROJECT_ROOT/runtime/postgresql/data" \
           --log="$PROJECT_ROOT/runtime/postgresql/postgresql.log" \
+          -o "-p 5432" \
           start
 
       trap finish EXIT
