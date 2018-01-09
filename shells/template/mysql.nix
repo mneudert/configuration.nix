@@ -25,9 +25,6 @@ stdenv.mkDerivation rec {
     function setup_mysql {
       mkdir -p runtime/mysql/data
 
-      chmod 774 runtime/mysql
-      chmod 774 runtime/mysql/data
-
       sed "s|{{PATH_PROJECT}}|$PROJECT_ROOT|g" \
           runtime/etc/mysql.cnf \
       > runtime/mysql/my.cnf

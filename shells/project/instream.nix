@@ -59,7 +59,6 @@ stdenv.mkDerivation rec {
 
     function setup_influxdb {
       mkdir -p "$PROJECT_ROOT"
-      chmod 774 "$PROJECT_ROOT"
 
       influxd config > "$CONF_INFLUXDB"
 

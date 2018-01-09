@@ -15,8 +15,8 @@ stdenv.mkDerivation rec {
 
     function finish {
       [ -f "$PID_KIBANA" ] && {
-        sudo -u nolimits kill -QUIT "$(cat "$PID_KIBANA")"
-        sudo -u nolimits rm -f "$PID_KIBANA"
+        kill -QUIT "$(cat "$PID_KIBANA")"
+        rm -f "$PID_KIBANA"
       }
 
       rm -f "$SHELL_LOCK"
@@ -24,7 +24,6 @@ stdenv.mkDerivation rec {
 
     function setup_kibana {
       mkdir -p runtime/kibana6
-      chmod 775 runtime/kibana6
 
       sed "s|{{PATH_PROJECT}}|$PROJECT_ROOT|g" \
           runtime/etc/kibana6.yml \
@@ -39,8 +38,7 @@ stdenv.mkDerivation rec {
 
       setup_kibana
 
-      sudo -u nolimits \
-          BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana6/.babelcache.json" \
+      BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana6/.babelcache.json" \
           DATA_PATH="$PROJECT_ROOT/runtime/kibana6/" \
           kibana -c "$PROJECT_ROOT/runtime/kibana6/kibana.yml" &
 
