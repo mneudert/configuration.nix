@@ -25,6 +25,8 @@ stdenv.mkDerivation rec {
 
       initdb \
           --pgdata="$PROJECT_ROOT/runtime/postgresql/data" \
+          --pwfile="$PROJECT_ROOT/runtime/etc/postgresql.pwd" \
+          --username="postgres" \
       >/dev/null
     }
 
