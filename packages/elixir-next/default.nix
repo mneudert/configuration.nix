@@ -7,7 +7,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
-    rev = "182c730bdb431fd1ff6789057e4903c33e377f43";
+    rev = "v${version}";
     sha256 = "1yfyp7y0mfdbh410xsfkq9a7ai2y22mjh2qn2cvpim76s96qjpw6";
   };
 
