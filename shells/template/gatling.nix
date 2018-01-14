@@ -24,9 +24,6 @@ stdenv.mkDerivation rec {
         mkdir -p user-files/bodies
         mkdir -p user-files/data
         mkdir -p user-files/simulations
-
-        chmod -R 774 results
-        chmod -R 774 user-files
       popd
     }
 
