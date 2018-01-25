@@ -81,11 +81,17 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
+    export ERL_AFLAGS="-kernel shell_history enabled"
     export PS1="[$SHELL_NAME:\w]$ "
   '';
 
-  elixir   = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir {};
+  rebar = pkgs.rebar.override { erlang = erlangR20; };
+
   influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
+  elixir   = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir {
+    erlang = erlangR20;
+    rebar  = rebar;
+  };
 
   buildInputs = [
     elixir
