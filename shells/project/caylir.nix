@@ -8,18 +8,31 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    cayley http \
-      --db=memstore --dbpath="" \
-    2>/dev/null &
+    PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/caylir"
+    SHELL_LOCK="$PROJECT_ROOT/shell.lock"
+    SHELL_NAME="${name}"
 
     function finish {
       ps | grep 'cayley' | grep -v 'grep' | awk '{ print $1 }' | xargs kill
+
+      rm -f "$SHELL_LOCK"
     }
 
-    trap finish EXIT
+    if [ ! -f "$SHELL_LOCK" ]; then
+      mkdir -p "$(dirname "$SHELL_LOCK")"
+      touch "$SHELL_LOCK"
+
+      SHELL_NAME="$SHELL_NAME|\[\e[1m\]master\[\e[0m\]"
+
+      cayley http \
+        --db=memstore --dbpath="" \
+      2>/dev/null &
+
+      trap finish EXIT
+    fi
 
     export ERL_AFLAGS="-kernel shell_history enabled"
-    export PS1="[${name}:\w]$ "
+    export PS1="[$SHELL_NAME:\w]$ "
   '';
 
   rebar = pkgs.rebar.override { erlang = erlangR20; };
