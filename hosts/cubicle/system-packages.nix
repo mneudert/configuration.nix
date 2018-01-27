@@ -30,6 +30,7 @@
     vim
     wget
     wirelesstools
+    wireshark
     zsh
   ];
 }
