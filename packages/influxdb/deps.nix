@@ -112,8 +112,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/influxql.git";
-      rev= "3921ab7858b6af8443fe0bef06b52608be72852c";
-      sha256= "182ja5a9njlklavh5hzf7p06913pznp7j3chkrp0qwxj3jxysi2d";
+      rev= "47c654dfb4cd3be546b9ed1b37b30d7ab2784ffc";
+      sha256= "1illxjb9g1s53ccykhy9556qz1dn2dxbk2arpi7cciw19xajjw6b";
     };
   }
   {
@@ -258,6 +258,15 @@
       url= "https://github.com/golang/text.git";
       rev= "a71fd10341b064c10f4a81ceac72bcf70f26ea34";
       sha256= "1igxqrgnnb6983fl0yck0xal2hwnkcgbslr7cxyrg7a65vawd0q1";
+    };
+  }
+  {
+    goPackagePath= "golang.org/x/time";
+    fetch= {
+      type= "git";
+      url= "https://github.com/golang/time.git";
+      rev= "6dc17368e09b0e8634d71cac8168d853e869a0c7";
+      sha256= "1fx4cf5fpdz00g3c7vxzy92hdcg0vh4yqw00qp5s52j72qixynbk";
     };
   }
 ]
