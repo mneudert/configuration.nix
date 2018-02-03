@@ -72,6 +72,24 @@
     };
   }
   {
+    goPackagePath= "github.com/go-kivik/couchdb";
+    fetch= {
+      type= "git";
+      url= "https://github.com/go-kivik/couchdb";
+      rev= "74d231fe43245e77840213724894264f0f61ffd3";
+      sha256= "0ga6d6y44wg8ync73wcyc7q7r3sr5vdj5qkn3yqn9yn4p0k2w89i";
+    };
+  }
+  {
+    goPackagePath= "github.com/go-kivik/kivik";
+    fetch= {
+      type= "git";
+      url= "https://github.com/go-kivik/kivik";
+      rev= "2a1f6b9dd407886bc59c0c28faed28fbce3b0ece";
+      sha256= "0fpa62mriyiyl5dh5kg8858bqrwiwscpbkg9np69lk302znxalij";
+    };
+  }
+  {
     goPackagePath= "github.com/go-sql-driver/mysql";
     fetch= {
       type= "git";
@@ -123,6 +141,15 @@
       url= "https://github.com/hashicorp/hcl";
       rev= "7fa7fff964d035e8a162cce3a164b3ad02ad651b";
       sha256= "0p3dyhpc0ajakcww3a45n750z2030xqhlswzf51d5rzid27681wp";
+    };
+  }
+  {
+    goPackagePath= "github.com/imdario/mergo";
+    fetch= {
+      type= "git";
+      url= "https://github.com/imdario/mergo";
+      rev= "0d4b488675fdec1dde48751b05ab530cf0b630e1";
+      sha256= "071rram7aib70f3gk4ansgwns82w9i6m1px8mgc8x4rs9ana4qhf";
     };
   }
   {
@@ -319,8 +346,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/stretchr/testify";
-      rev= "f390dcf405f7b83c997eac1b06768bb9f44dec18";
-      sha256= "1l3z0ggdcjspfmm6k9glmh52a9x50806k6yldxql73p4bpynsd9g";
+      rev= "87b1dfb5b2fa649f52695dd9eae19abe404a4308";
+      sha256= "1iyfxs3nxdn1fyfqv3gggxcxab66a3m6cmjkhqhcapxm3qvgbrlc";
     };
   }
   {

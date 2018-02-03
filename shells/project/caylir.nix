@@ -26,6 +26,7 @@ stdenv.mkDerivation rec {
 
       cayley http \
         --db=memstore --dbpath="" \
+        --assets="${cayley}/assets" \
       2>/dev/null &
 
       trap finish EXIT

@@ -2,28 +2,17 @@
 
 buildGoPackage rec {
   name    = "cayley-${version}";
-  version = "0.7.0";
+  version = "0.7.1";
 
   src = fetchFromGitHub {
     owner  = "cayleygraph";
     repo   = "cayley";
     rev    = "v${version}";
-    sha256 = "1npsq53cidl3vr7609rnzlma4hxdgcsi9ampp0kp57apjay2ah9g";
+    sha256 = "1m0lmqyq9kak7avvgmm57rp593iw6qv2dy2nbhn5fc49p9m0vnn7";
   };
-
-  patches = [
-    ./cayley-assets.patch
-  ];
 
   goDeps        = ./deps.nix;
   goPackagePath = "github.com/cayleygraph/cayley";
-
-  preBuild =
-    ''
-      pushd ./go/src/github.com/cayleygraph/cayley/internal/http/
-        sed -i 's@__NIXOS_BIN__@'$bin'@g' http.go
-      popd
-    '';
 
   postInstall =
     ''
