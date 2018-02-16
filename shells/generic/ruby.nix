@@ -14,6 +14,9 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [
+    autoconf
+    automake
+    libtool
     libxml2
     zlib
 
