@@ -14,6 +14,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     python2
     python2Packages.nose
+    python2Packages.pep8
     python2Packages.pip
   ];
 }
