@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";
-  version = "1.7.0-dev-2018-01-19";
+  version = "1.7.0-dev-2018-02-28";
 
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
-    rev = "c38fa49a74fff5063efd8860e0a03d4ff0204afb";
-    sha256 = "16xv6bilk7i6sp7y7rii2ffhhyq2k81b0c3aivcdi6c67al3bss0";
+    rev = "f99ee87f3c1b632e2efe016909e7b55a6f5bb1a8";
+    sha256 = "136086nidbb3pw0k272zl7lii6h4lb2231d5qszwdbi7ymkpwy8d";
   };
 
   buildInputs = [ erlang rebar makeWrapper ];
