@@ -144,6 +144,15 @@
     };
   }
   {
+    goPackagePath= "github.com/jackc/pgx";
+    fetch= {
+      type= "git";
+      url= "https://github.com/jackc/pgx";
+      rev= "606697ffdfe6603013560dbc171656de57b4f542";
+      sha256= "0818yb2vjjwwmscdab7wnxbyiabvy544icdczdlr5kswbqq5h25m";
+    };
+  }
+  {
     goPackagePath= "github.com/imdario/mergo";
     fetch= {
       type= "git";
