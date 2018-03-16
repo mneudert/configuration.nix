@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     PROJECT_ROOT="$(pwd)"
     GATLING_HOME="$PROJECT_ROOT/runtime/gatling"
 
-    setup_gatling {
+    function setup_gatling {
       mkdir -p "$GATLING_HOME"
 
       pushd "$GATLING_HOME"
