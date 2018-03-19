@@ -8,6 +8,12 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    if ! grep -q 'usbmon' <( lsmod ); then
+      echo 'Configuring usbmon...'
+
+      sudo modprobe usbmon && sudo setfacl -m u:$USER:r /dev/usbmon*
+    fi
+
     export ERL_AFLAGS="-kernel shell_history enabled"
     export PS1="[${name}:\w]$ "
   '';
