@@ -40,7 +40,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.virtualbox.enableExtensionPack = true;
 
-  system.stateVersion = "17.09";
+  system.stateVersion = "18.03";
 
   virtualisation.docker.enable          = true;
   virtualisation.virtualbox.host.enable = true;
