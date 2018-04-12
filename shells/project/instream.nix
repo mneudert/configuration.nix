@@ -50,7 +50,7 @@ stdenv.mkDerivation rec {
       influxd \
           -config "$CONF_INFLUXDB" \
           -pidfile "$PID_INFLUXDB" \
-      2>$LOG_INFLUXDB &
+      >/dev/null 2>$LOG_INFLUXDB &
 
       until curl -s -o /dev/null "$API_INFLUXDB"; do
         sleep 1
