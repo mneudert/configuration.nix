@@ -16,9 +16,9 @@ buildGoPackage rec {
 
   postInstall =
     ''
-      pushd ./go/src/github.com/cayleygraph/cayley/
+      pushd ./go/src/github.com/cayleygraph/cayley/ > /dev/null
         mkdir $bin/assets
         cp -R ./docs ./static ./templates $bin/assets/
-      popd
+      popd > /dev/null
     '';
 }
