@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     function setup_gatling {
       mkdir -p "$GATLING_HOME"
 
-      pushd "$GATLING_HOME"
+      pushd "$GATLING_HOME" > /dev/null
         gatling_base=$(dirname $(dirname $(which gatling.sh)))
 
         ln -fs "$gatling_base/conf"
@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
         mkdir -p user-files/bodies
         mkdir -p user-files/data
         mkdir -p user-files/simulations
-      popd
+      popd > /dev/null
     }
 
     setup_gatling

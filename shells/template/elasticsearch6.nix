@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
       mkdir -p runtime/elasticsearch6
       chmod 774 runtime/elasticsearch6
 
-      pushd runtime/elasticsearch6
+      pushd runtime/elasticsearch6 > /dev/null
         elastic_base=$(dirname $(dirname $(which elasticsearch)))
 
         ln -fs "$elastic_base/bin/"
@@ -41,12 +41,12 @@ stdenv.mkDerivation rec {
         chmod 774 data
         chmod 774 logs
 
-        pushd config
+        pushd config > /dev/null
           ln -fs ../../etc/elasticsearch6.yml elasticsearch.yml
           ln -fs "$elastic_base/config/jvm.options"
           ln -fs "$elastic_base/config/log4j2.properties"
-        popd
-      popd
+        popd > /dev/null
+      popd > /dev/null
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then
@@ -57,7 +57,7 @@ stdenv.mkDerivation rec {
 
       setup_elasticsearch
 
-      sudo sysctl -w vm.max_map_count=262144
+      sudo sysctl -w vm.max_map_count=262144 > /dev/null
       sudo -u nolimits \
           ES_HOME="$PROJECT_ROOT/runtime/elasticsearch6/bin" \
           elasticsearch -d -p "$PID_ELASTICSEARCH"

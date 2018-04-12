@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
       mkdir -p runtime/elasticsearch5
       chmod 774 runtime/elasticsearch5
 
-      pushd runtime/elasticsearch5
+      pushd runtime/elasticsearch5 > /dev/null
         elastic_base=$(dirname $(dirname $(which elasticsearch)))
 
         ln -fs "$elastic_base/bin/"
@@ -41,12 +41,12 @@ stdenv.mkDerivation rec {
         chmod 774 data
         chmod 774 logs
 
-        pushd config
+        pushd config > /dev/null
           ln -fs ../../etc/elasticsearch5.yml elasticsearch.yml
           ln -fs "$elastic_base/config/jvm.options"
           ln -fs "$elastic_base/config/log4j2.properties"
-        popd
-      popd
+        popd > /dev/null
+      popd > /dev/null
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then
