@@ -87,14 +87,14 @@ stdenv.mkDerivation rec {
 
   rebar = pkgs.rebar.override { erlang = erlangR20; };
 
-  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
-  elixir   = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir {
+  influxdb      = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
+  elixir-legacy = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-legacy {
     erlang = erlangR20;
     rebar  = rebar;
   };
 
   buildInputs = [
-    elixir
+    elixir-legacy
     influxdb
   ];
 }
