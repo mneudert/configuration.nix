@@ -3,6 +3,7 @@
 with lib;
 {
   users.extraUsers.mne = {
+    description  = "Marc Neudert";
     extraGroups  = [ "wheel" ];
     isNormalUser = true;
     uid          = 1000;
