@@ -23,6 +23,7 @@
     pciutils
     qgis
     slack
+    subversion
     terminator
     travis
     unar
