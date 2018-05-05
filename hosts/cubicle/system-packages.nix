@@ -30,6 +30,7 @@
     unar
     vagrant
     vim
+    vimPlugins.vim-nix
     wget
     wirelesstools
     wireshark
