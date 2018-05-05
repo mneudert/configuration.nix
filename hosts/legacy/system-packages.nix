@@ -8,7 +8,6 @@
   environment.systemPackages = with pkgs; [
     git
     gnupg
-    nix-zsh-completions
     vim
     wget
     zsh
