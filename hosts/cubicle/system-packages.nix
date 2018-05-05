@@ -17,6 +17,7 @@
     imagemagick
     iw
     lshw
+    nix-zsh-completions
     nssTools
     openssl
     openvpn
