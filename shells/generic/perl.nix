@@ -13,6 +13,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     perl
+    perlPackages.PerlCritic
 
     nix-generate-from-cpan
   ];
