@@ -40,8 +40,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/dennwc/graphql";
-      rev= "5cf1f05cb1945ca40ca374e21ccf26f01fc67d10";
-      sha256= "1nrm2liqmzy5kzz8nzg4l2shcbx04gc39gyxa98gxxivbcdcml1v";
+      rev= "12cfed44bc5de083875506a36d30f9798f9bca47";
+      sha256= "1rfsxjjsik5618y2741lcyw56a4d4l6r04sbj1igrvcck9bz0k6a";
     };
   }
   {
@@ -384,15 +384,6 @@
       url= "https://github.com/syndtr/goleveldb";
       rev= "b89cc31ef7977104127d34c1bd31ebd1a9db2199";
       sha256= "0pbmssaw7fsgspv0jr3hsd1208qqxcvy4faks9hypqgl5gwday4p";
-    };
-  }
-  {
-    goPackagePath= "github.com/syndtr/gosnappy";
-    fetch= {
-      type= "git";
-      url= "https://github.com/syndtr/gosnappy";
-      rev= "156a073208e131d7d2e212cb749feae7c339e846";
-      sha256= "08lf8smnp4imj5fkph9sbqzb4a5n191q9m6b2c5kamp19i9h2y6z";
     };
   }
   {
