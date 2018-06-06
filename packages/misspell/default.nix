@@ -2,13 +2,13 @@
 
 buildGoPackage rec {
   name    = "misspell-${version}";
-  version = "2017-06-21";
+  version = "0.3.4";
 
   src = fetchFromGitHub {
     owner  = "client9";
     repo   = "misspell";
-    rev    = "e1f24e3e0b6b2c8bc98584370d382ae095b13c94";
-    sha256 = "0flviqax4d27815bmhrj83zdd9m27dpk2mabqcwr7x6m2jijz077";
+    rev    = "v${version}";
+    sha256 = "1vwf33wsc4la25zk9nylpbp9px3svlmldkm0bha4hp56jws4q9cs";
   };
 
   goDeps        = ./deps.nix;
