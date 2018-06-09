@@ -12,6 +12,7 @@
     chromium
     file
     firefox
+    gimp
     git
     git-lfs
     gnupg
