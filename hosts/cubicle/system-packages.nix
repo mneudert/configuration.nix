@@ -29,6 +29,7 @@
     terminator
     travis
     unar
+    unzip
     vagrant
     vim
     vimPlugins.vim-nix
