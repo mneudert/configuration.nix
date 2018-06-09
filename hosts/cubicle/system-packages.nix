@@ -10,6 +10,7 @@
     atop
     bind
     chromium
+    file
     firefox
     git
     git-lfs
