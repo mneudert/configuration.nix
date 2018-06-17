@@ -38,6 +38,7 @@ stdenv.mkDerivation rec {
         mkdir -p logs
         mkdir -p plugins
 
+        chmod 774 config
         chmod 774 data
         chmod 774 logs
 
