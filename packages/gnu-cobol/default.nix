@@ -1,32 +1,17 @@
-{ stdenv, fetchsvn, pkgs }:
+{ stdenv, fetchurl, pkgs }:
 
 stdenv.mkDerivation rec {
   name    = "gnu-cobol-${version}";
   version = "2.2";
 
-  src = fetchsvn {
-    url    = "svn://svn.code.sf.net/p/open-cobol/code/tags/gnucobol-${version}";
-    rev    = "2062";
-    sha256 = "0zs3way8yrgnbvlxahaaw2f8y91h5vwcjnc4snsihnbkbz0nky5j";
+  src = fetchurl {
+    url    = "mirror://sourceforge/open-cobol/gnu-cobol/${version}/gnucobol-${version}.tar.gz";
+    sha256 = "1jrjmdx0swssjh388pp08awhiisbrs2i7gx4lcm4p1k5rpg3hn4j";
   };
-
-  preConfigure = ''
-    ./build_aux/bootstrap
-  '';
 
   propagatedBuildInputs = with pkgs; [
     db
     gmp
     ncurses
-  ];
-
-  buildInputs = with pkgs; [
-    autoconf
-    automake
-    file
-    flex
-    help2man
-    texinfo
-    yacc
   ];
 }
