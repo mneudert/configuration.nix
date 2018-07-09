@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name    = "elasticsearch-${version}";
-  version = "6.3.0";
+  version = "6.3.1";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-${version}.tar.gz";
-    sha256 = "0xcrwsck6lh795s1yaqph50546dczz13yfqqwdp2hkcd5jyz5j2d";
+    sha256 = "179nrcr308nd44pg8cgsmp8sx36smw75q76mqjcm784bcgh1nm0d";
   };
 
   patches = [
