@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name    = "kibana-${version}";
-  version = "6.3.0";
+  version = "6.3.1";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/kibana/kibana-oss-${version}-linux-x86_64.tar.gz";
-    sha256 = "1abgvgwndwvp9zv6v3dlk0749hy88y4g14ziklv7v6dk6idrivfz";
+    sha256 = "02gpls7pw14bvbpr5bnzyl7vmvahfsjr01lfra67r2i85yfkhjvb";
   };
 
   buildInputs = [ makeWrapper jre utillinux nodejs ];
