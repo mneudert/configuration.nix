@@ -1,17 +1,17 @@
-{ pkgs, stdenv, fetchFromGitHub, erlang, rebar, makeWrapper, coreutils, curl, bash }:
+{ pkgs, stdenv, fetchFromGitHub, erlang, makeWrapper, coreutils, curl, bash }:
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";
-  version = "1.6.6";
+  version = "1.7.0";
 
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
     rev = "v${version}";
-    sha256 = "1wl8rfpw0dxacq4f7xf6wjr8v2ww5691d0cfw9pzw7phd19vazgl";
+    sha256 = "082924fngc6ypbkn1ghdwf199radk00daf4q09mm04h81jy4nmxm";
   };
 
-  buildInputs = [ erlang rebar makeWrapper ];
+  buildInputs = [ erlang makeWrapper ];
 
   LOCALE_ARCHIVE = stdenv.lib.optionalString stdenv.isLinux
     "${pkgs.glibcLocales}/lib/locale/locale-archive";
@@ -24,10 +24,6 @@ stdenv.mkDerivation rec {
   buildFlags = "ERL_COMPILER_OPTIONS=debug_info";
 
   preBuild = ''
-    # The build process uses ./rebar. Link it to the nixpkgs rebar
-    rm -v rebar
-    ln -s ${rebar}/bin/rebar rebar
-
     substituteInPlace Makefile \
       --replace "/usr/local" $out
   '';
