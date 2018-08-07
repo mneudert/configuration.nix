@@ -139,8 +139,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/influxql.git";
-      rev= "145e0677ff6418fa00ee7e5dd434305631ab44ea";
-      sha256= "083b06g15das33km7pmcqay43gazpblxszyjk3fi4h2jpnsygr4b";
+      rev= "c661ab7db8ad858626cc7a2114e786f4e7463564";
+      sha256= "1j73aj312laqmi20fbinx0aal82ncpqbj5dgs41br0j7fkvi6873";
     };
   }
   {
@@ -166,8 +166,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/yarpc.git";
-      rev= "3f4e3d295981d5e8fca0a9930a4f92f9f34bc639";
-      sha256= "11b7s7rz4jc3hc3w6wsyd3xbqqwl0l0rp4addxzrcaga7856nvd0";
+      rev= "f0da2db138cad2fb425541938fc28dd5a5bc6918";
+      sha256= "1g71flc8s8xas7vmaiwv0425paii1akc7jsdqsgxkhyfxx2gvib0";
     };
   }
   {
