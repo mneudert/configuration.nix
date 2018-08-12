@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "template-shell-kibana6";
+  name = "template-shell-kibana";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -9,8 +9,8 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
-    PID_KIBANA="$PROJECT_ROOT/runtime/kibana6/kibana.pid"
-    SHELL_LOCK="$PROJECT_ROOT/runtime/kibana6/shell.lock"
+    PID_KIBANA="$PROJECT_ROOT/runtime/kibana/kibana.pid"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/kibana/shell.lock"
     SHELL_NAME="${name}"
 
     function finish {
@@ -23,11 +23,11 @@ stdenv.mkDerivation rec {
     }
 
     function setup_kibana {
-      mkdir -p runtime/kibana6
+      mkdir -p runtime/kibana
 
       sed "s|{{PATH_PROJECT}}|$PROJECT_ROOT|g" \
-          runtime/etc/kibana6.yml \
-      > runtime/kibana6/kibana.yml
+          runtime/etc/kibana.yml \
+      > runtime/kibana/kibana.yml
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then
@@ -38,9 +38,9 @@ stdenv.mkDerivation rec {
 
       setup_kibana
 
-      BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana6/.babelcache.json" \
-          DATA_PATH="$PROJECT_ROOT/runtime/kibana6/" \
-          kibana -c "$PROJECT_ROOT/runtime/kibana6/kibana.yml" &
+      BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana/.babelcache.json" \
+          DATA_PATH="$PROJECT_ROOT/runtime/kibana/" \
+          kibana -c "$PROJECT_ROOT/runtime/kibana/kibana.yml" &
 
       trap finish EXIT
     fi
@@ -48,9 +48,9 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME:\w]$ "
   '';
 
-  kibana6 = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana6 { nodejs = nodejs-8_x; };
+  kibana = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana { nodejs = nodejs-8_x; };
 
   buildInputs = [
-    kibana6
+    kibana
   ];
 }

@@ -1,0 +1,2 @@
+logging.dest: {{PATH_PROJECT}}/runtime/kibana/kibana.log
+pid.file: {{PATH_PROJECT}}/runtime/kibana/kibana.pid
