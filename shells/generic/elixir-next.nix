@@ -12,12 +12,10 @@ stdenv.mkDerivation rec {
     export PS1="[${name}:\w]$ "
   '';
 
-  elixir-next = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-next {
-    erlang = erlangR20;
-  };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-next { erlang = erlangR20; };
 
   buildInputs = [
-    elixir-next
+    elixir
     erlangR20
   ];
 }
