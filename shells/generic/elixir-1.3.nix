@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "project-shell-phoenix";
+  name = "generic-shell-elixir-1.3";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -12,13 +12,15 @@ stdenv.mkDerivation rec {
     export PS1="[${name}:\w]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 { erlang = erlangR20; };
+  rebar = pkgs.rebar.override { erlang = erlangR20; };
+
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.3 {
+    erlang = erlangR20;
+    rebar  = rebar;
+  };
 
   buildInputs = [
     elixir
     erlangR20
-    nodejs-6_x
-
-    inotify-tools
   ];
 }

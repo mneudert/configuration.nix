@@ -36,16 +36,16 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME:\w]$ "
   '';
 
-  rebar = pkgs.rebar.override { erlang = erlangR20; };
-
   cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley {};
-  elixir-legacy = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-legacy {
+
+  rebar  = pkgs.rebar.override { erlang = erlangR20; };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.3 {
     erlang = erlangR20;
     rebar  = rebar;
   };
 
   buildInputs = [
     cayley
-    elixir-legacy
+    elixir
   ];
 }

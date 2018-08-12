@@ -85,16 +85,16 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME:\w]$ "
   '';
 
-  rebar = pkgs.rebar.override { erlang = erlangR20; };
+  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
 
-  influxdb      = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
-  elixir-legacy = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-legacy {
+  rebar  = pkgs.rebar.override { erlang = erlangR20; };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.3 {
     erlang = erlangR20;
     rebar  = rebar;
   };
 
   buildInputs = [
-    elixir-legacy
+    elixir
     influxdb
   ];
 }

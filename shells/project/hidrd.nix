@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
     export PS1="[${name}:\w]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir { erlang = erlangR20; };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 { erlang = erlangR20; };
   hidrd-convert = pkgs.callPackage /data/projects/private/configuration.nix/packages/hidrd-convert {};
 
   buildInputs = [
