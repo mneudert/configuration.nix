@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   };
 
   patches = [
-    ./elasticsearch6-env.patch
+    ./elasticsearch-env.patch
   ];
 
   buildInputs = [ makeWrapper jre utillinux ];

@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "template-shell-elasticsearch6";
+  name = "template-shell-elasticsearch";
   env  = buildEnv {
     name  = name;
     paths = buildInputs;
@@ -9,8 +9,8 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
-    PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch6/elasticsearch.pid"
-    SHELL_LOCK="$PROJECT_ROOT/runtime/elasticsearch6/shell.lock"
+    PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch/elasticsearch.pid"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/elasticsearch/shell.lock"
     SHELL_NAME="${name}"
 
     function finish {
@@ -23,10 +23,10 @@ stdenv.mkDerivation rec {
     }
 
     function setup_elasticsearch {
-      mkdir -p runtime/elasticsearch6
-      chmod 774 runtime/elasticsearch6
+      mkdir -p runtime/elasticsearch
+      chmod 774 runtime/elasticsearch
 
-      pushd runtime/elasticsearch6 > /dev/null
+      pushd runtime/elasticsearch > /dev/null
         elastic_base=$(dirname $(dirname $(which elasticsearch)))
 
         ln -fs "$elastic_base/bin/"
@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
         chmod 774 logs
 
         pushd config > /dev/null
-          ln -fs ../../etc/elasticsearch6.yml elasticsearch.yml
+          ln -fs ../../etc/elasticsearch.yml elasticsearch.yml
           ln -fs "$elastic_base/config/jvm.options"
           ln -fs "$elastic_base/config/log4j2.properties"
         popd > /dev/null
@@ -60,7 +60,7 @@ stdenv.mkDerivation rec {
 
       sudo sysctl -w vm.max_map_count=262144 > /dev/null
       sudo -u nolimits \
-          ES_HOME="$PROJECT_ROOT/runtime/elasticsearch6/bin" \
+          ES_HOME="$PROJECT_ROOT/runtime/elasticsearch/bin" \
           elasticsearch -d -p "$PID_ELASTICSEARCH"
 
       trap finish EXIT
@@ -69,9 +69,9 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME:\w]$ "
   '';
 
-  elasticsearch6 = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch6 {};
+  elasticsearch = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch {};
 
   buildInputs = [
-    elasticsearch6
+    elasticsearch
   ];
 }
