@@ -47,5 +47,6 @@ stdenv.mkDerivation rec {
   buildInputs = [
     cayley
     elixir
+    erlangR20
   ];
 }

@@ -95,6 +95,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     elixir
+    erlangR20
     influxdb
   ];
 }
