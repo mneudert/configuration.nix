@@ -139,8 +139,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/influxql.git";
-      rev= "c661ab7db8ad858626cc7a2114e786f4e7463564";
-      sha256= "1j73aj312laqmi20fbinx0aal82ncpqbj5dgs41br0j7fkvi6873";
+      rev= "a7267bff5327e316e54c54342b0bc9598753e3d5";
+      sha256= "0mqc9xki5l9yfbb0dqjb417cmv3pca1bj71m90dkshladr2wlcg3";
     };
   }
   {
