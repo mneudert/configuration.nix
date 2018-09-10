@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
   cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley {};
 
   rebar  = pkgs.rebar.override { erlang = erlangR20; };
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.3 {
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.5 {
     erlang = erlangR20;
     rebar  = rebar;
   };
