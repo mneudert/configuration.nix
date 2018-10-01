@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   '';
 
   buildInputs = [
-    php71
-    php71Packages.composer
+    php
+    phpPackages.composer
   ];
 }
