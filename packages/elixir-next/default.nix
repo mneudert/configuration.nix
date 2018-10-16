@@ -24,6 +24,8 @@ stdenv.mkDerivation rec {
   buildFlags = "ERL_COMPILER_OPTIONS=debug_info";
 
   preBuild = ''
+    patchShebangs lib/elixir/generate_app.escript || true
+
     substituteInPlace Makefile \
       --replace "/usr/local" $out
   '';
