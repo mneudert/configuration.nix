@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME:\w]$ "
   '';
 
-  kibana = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana { nodejs = nodejs-8_x; };
+  kibana = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana {};
 
   buildInputs = [
     kibana

@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
     cayley
     elixir
     erlangR20
-    nodejs-6_x
+    nodejs
 
     inotify-tools
   ];

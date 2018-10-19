@@ -91,7 +91,7 @@ stdenv.mkDerivation rec {
     elixir
     erlangR20
     influxdb
-    nodejs-6_x
+    nodejs
 
     inotify-tools
   ];
