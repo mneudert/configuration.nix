@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
     setup_gatling
 
     export GATLING_HOME="$GATLING_HOME"
-    export PS1="[${name}:\w]$ "
+    export PS1="[template:gatling|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   gatling = pkgs.callPackage /data/projects/private/configuration.nix/packages/gatling {};

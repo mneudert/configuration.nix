@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     export ERL_AFLAGS="-kernel shell_history enabled"
-    export PS1="[${name}:\w]$ "
+    export PS1="[generic:elixir-1.5|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   rebar = pkgs.rebar.override { erlang = erlangR20; };

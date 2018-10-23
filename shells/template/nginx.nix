@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     PROJECT_ROOT="$(pwd)"
     PID_NGINX="$PROJECT_ROOT/runtime/nginx/logs/nginx.pid"
     SHELL_LOCK="$PROJECT_ROOT/runtime/nginx/shell.lock"
-    SHELL_NAME="${name}"
+    SHELL_NAME="template:nginx"
 
     function finish {
       [ -f "$PID_NGINX" ] && {
@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
-    export PS1="[$SHELL_NAME:\w]$ "
+    export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   buildInputs = [

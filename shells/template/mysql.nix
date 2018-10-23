@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     PROJECT_ROOT="$(pwd)"
     PID_MYSQL="$PROJECT_ROOT/runtime/mysql/mysqld.pid"
     SHELL_LOCK="$PROJECT_ROOT/runtime/mysql/shell.lock"
-    SHELL_NAME="${name}"
+    SHELL_NAME="template:mysql"
 
     function finish {
       [ -f "$PID_MYSQL" ] && {
@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
-    export PS1="[$SHELL_NAME:\w]$ "
+    export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   buildInputs = [

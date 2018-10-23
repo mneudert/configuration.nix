@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     export GOPATH="$(pwd):$GOPATH"
-    export PS1="[${name}:\w]$ "
+    export PS1="[generic:go|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   buildInputs = [

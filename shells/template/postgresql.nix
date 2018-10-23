@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
     SHELL_LOCK="$PROJECT_ROOT/runtime/postgresql/shell.lock"
-    SHELL_NAME="${name}"
+    SHELL_NAME="template:postgresql"
 
     function finish {
       pg_ctl \
@@ -47,7 +47,7 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
-    export PS1="[$SHELL_NAME:\w]$ "
+    export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   buildInputs = [

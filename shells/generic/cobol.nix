@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    export PS1="[${name}:\w]$ "
+    export PS1="[generic:cobol|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   gnu-cobol = pkgs.callPackage /data/projects/private/configuration.nix/packages/gnu-cobol {};

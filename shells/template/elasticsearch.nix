@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     PROJECT_ROOT="$(pwd)"
     PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch/elasticsearch.pid"
     SHELL_LOCK="$PROJECT_ROOT/runtime/elasticsearch/shell.lock"
-    SHELL_NAME="${name}"
+    SHELL_NAME="template:elasticsearch"
 
     function finish {
       [ -f "$PID_ELASTICSEARCH" ] && {
@@ -66,7 +66,7 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
-    export PS1="[$SHELL_NAME:\w]$ "
+    export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   elasticsearch = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch {};

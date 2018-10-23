@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     export ERL_AFLAGS="-kernel shell_history enabled"
-    export PS1="[${name}:\w]$ "
+    export PS1="[generic:elixir-1.7|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 { erlang = erlangR20; };

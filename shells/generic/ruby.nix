@@ -9,8 +9,7 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     export BUNDLE_PATH="$(pwd)/vendor"
-
-    export PS1="[${name}:\w]$ "
+    export PS1="[generic:ruby|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   buildInputs = [

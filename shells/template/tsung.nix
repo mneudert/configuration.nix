@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    export PS1="[${name}:\w]$ "
+    export PS1="[template:tsung|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   tsung = pkgs.callPackage /data/projects/private/configuration.nix/packages/tsung {};

@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   shellHook = ''
     PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/cayley"
     SHELL_LOCK="$PROJECT_ROOT/shell.lock"
-    SHELL_NAME="${name}"
+    SHELL_NAME="template:cayley"
 
     function finish {
       ps | grep 'cayley' | grep -v 'grep' | awk '{ print $1 }' | xargs kill
@@ -33,7 +33,7 @@ stdenv.mkDerivation rec {
     fi
 
     export ERL_AFLAGS="-kernel shell_history enabled"
-    export PS1="[$SHELL_NAME:\w]$ "
+    export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley {};

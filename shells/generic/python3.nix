@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    export PS1="[${name}:\w]$ "
+    export PS1="[generic:python3|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   buildInputs = [

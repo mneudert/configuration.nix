@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   shellHook = ''
     PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/instream_showcase"
     SHELL_LOCK="$PROJECT_ROOT/shell.lock"
-    SHELL_NAME="${name}"
+    SHELL_NAME="project:instream_showcase"
       
     API_INFLUXDB='http://localhost:8086'
     CONF_INFLUXDB="$PROJECT_ROOT/influxdb.conf"
@@ -76,7 +76,7 @@ stdenv.mkDerivation rec {
     fi
 
     export ERL_AFLAGS="-kernel shell_history enabled"
-    export PS1="[$SHELL_NAME:\w]$ "
+    export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
