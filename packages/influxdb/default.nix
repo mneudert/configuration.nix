@@ -8,7 +8,7 @@ buildGoPackage rec {
     owner  = "influxdata";
     repo   = "influxdb";
     rev    = "v${version}";
-    sha256 = "1i7qw76crv5cysd5mzigsrji66xlyvwzc3bvcfv9y2d7cy4af8s1";
+    sha256 = "12jb7j5q91553w5i1pkcqnc69mp3jbdxjf3wqz2wzbiz0hhw3nm4";
   };
 
   goDeps        =  ./deps.nix;
