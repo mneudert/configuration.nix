@@ -1,0 +1,14 @@
+--- elasticsearch-7.0.0-alpha1/bin/elasticsearch-env	1970-00-00 00:00:00.000000001 +0000
++++ elasticsearch-7.0.0-alpha1/bin/elasticsearch-env	1970-00-00 00:00:00.000000001 +0000
+@@ -20,7 +20,10 @@
+ # determine Elasticsearch home; to do this, we strip from the path until we find
+ # bin, and then strip bin (there is an assumption here that there is no nested
+ # directory under bin also named bin)
+-ES_HOME=`dirname "$SCRIPT"`
++if [ -z "$ES_HOME" ]; then
++    echo "You must set the ES_HOME var" >&2
++    exit 1
++fi
+ 
+ # now make ES_HOME absolute
+ ES_HOME=`cd "$ES_HOME"; pwd`
