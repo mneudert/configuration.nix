@@ -1,4 +1,4 @@
-{ stdenv, fetchzip, makeWrapper, jre }:
+{ stdenv, fetchzip, makeWrapper, jdk }:
 
 stdenv.mkDerivation rec {
   name    = "gatling-${version}";
@@ -9,14 +9,14 @@ stdenv.mkDerivation rec {
     sha256 = "192l6csnmfn4iv3v9n9ly97r0xbdfxaipxxzd53f6ks4w651j0ik";
   };
 
-  buildInputs = [ makeWrapper jre ];
+  buildInputs = [ makeWrapper jdk ];
 
   buildPhase   = "patchShebangs bin";
   installPhase = ''
     mkdir -p $out
     cp -R LICENSE bin conf lib results user-files $out
 
-    wrapProgram $out/bin/gatling.sh --set JAVA_HOME "${jre}"
-    wrapProgram $out/bin/recorder.sh --set JAVA_HOME "${jre}"
+    wrapProgram $out/bin/gatling.sh --set JAVA_HOME "${jdk}"
+    wrapProgram $out/bin/recorder.sh --set JAVA_HOME "${jdk}"
   '';
 }
