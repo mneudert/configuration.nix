@@ -58,8 +58,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/dop251/goja";
-      rev= "613f33eefdee5996ef938043efe8f1a9955fb8cc";
-      sha256= "17y0yfasax6906hn0ghkzzxlppvrb41m0h09x22mki5rp5qqsdcy";
+      rev= "ef8c030e3c96c5054c2f10ef925e7041e0583c07";
+      sha256= "15419apwdpbl0lgnl9xj9wyl05vpiz6jqgj8zbcyxhzy0wycj445";
     };
   }
   {
@@ -94,8 +94,17 @@
     fetch= {
       type= "git";
       url= "https://github.com/go-kivik/pouchdb";
-      rev= "c0c4a7fa261c7496aa749f00321016b6880b01f0";
-      sha256= "0x41gx8x20192vgjhxk44zlk7rq511ijcrjkv1zva22b0rsil7h6";
+      rev= "bbd1ab79be17c809842e193b1f84e924b6b599ba";
+      sha256= "15kv6i94j73c8zzy5hnmf051d3i65wxc07hvass9lc4g5ad7f9vf";
+    };
+  }
+  {
+    goPackagePath= "github.com/go-sourcemap/sourcemap";
+    fetch= {
+      type= "git";
+      url= "https://github.com/go-sourcemap/sourcemap";
+      rev= "b019cc30c1eaa584753491b0d8f8c1534bf1eb44";
+      sha256= "03k44fdrnknba05f7cd58lq4rzk7jdpiqksmc0wxrdzwschrbgw8";
     };
   }
   {
@@ -391,8 +400,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/tylertreat/BoomFilters";
-      rev= "b282640b93f349cd208f8d5921df2cfaf5780ee2";
-      sha256= "1vdn5qnwwadw7739p80pjb41zj32yzlhrw33q4w7d2zh4qh65ijp";
+      rev= "37e169ae37ed529d93ecacb509c0dc80078478fc";
+      sha256= "15wwdsxxvkgxbxv3v0ywnwjwndpmps49n3a49z7bzjl7r2nsm7qv";
     };
   }
   {
