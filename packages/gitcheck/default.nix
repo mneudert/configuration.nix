@@ -14,7 +14,7 @@ pkgs.python27Packages.buildPythonPackage rec {
   doCheck = false;
 
   propagatedBuildInputs = with pkgs; [
-    python27Packages.python
     python27Packages.colored
+    python27Packages.GitPython
   ];
 }
