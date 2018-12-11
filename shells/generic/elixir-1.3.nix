@@ -8,9 +8,11 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    export SHELL_DATA_DIR="$HOME/.nix-shells-data/${name}"
+
     export ERL_AFLAGS="-kernel shell_history enabled"
-    export HEX_HOME="$HOME/.nix-shells-data/${name}/.hex"
-    export MIX_HOME="$HOME/.nix-shells-data/${name}/.mix"
+    export HEX_HOME="$SHELL_DATA_DIR/hex"
+    export MIX_HOME="$SHELL_DATA_DIR/mix"
     export PS1="[generic:elixir-1.3|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
