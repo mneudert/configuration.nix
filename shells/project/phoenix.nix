@@ -9,6 +9,8 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     export ERL_AFLAGS="-kernel shell_history enabled"
+    export HEX_HOME="$HOME/.nix-shells-data/${name}/.hex"
+    export MIX_HOME="$HOME/.nix-shells-data/${name}/.mix"
     export PS1="[project:phoenix|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
