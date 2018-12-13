@@ -158,8 +158,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/flux.git";
-      rev= "69370f6c35cb0b6a7745a137bca7d76b409a62c1";
-      sha256= "0m83vc0d2f61zq2745fg8l0j1d7wd3h7yp4mvjmy41pwfq5q7jv2";
+      rev= "adb2411fee9ccc65d671d4ce29861eb387174f6b";
+      sha256= "0i6hfl8sfcnkwnwsffm4h595g3xksvakqsdlsc1gk68gxkh0nfi5";
     };
   }
   {
@@ -167,8 +167,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/influxql.git";
-      rev= "1cbfca8e56b6eaa120f5b5161e4f0d5edcc9e513";
-      sha256= "0hfjr5yg6cbvlv96l4riw6bv5gdv7y1sfymm7awix1ab6xdmv3lm";
+      rev= "c661ab7db8ad858626cc7a2114e786f4e7463564";
+      sha256= "1j73aj312laqmi20fbinx0aal82ncpqbj5dgs41br0j7fkvi6873";
     };
   }
   {
@@ -185,8 +185,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/platform.git";
-      rev= "bceb99526a51ff6dc16c3e304bf5db35675941de";
-      sha256= "0yacq3fx7g23x16ckbwzcdsfi6p7p9j9mvw1w4kzk3ww1ad1klh1";
+      rev= "dc5616e3f9ed409490e465a02ee3f1da50ad2e13";
+      sha256= "0qnjcipb9a84nxpwg432801xp120fjm95mv6q23zqkxrfqfd422f";
     };
   }
   {
