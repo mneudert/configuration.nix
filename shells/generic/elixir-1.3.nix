@@ -16,15 +16,10 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.3|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  rebar = pkgs.rebar.override { erlang = erlangR20; };
-
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.3 {
-    erlang = erlangR20;
-    rebar  = rebar;
-  };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.3 {};
 
   buildInputs = [
     elixir
-    erlangR20
+    erlang
   ];
 }
