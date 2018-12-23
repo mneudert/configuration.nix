@@ -1,5 +1,5 @@
---- elasticsearch-7.0.0-alpha1/bin/elasticsearch-env	1970-00-00 00:00:00.000000001 +0000
-+++ elasticsearch-7.0.0-alpha1/bin/elasticsearch-env	1970-00-00 00:00:00.000000001 +0000
+--- elasticsearch-7.0.0-alpha2/bin/elasticsearch-env	1970-00-00 00:00:00.000000001 +0000
++++ elasticsearch-7.0.0-alpha2/bin/elasticsearch-env	1970-00-00 00:00:00.000000001 +0000
 @@ -20,7 +20,10 @@
  # determine Elasticsearch home; to do this, we strip from the path until we find
  # bin, and then strip bin (there is an assumption here that there is no nested
