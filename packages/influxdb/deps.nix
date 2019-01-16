@@ -28,6 +28,15 @@
     };
   }
   {
+    goPackagePath= "github.com/apache/arrow";
+    fetch= {
+      type= "git";
+      url= "https://github.com/apache/arrow.git";
+      rev= "c6d97c59ef047cc9d5e2836b1945df26cd7c4622";
+      sha256= "1592gkln6bpl3m100qy1kzawjryxqsbz5dmyacrzvxvj8v35aii0";
+    };
+  }
+   {
     goPackagePath= "github.com/beorn7/perks";
     fetch= {
       type= "git";
@@ -158,8 +167,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/flux.git";
-      rev= "adb2411fee9ccc65d671d4ce29861eb387174f6b";
-      sha256= "0i6hfl8sfcnkwnwsffm4h595g3xksvakqsdlsc1gk68gxkh0nfi5";
+      rev= "8c9d0ad49204d3bbb171e96d872cf663ee7f1b4d";
+      sha256= "0yamrzqjs6giwqq0ljf2dscarqw6851cw3iya8cya0x5plyd810c";
     };
   }
   {
@@ -185,8 +194,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/platform.git";
-      rev= "dc5616e3f9ed409490e465a02ee3f1da50ad2e13";
-      sha256= "0qnjcipb9a84nxpwg432801xp120fjm95mv6q23zqkxrfqfd422f";
+      rev= "0f79e4ea3248354c789cba274542e0a8e55971db";
+      sha256= "16d9g7vgy30zahhj066kz7akahvpknq3ljk2fzvczjsm59ih8rjk";
     };
   }
   {
