@@ -39,6 +39,7 @@ stdenv.mkDerivation rec {
           -s -o /dev/null
 
       sed -i 's/auth-enabled = false/auth-enabled = true/' "$CONF_INFLUXDB"
+      sed -i 's/flux-enabled = false/flux-enabled = true/' "$CONF_INFLUXDB"
     }
 
     function restart_influxdb {
