@@ -1,6 +1,16 @@
-{ stdenv, fetchurl, makeWrapper, nodejs }:
+{ stdenv, fetchurl, makeWrapper, pkgs }:
 
 stdenv.mkDerivation rec {
+  nodejs = pkgs.nodejs-10_x.overrideAttrs (oldAttrs: rec {
+    name = "nodejs-${version}";
+    version = "10.15.1";
+
+    src = fetchurl {
+      url = "https://nodejs.org/dist/v${version}/node-v${version}.tar.xz";
+      sha256 = "0n68c4zjakdj6yzdc9fbrn0wghyslkya9sz1v6122i40zfwzfm8s";
+    };
+  });
+
   name    = "kibana-${version}";
   version = "6.6.1";
 
