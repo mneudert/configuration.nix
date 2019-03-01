@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, makeWrapper, nodejs, jre, utillinux }:
+{ stdenv, fetchurl, makeWrapper, nodejs }:
 
 stdenv.mkDerivation rec {
   name    = "kibana-${version}";
@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     sha256 = "1b6gxjhcwhrr7vwfbla1aqfrn7g3cfa370pq5blpx71y3n3fbpvy";
   };
 
-  buildInputs = [ makeWrapper jre utillinux nodejs ];
+  buildInputs = [ makeWrapper nodejs ];
 
   installPhase = ''
     mkdir -p $out/libexec/kibana $out/bin
