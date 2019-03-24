@@ -38,10 +38,10 @@ in {
   networking.hostName = host;
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
 
   system.stateVersion = "18.09";
 
-  virtualisation.docker.enable          = true;
+  virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 }
