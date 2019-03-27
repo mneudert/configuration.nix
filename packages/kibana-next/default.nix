@@ -3,20 +3,20 @@
 stdenv.mkDerivation rec {
   nodejs = pkgs.nodejs-10_x.overrideAttrs (oldAttrs: rec {
     name = "nodejs-${version}";
-    version = "10.15.1";
+    version = "10.15.2";
 
     src = fetchurl {
       url = "https://nodejs.org/dist/v${version}/node-v${version}.tar.xz";
-      sha256 = "0n68c4zjakdj6yzdc9fbrn0wghyslkya9sz1v6122i40zfwzfm8s";
+      sha256 = "0ncc27azpfrhc55n4j35wqcxbf7n42j0j07pq9dqjvh1rfkjvfxq";
     };
   });
 
   name    = "kibana-${version}";
-  version = "7.0.0-beta1";
+  version = "7.0.0-rc1";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/kibana/kibana-oss-${version}-linux-x86_64.tar.gz";
-    sha256 = "0b5awnpqj7mk5hzm5grs4iyjvbhkbf89ir35p01v9w3qa8b7fjmd";
+    sha256 = "1svvm3ny9iyqirl91w6qzlfz9qlh0d7gfnx32pq18jpha22fnscm";
   };
 
   buildInputs = [ makeWrapper nodejs ];
