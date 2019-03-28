@@ -32,8 +32,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/apache/arrow.git";
-      rev= "c6d97c59ef047cc9d5e2836b1945df26cd7c4622";
-      sha256= "1592gkln6bpl3m100qy1kzawjryxqsbz5dmyacrzvxvj8v35aii0";
+      rev= "f5df77359953ed06e1dce47edffc03340e2ff3ea";
+      sha256= "12lygmhrchpf46jzyf0gnbfq3bf9ha68iajbnzflqf6k78jf6dj7";
     };
   }
    {
@@ -439,6 +439,15 @@
       url= "https://github.com/segmentio/kafka-go.git";
       rev= "c6db9435477f3cb658e2dd0fa93e02118c870251";
       sha256= "17zdj0i429a0wmwj8rm4j0hmxsv8kbql67s5iv78hac6rcys7bj2";
+    };
+  }
+  {
+    goPackagePath= "github.com/spf13/cast";
+    fetch= {
+      type= "git";
+      url= "https://github.com/spf13/cast.git";
+      rev= "8c9545af88b134710ab1cd196795e7f2388358d7";
+      sha256= "0xq1ffqj8y8h7dcnm0m9lfrh0ga7pssnn2c1dnr09chqbpn4bdc5";
     };
   }
   {
