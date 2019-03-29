@@ -2,11 +2,12 @@
 
 let
 
-    host        = "cubicle";
+    host = "cubicle";
     secret_base = "/data/projects/secret/configuration.nix";
-    secret      = if builtins.pathExists "${secret_base}/hosts/${host}.nix"
-                  then "${secret_base}/hosts/${host}.nix"
-                  else {};
+
+    secret = if builtins.pathExists "${secret_base}/hosts/${host}.nix"
+             then "${secret_base}/hosts/${host}.nix"
+             else {};
 
 in {
   imports =
@@ -31,7 +32,7 @@ in {
     ];
 
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.enable      = true;
+  boot.loader.systemd-boot.enable = true;
 
   hardware.bluetooth.enable = false;
 

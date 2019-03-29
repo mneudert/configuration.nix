@@ -1,6 +1,6 @@
 {
   services.xserver = {
-    enable              = true;
+    enable = true;
     exportConfiguration = true;
 
     layout = "de";

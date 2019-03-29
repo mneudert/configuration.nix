@@ -3,10 +3,10 @@
 with lib;
 {
   users.extraUsers.mne = {
-    description  = "Marc Neudert";
-    extraGroups  = [ "wheel" ];
+    description = "Marc Neudert";
+    extraGroups = [ "wheel" ];
     isNormalUser = true;
-    uid          = 1000;
+    uid = 1000;
   };
 
   system.activationScripts = {
