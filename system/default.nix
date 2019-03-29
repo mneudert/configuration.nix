@@ -14,7 +14,10 @@
 
   security.sudo.enable = true;
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
 
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 }
