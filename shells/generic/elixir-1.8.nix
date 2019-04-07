@@ -2,8 +2,8 @@ with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.8";
-  env  = buildEnv {
-    name  = name;
+  env = buildEnv {
+    name = name;
     paths = buildInputs;
   };
 

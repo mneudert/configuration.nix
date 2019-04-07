@@ -2,8 +2,8 @@ with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
   name = "template-shell-nginx";
-  env  = buildEnv {
-    name  = name;
+  env = buildEnv {
+    name = name;
     paths = buildInputs;
   };
 

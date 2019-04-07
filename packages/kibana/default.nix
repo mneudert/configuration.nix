@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     };
   });
 
-  name    = "kibana-${version}";
+  name = "kibana-${version}";
   version = "6.7.1";
 
   src = fetchurl {

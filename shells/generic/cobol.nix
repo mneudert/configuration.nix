@@ -2,8 +2,8 @@ with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
   name = "generic-shell-cobol";
-  env  = buildEnv {
-    name  = name;
+  env = buildEnv {
+    name = name;
     paths = buildInputs;
   };
 

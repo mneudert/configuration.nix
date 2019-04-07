@@ -1,7 +1,7 @@
 { stdenv, fetchurl, makeWrapper, jre, utillinux }:
 
 stdenv.mkDerivation rec {
-  name    = "elasticsearch-${version}";
+  name = "elasticsearch-${version}";
   version = "6.7.1";
 
   src = fetchurl {

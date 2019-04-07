@@ -2,8 +2,8 @@ with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
   name = "project-shell-instream";
-  env  = buildEnv {
-    name  = name;
+  env = buildEnv {
+    name = name;
     paths = buildInputs;
   };
 
@@ -90,8 +90,8 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
   elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.5 {};
+  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
 
   buildInputs = [
     elixir
