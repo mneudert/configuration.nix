@@ -12,11 +12,11 @@ stdenv.mkDerivation rec {
   });
 
   name = "kibana-${version}";
-  version = "6.7.1";
+  version = "7.0.0";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/kibana/kibana-oss-${version}-linux-x86_64.tar.gz";
-    sha256 = "1v1fbmfkbnlx043z3yx02gaqqy63bj2ymvcby66n4qq0vlpahvwx";
+    sha256 = "0fy8vh0x2p8n2r3n5f67h1r5z75qfx5q4fghgqwnqymray5798v4";
   };
 
   buildInputs = [ makeWrapper nodejs ];
