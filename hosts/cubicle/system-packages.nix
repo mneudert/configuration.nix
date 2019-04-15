@@ -34,4 +34,8 @@
     wireshark
     zsh
   ];
+
+  nixpkgs.config.packageOverrides = pkgs: rec {
+    terminator = pkgs.callPackage ../../packages/terminator {};
+  };
 }
