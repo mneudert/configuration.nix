@@ -36,7 +36,7 @@
       sha256= "12lygmhrchpf46jzyf0gnbfq3bf9ha68iajbnzflqf6k78jf6dj7";
     };
   }
-   {
+  {
     goPackagePath= "github.com/beorn7/perks";
     fetch= {
       type= "git";
