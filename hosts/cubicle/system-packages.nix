@@ -11,6 +11,7 @@
     gimp
     git
     git-lfs
+    gitAndTools.diff-so-fancy
     gnupg
     imagemagick
     iw
