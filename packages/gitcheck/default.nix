@@ -1,20 +1,20 @@
 { fetchFromGitHub, pkgs }:
 
-pkgs.python27Packages.buildPythonPackage rec {
+pkgs.python37Packages.buildPythonPackage rec {
   name = "gitcheck-${version}";
-  version = "2017-12-14-fork";
+  version = "2019-05-19-fork";
 
   src = fetchFromGitHub {
     owner = "mneudert";
     repo = "gitcheck";
-    rev = "02f42fc8df3d1db3f0a8e26c84556221dde32ca3";
-    sha256 = "0xy9grz3xwj9lzivqvwkniqq00bzz6c0h4rqgpyssj139yvw09dn";
+    rev = "a2a5f5105877e0e1f0dea860315c4af62d976dff";
+    sha256 = "03b7vjcdqx26hamb7623xa8ybabnivsdmqz9nklddh99253msdqf";
   };
 
   doCheck = false;
 
   propagatedBuildInputs = with pkgs; [
-    python27Packages.colored
-    python27Packages.GitPython
+    python37Packages.colored
+    python37Packages.GitPython
   ];
 }
