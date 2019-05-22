@@ -15,8 +15,8 @@ stdenv.mkDerivation rec {
 
     function finish {
       [ -f "$PID_ELASTICSEARCH" ] && {
-        sudo -u nolimits kill -TERM "$(cat "$PID_ELASTICSEARCH")"
-        sudo -u nolimits rm -f "$PID_ELASTICSEARCH"
+        kill -TERM "$(cat "$PID_ELASTICSEARCH")"
+        rm -f "$PID_ELASTICSEARCH"
       }
 
       rm -f "$SHELL_LOCK"
@@ -58,9 +58,7 @@ stdenv.mkDerivation rec {
 
       setup_elasticsearch
 
-      sudo sysctl -w vm.max_map_count=262144 > /dev/null
-      sudo -u nolimits \
-          ES_HOME="$PROJECT_ROOT/runtime/elasticsearch/bin" \
+      ES_HOME="$PROJECT_ROOT/runtime/elasticsearch/bin" \
           elasticsearch -d -p "$PID_ELASTICSEARCH"
 
       trap finish EXIT
