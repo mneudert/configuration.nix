@@ -25,7 +25,6 @@
     subversion
     terminator
     travis
-    unar
     unzip
     vagrant
     vim
