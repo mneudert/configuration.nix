@@ -23,8 +23,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/apache/arrow.git";
-      rev= "f5df77359953ed06e1dce47edffc03340e2ff3ea";
-      sha256= "12lygmhrchpf46jzyf0gnbfq3bf9ha68iajbnzflqf6k78jf6dj7";
+      rev= "338c62a2a20574072fde5c478fcd42bf27a2d4b6";
+      sha256= "1y87qwyhi5irjh0mcigijv99x0gl4md72mlms8a8vi0js5akl1qs";
     };
   }
   {
@@ -158,8 +158,8 @@
     fetch= {
       type= "git";
       url= "https://github.com/influxdata/flux.git";
-      rev= "bcfc535fb7443776501797df4ba596483c50c7fe";
-      sha256= "0w87dqphaca49hb9wdrs35plvhcpgfmfwd5k00vbkwwmyil7majf";
+      rev= "b25312b5fc12e5709f8d31e9ad9dca75a8acf56b";
+      sha256= "1izhxwpvnkvcsg78i1yacv16cx08v1nsvwhskrddwmmi7q4g5qfg";
     };
   }
   {
