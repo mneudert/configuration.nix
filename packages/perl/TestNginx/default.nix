@@ -2,9 +2,11 @@
 
 # nix-generate-from-cpan
 buildPerlPackage rec {
-  name = "Test-Nginx-0.26";
+  pname = "Test-Nginx";
+  version = "0.26";
+
   src = fetchurl {
-    url = "mirror://cpan/authors/id/A/AG/AGENT/${name}.tar.gz";
+    url = "mirror://cpan/authors/id/A/AG/AGENT/${pname}-${version}.tar.gz";
     sha256 = "7ee10fb976c77a363b3af743c5eb8dd82cc2be726dfffe09066e2034199c6969";
   };
 
