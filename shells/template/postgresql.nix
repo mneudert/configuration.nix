@@ -21,12 +21,15 @@ stdenv.mkDerivation rec {
     }
 
     function setup_postgres {
+      [ -f runtime/postgresql/data/pg_hba.conf ] && return
+
       mkdir -p runtime/postgresql/data
 
       initdb \
           --pgdata="$PROJECT_ROOT/runtime/postgresql/data" \
           --pwfile="$PROJECT_ROOT/runtime/etc/postgresql.pwd" \
           --username="postgres" \
+          --auth="md5" \
       >/dev/null
     }
 
