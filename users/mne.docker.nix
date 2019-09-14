@@ -1,5 +1,5 @@
 {
-  users.extraUsers.mne = {
+  users.users.mne = {
     extraGroups = [ "docker" ];
   };
 }

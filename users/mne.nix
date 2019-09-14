@@ -2,7 +2,7 @@
 
 with lib;
 {
-  users.extraUsers.mne = {
+  users.users.mne = {
     description = "Marc Neudert";
     extraGroups = [ "wheel" ];
     isNormalUser = true;

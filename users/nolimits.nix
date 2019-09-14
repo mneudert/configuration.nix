@@ -2,7 +2,7 @@
 
 with lib;
 {
-  users.extraUsers.nolimits = {
+  users.users.nolimits = {
     extraGroups = [ "users" ];
     isNormalUser = false;
     uid = 2000;
