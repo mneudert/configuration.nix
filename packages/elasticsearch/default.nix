@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, makeWrapper, jre, utillinux }:
+{ stdenv, fetchurl, patchelf, zlib }:
 
 stdenv.mkDerivation rec {
   name = "elasticsearch-${version}";
@@ -13,17 +13,15 @@ stdenv.mkDerivation rec {
     ./elasticsearch-env.patch
   ];
 
-  buildInputs = [ makeWrapper jre utillinux ];
+  buildInputs = [ zlib ];
 
   installPhase = ''
     mkdir -p $out
-    cp -R bin config lib modules $out
+    cp -R bin config jdk lib modules $out
 
-    wrapProgram $out/bin/elasticsearch \
-        --prefix ES_CLASSPATH : "$out/lib/*" \
-        --prefix PATH : "${utillinux}/bin/" \
-        --set JAVA_HOME "${jre}"
-
-    wrapProgram $out/bin/elasticsearch-plugin --set JAVA_HOME "${jre}"
+    patchelf \
+        --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+        --set-rpath "$(patchelf --print-rpath "$out/jdk/bin/java"):${zlib}/lib" \
+        "$out/jdk/bin/java"
   '';
 }

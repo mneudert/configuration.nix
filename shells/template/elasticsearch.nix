@@ -30,6 +30,7 @@ stdenv.mkDerivation rec {
         elastic_base=$(dirname $(dirname $(which elasticsearch)))
 
         ln -fs "$elastic_base/bin/"
+        ln -fs "$elastic_base/jdk/"
         ln -fs "$elastic_base/lib/"
         ln -fs "$elastic_base/modules/"
 
