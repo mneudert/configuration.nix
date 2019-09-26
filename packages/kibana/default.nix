@@ -1,16 +1,6 @@
-{ stdenv, fetchurl, makeWrapper, pkgs }:
+{ stdenv, fetchurl, patchelf }:
 
 stdenv.mkDerivation rec {
-  nodejs = pkgs.nodejs-10_x.overrideAttrs (oldAttrs: rec {
-    name = "nodejs-${version}";
-    version = "10.15.2";
-
-    src = fetchurl {
-      url = "https://nodejs.org/dist/v${version}/node-v${version}.tar.xz";
-      sha256 = "0ncc27azpfrhc55n4j35wqcxbf7n42j0j07pq9dqjvh1rfkjvfxq";
-    };
-  });
-
   name = "kibana-${version}";
   version = "7.3.2";
 
@@ -19,16 +9,13 @@ stdenv.mkDerivation rec {
     sha256 = "1254cqms3p1k0zfwazjk4yylh92j6papnz2kwcybc1wbhrwliikp";
   };
 
-  buildInputs = [ makeWrapper nodejs ];
-
   installPhase = ''
-    mkdir -p $out/libexec/kibana $out/bin
-    mv * $out/libexec/kibana/
-    rm -r $out/libexec/kibana/node
+    mkdir -p $out
+    cp -R * $out
 
-    makeWrapper $out/libexec/kibana/bin/kibana $out/bin/kibana \
-      --prefix PATH : "${stdenv.lib.makeBinPath [ nodejs ]}"
-
-    sed -i 's@NODE=.*@NODE=${nodejs}/bin/node@' $out/libexec/kibana/bin/kibana
-  '';
+    patchelf \
+        --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+        --set-rpath "${stdenv.cc.cc.lib}/lib" \
+        "$out/node/bin/node"
+ '';
 }
