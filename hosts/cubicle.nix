@@ -25,8 +25,6 @@ in {
       ../users/mne.networkmanager.nix
       ../users/mne.nixpkgs.nix
       ../users/mne.vboxusers.nix
-      ../users/nolimits.nix
-      ../users/nolimits.sudo.mne.nix
 
       secret
     ];
