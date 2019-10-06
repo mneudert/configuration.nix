@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/instream_showcase"
     SHELL_LOCK="$PROJECT_ROOT/shell.lock"
     SHELL_NAME="project:instream_showcase"
-      
+
     API_INFLUXDB='http://localhost:8086'
     CONF_INFLUXDB="$PROJECT_ROOT/influxdb.conf"
     LOG_INFLUXDB="$PROJECT_ROOT/influxdb.log"
