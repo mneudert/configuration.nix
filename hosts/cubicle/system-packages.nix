@@ -12,6 +12,8 @@
     git
     git-lfs
     gitAndTools.diff-so-fancy
+    gnome3.evolution
+    gnome3.gnome-tweak-tool
     gnupg
     imagemagick
     iw
