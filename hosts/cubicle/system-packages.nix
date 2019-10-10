@@ -20,11 +20,9 @@
     openssl
     openvpn
     pciutils
-    qgis
     slack
     subversion
     terminator
-    travis
     unzip
     vagrant
     vim
