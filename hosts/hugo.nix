@@ -12,8 +12,6 @@ let
 in {
   imports =
     [
-      ./hugo/hardware-configuration.nix
-
       ./hugo/system-packages.nix
 
       ../system/default.nix

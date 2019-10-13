@@ -12,8 +12,6 @@ let
 in {
   imports =
     [
-      ./toal/hardware-configuration.nix
-
       ./toal/system-packages.nix
 
       ../system/default.nix

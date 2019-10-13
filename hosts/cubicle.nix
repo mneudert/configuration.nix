@@ -12,7 +12,6 @@ let
 in {
   imports =
     [
-      ./cubicle/hardware-configuration.nix
       ./cubicle/xserver.nix
 
       ./cubicle/custom-packages.nix

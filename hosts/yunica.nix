@@ -12,8 +12,6 @@ let
 in {
   imports =
     [
-      ./yunica/hardware-configuration.nix
-
       ./yunica/system-packages.nix
 
       ../system/default.nix
