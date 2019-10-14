@@ -14,6 +14,6 @@ stdenv.mkDerivation rec {
   buildInputs = [ postgresql ];
 
   preConfigure = ''
-    makeFlags="datadir=$out/share docdir=$out/share/doc pkglibdir=$out/lib"
+    makeFlags="datadir=$out/share/postgresql docdir=$out/share/doc pkglibdir=$out/lib"
   '';
 }
