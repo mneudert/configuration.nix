@@ -31,6 +31,9 @@ stdenv.mkDerivation rec {
           --username="postgres" \
           --auth="md5" \
       >/dev/null
+
+      echo "unix_socket_directories = '$PROJECT_ROOT/runtime/postgresql'" \
+          >> "$PROJECT_ROOT/runtime/postgresql/data/postgresql.conf"
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then
@@ -50,6 +53,7 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
+    export PGHOST="$PROJECT_ROOT/runtime/postgresql"
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
