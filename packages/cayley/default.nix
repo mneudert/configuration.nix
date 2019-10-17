@@ -1,24 +1,18 @@
-{ lib, buildGoPackage, fetchFromGitHub }:
+{ stdenv, fetchurl }:
 
-buildGoPackage rec {
+stdenv.mkDerivation rec {
   name = "cayley-${version}";
   version = "0.7.5";
 
-  src = fetchFromGitHub {
-    owner = "cayleygraph";
-    repo = "cayley";
-    rev = "v${version}";
-    sha256 = "1zfxa9z6spi6xw028mvbc7c3g517gn82g77ywr6picl47fr2blnd";
+  src = fetchurl {
+    url = "https://github.com/cayleygraph/cayley/releases/download/v${version}/cayley_${version}_linux_amd64.tar.gz";
+    sha256 = "1bq2gqbjljc0ws5lnfjvvhwhnykpq6k61mv2ccfm7hcqd9wgmhb9";
   };
 
-  goDeps = ./deps.nix;
-  goPackagePath = "github.com/cayleygraph/cayley";
+  installPhase = ''
+    mkdir -p $out/bin
+    cp -R * $out
 
-  postInstall =
-    ''
-      pushd ./go/src/github.com/cayleygraph/cayley/ > /dev/null
-        mkdir $bin/assets
-        cp -R ./docs ./static ./templates $bin/assets/
-      popd > /dev/null
-    '';
+    ln -s $out/cayley $out/bin/cayley
+  '';
 }
