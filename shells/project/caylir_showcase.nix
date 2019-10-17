@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
 
       SHELL_NAME="$SHELL_NAME|\[\e[1m\]master\[\e[0m\]"
 
-      cayley http --db=memstore --dbpath="" 2>/dev/null &
+      cayley http 2>/dev/null &
 
       trap finish EXIT
     fi
