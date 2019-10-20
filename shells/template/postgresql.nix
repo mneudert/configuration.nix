@@ -21,9 +21,9 @@ stdenv.mkDerivation rec {
     }
 
     function setup_postgres {
-      [ -f runtime/postgresql/data/pg_hba.conf ] && return
+      [ -f "$PROJECT_ROOT/runtime/postgresql/data/pg_hba.conf" ] && return
 
-      mkdir -p runtime/postgresql/data
+      mkdir -p "PROJECT_ROOT/runtime/postgresql/data"
 
       initdb \
           --pgdata="$PROJECT_ROOT/runtime/postgresql/data" \

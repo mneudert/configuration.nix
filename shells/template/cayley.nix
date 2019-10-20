@@ -8,8 +8,8 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/cayley"
-    SHELL_LOCK="$PROJECT_ROOT/shell.lock"
+    PROJECT_ROOT="$(pwd)"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/cayley/shell.lock"
     SHELL_NAME="template:cayley"
 
     function finish {

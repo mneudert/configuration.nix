@@ -23,11 +23,11 @@ stdenv.mkDerivation rec {
     }
 
     function setup_nginx {
-      mkdir -p runtime/nginx/logs
+      mkdir -p "$PROJECT_ROOT/runtime/nginx/logs"
 
       sed "s|{{PATH_PROJECT}}|$PROJECT_ROOT|g" \
-          runtime/etc/nginx.conf \
-      > runtime/nginx/nginx.conf
+          "$PROJECT_ROOT/runtime/etc/nginx.conf" \
+      > "$PROJECT_ROOT/runtime/nginx/nginx.conf"
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then

@@ -8,14 +8,14 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/influxdb"
-    SHELL_LOCK="$PROJECT_ROOT/shell.lock"
+    PROJECT_ROOT="$(pwd)"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/influxdb/shell.lock"
     SHELL_NAME="template:influxdb"
 
     API_INFLUXDB='http://localhost:8086'
-    CONF_INFLUXDB="$PROJECT_ROOT/influxdb.conf"
-    LOG_INFLUXDB="$PROJECT_ROOT/influxdb.log"
-    PID_INFLUXDB="$PROJECT_ROOT/influxdb.pid"
+    CONF_INFLUXDB="$PROJECT_ROOT/runtime/influxdb/influxdb.conf"
+    LOG_INFLUXDB="$PROJECT_ROOT/runtime/influxdb/influxdb.log"
+    PID_INFLUXDB="$PROJECT_ROOT/runtime/influxdb/influxdb.pid"
 
     function finish {
       [ -f "$PID_INFLUXDB" ] && {
@@ -43,8 +43,6 @@ stdenv.mkDerivation rec {
     }
 
     function setup_influxdb {
-      mkdir -p "$PROJECT_ROOT"
-
       influxd config > "$CONF_INFLUXDB"
 
       sed -i "s|/var/lib/influxdb|$PROJECT_ROOT|g" "$CONF_INFLUXDB"
