@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   version = "3.3.1";
 
   src = fetchzip {
-    url = "https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/${version}/gatling-charts-highcharts-bundle-${version}-bundle.zip";
+    url = "mirror://maven/io/gatling/highcharts/gatling-charts-highcharts-bundle/${version}/gatling-charts-highcharts-bundle-${version}-bundle.zip";
     sha256 = "0l0107hlwvlxp1mxiwcib8whljl6jcy37f3vfgzxa16ch4v0v0yw";
   };
 
