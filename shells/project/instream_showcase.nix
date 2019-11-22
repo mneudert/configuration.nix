@@ -57,6 +57,9 @@ stdenv.mkDerivation rec {
       influxd config > "$CONF_INFLUXDB"
 
       sed -i "s|/var/lib/influxdb|$PROJECT_ROOT|g" "$CONF_INFLUXDB"
+
+      sed -i "s|reporting-disabled = false|reporting-disabled = true|" "$CONF_INFLUXDB"
+
       echo -e "[[udp]]\n  enabled = true\n  bind-address = \":8089\"\n  database = \"test_database\"\n  batch-size = 1000\n  batch-timeout = \"1s\"\n  batch-pending = 5\n" >> "$CONF_INFLUXDB"
     }
 

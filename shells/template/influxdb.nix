@@ -46,6 +46,8 @@ stdenv.mkDerivation rec {
       influxd config > "$CONF_INFLUXDB"
 
       sed -i "s|/var/lib/influxdb|$PROJECT_ROOT|g" "$CONF_INFLUXDB"
+
+      sed -i "s|reporting-disabled = false|reporting-disabled = true|" "$CONF_INFLUXDB"
     }
 
     if [ ! -f "$SHELL_LOCK" ]; then
