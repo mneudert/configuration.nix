@@ -32,6 +32,7 @@ in {
   boot.loader.systemd-boot.enable = true;
 
   hardware.bluetooth.enable = false;
+  hardware.cpu.intel.updateMicrocode = true;
 
   networking.hostName = host;
 
