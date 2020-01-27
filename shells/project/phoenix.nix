@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
     export PS1="[project:phoenix|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.9 {};
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.10 {};
 
   buildInputs = [
     elixir
