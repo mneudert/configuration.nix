@@ -6,6 +6,7 @@
     atop
     bind
     chromium
+    dbeaver
     file
     firefox
     gimp
