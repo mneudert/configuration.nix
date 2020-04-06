@@ -27,12 +27,10 @@ stdenv.mkDerivation rec {
       chmod 774 runtime/elasticsearch
 
       pushd runtime/elasticsearch > /dev/null
-        elastic_base=$(dirname $(dirname $(which elasticsearch)))
-
-        ln -fs "$elastic_base/bin/"
-        ln -fs "$elastic_base/jdk/"
-        ln -fs "$elastic_base/lib/"
-        ln -fs "$elastic_base/modules/"
+        ln -fs "${elasticsearch}/bin/"
+        ln -fs "${elasticsearch}/jdk/"
+        ln -fs "${elasticsearch}/lib/"
+        ln -fs "${elasticsearch}/modules/"
 
         mkdir -p config/scripts
         mkdir -p data
@@ -45,8 +43,8 @@ stdenv.mkDerivation rec {
 
         pushd config > /dev/null
           ln -fs ../../etc/elasticsearch.yml elasticsearch.yml
-          ln -fs "$elastic_base/config/jvm.options"
-          ln -fs "$elastic_base/config/log4j2.properties"
+          ln -fs "${elasticsearch}/config/jvm.options"
+          ln -fs "${elasticsearch}/config/log4j2.properties"
         popd > /dev/null
       popd > /dev/null
     }
