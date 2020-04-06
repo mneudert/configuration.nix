@@ -15,10 +15,8 @@ stdenv.mkDerivation rec {
       mkdir -p "$GATLING_HOME"
 
       pushd "$GATLING_HOME" > /dev/null
-        gatling_base=$(dirname $(dirname $(which gatling.sh)))
-
-        ln -fs "$gatling_base/conf"
-        ln -fs "$gatling_base/lib"
+        ln -fs "${gatling}/conf"
+        ln -fs "${gatling}/lib"
 
         mkdir -p results
         mkdir -p user-files/bodies
