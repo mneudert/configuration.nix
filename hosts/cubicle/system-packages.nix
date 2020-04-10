@@ -19,6 +19,7 @@
     imagemagick
     iw
     lshw
+    minikube
     nssTools
     openssl
     openvpn
