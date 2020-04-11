@@ -45,6 +45,7 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
+    export MYSQL_UNIX_PORT="$PROJECT_ROOT/runtime/mysql/mysqld.sock"
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
