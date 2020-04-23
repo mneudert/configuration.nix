@@ -38,7 +38,9 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "18.09";
+  programs.gnupg.agent.enable = true;
+
+  system.stateVersion = "20.03";
 
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
