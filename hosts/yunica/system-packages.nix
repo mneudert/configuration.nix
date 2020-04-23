@@ -7,6 +7,8 @@
     git
     gnupg
     ipmitool
+    openssl
+    pinentry
     vim
     vimPlugins.vim-nix
     wget

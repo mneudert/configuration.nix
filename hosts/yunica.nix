@@ -29,6 +29,8 @@ in {
   networking.hostName = host;
   networking.hostId = "f8f16df6";
 
+  programs.gnupg.agent.enable = true;
+
   services.zfs.autoScrub.enable = true;
   services.zfs.autoScrub.interval = "weekly";
 
