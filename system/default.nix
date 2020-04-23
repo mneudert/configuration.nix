@@ -1,9 +1,12 @@
 {
   boot.tmpOnTmpfs = true;
 
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "de";
+  };
+
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "de";
     defaultLocale = "en_US.UTF-8";
   };
 
