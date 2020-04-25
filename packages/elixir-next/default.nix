@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
     patchShebangs lib/elixir/generate_app.escript || true
 
     substituteInPlace Makefile --replace "/usr/local" $out
-    substituteInPlace VERSION --replace "1.10.0-dev" $version
+    echo -n $version > VERSION
   '';
 
   postFixup = ''
