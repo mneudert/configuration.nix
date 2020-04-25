@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";
-  version = "1.11.0-dev-2020-01-27";
+  version = "1.11.0-dev-2020-04-25";
 
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
-    rev = "93a3c5f95823df8f24b0bb977e445f4604e5b93f";
-    sha256 = "0dxm4z5pwdgl7bb2lbi0ilkp6ql8szfy96w5yy6kqvn7adj6fgic";
+    rev = "f1704d42bccfcc586c99080125e6ed7f593546e5";
+    sha256 = "1rw0b5b8apr6935g9civ0cibi4viw8jcvxqhgnw5zk5gmk4qf9s8";
   };
 
   buildInputs = [ erlang makeWrapper ];
