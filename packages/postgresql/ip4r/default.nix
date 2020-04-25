@@ -16,4 +16,10 @@ stdenv.mkDerivation rec {
   preConfigure = ''
     makeFlags="datadir=$out/share/postgresql docdir=$out/share/doc pkglibdir=$out/lib"
   '';
+
+  installPhase = ''
+    install -D ip4r.so -t $out/lib
+    install -D scripts/ip4r--2.4.sql -t $out/share/postgresql/extension
+    install -D ip4r.control -t $out/share/postgresql/extension
+  '';
 }
