@@ -43,6 +43,7 @@ in {
   system.stateVersion = "20.03";
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.extraOptions = "--config-file=${pkgs.writeText "daemon.json" (builtins.toJSON { features = { buildkit = true; }; })}";
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
 }
