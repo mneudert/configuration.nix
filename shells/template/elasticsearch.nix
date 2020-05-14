@@ -57,7 +57,7 @@ stdenv.mkDerivation rec {
 
       setup_elasticsearch
 
-      ES_HOME="$PROJECT_ROOT/runtime/elasticsearch/bin" \
+      ES_HOME="$PROJECT_ROOT/runtime/elasticsearch" \
           elasticsearch -d -p "$PID_ELASTICSEARCH"
 
       trap finish EXIT
