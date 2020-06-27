@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "template-shell-elasticsearch";
+  name = "template-shell-elasticsearch-oss";
   env = buildEnv {
     name = name;
     paths = buildInputs;
@@ -9,9 +9,9 @@ stdenv.mkDerivation rec {
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"
-    PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch/elasticsearch.pid"
-    SHELL_LOCK="$PROJECT_ROOT/runtime/elasticsearch/shell.lock"
-    SHELL_NAME="template:elasticsearch"
+    PID_ELASTICSEARCH="$PROJECT_ROOT/runtime/elasticsearch-oss/elasticsearch.pid"
+    SHELL_LOCK="$PROJECT_ROOT/runtime/elasticsearch-oss/shell.lock"
+    SHELL_NAME="template:elasticsearch-oss"
 
     function finish {
       [ -f "$PID_ELASTICSEARCH" ] && {
@@ -23,10 +23,10 @@ stdenv.mkDerivation rec {
     }
 
     function setup_elasticsearch {
-      mkdir -p runtime/elasticsearch
-      chmod 774 runtime/elasticsearch
+      mkdir -p runtime/elasticsearch-oss
+      chmod 774 runtime/elasticsearch-oss
 
-      pushd runtime/elasticsearch > /dev/null
+      pushd runtime/elasticsearch-oss > /dev/null
         ln -fs "${elasticsearch}/bin/"
         ln -fs "${elasticsearch}/jdk/"
         ln -fs "${elasticsearch}/lib/"
@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
         chmod 774 logs
 
         pushd config > /dev/null
-          ln -fs ../../etc/elasticsearch.yml elasticsearch.yml
+          ln -fs ../../etc/elasticsearch-oss.yml elasticsearch.yml
           ln -fs "${elasticsearch}/config/jvm.options"
           ln -fs "${elasticsearch}/config/log4j2.properties"
         popd > /dev/null
@@ -57,7 +57,7 @@ stdenv.mkDerivation rec {
 
       setup_elasticsearch
 
-      ES_HOME="$PROJECT_ROOT/runtime/elasticsearch" \
+      ES_HOME="$PROJECT_ROOT/runtime/elasticsearch-oss" \
           elasticsearch -d -p "$PID_ELASTICSEARCH"
 
       trap finish EXIT
@@ -66,7 +66,7 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elasticsearch = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch { oss = false; };
+  elasticsearch = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch {};
 
   buildInputs = [
     elasticsearch
