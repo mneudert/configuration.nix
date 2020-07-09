@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name = "influxdb-${version}";
-  version = "2.0.0-beta.13";
+  version = "2.0.0-beta.14";
 
   src = fetchurl {
     url = "https://dl.influxdata.com/influxdb/releases/influxdb_${version}_linux_amd64.tar.gz";
-    sha256 = "02nvjpxi3wajly17jz8kfbzssbx01xyzf0wz27c7r210n36magi1";
+    sha256 = "1zvs9f9nqjx7xhq2ikprb99nf7z50d8dwnlmvfvhjph267m9l667";
   };
 
   installPhase = ''
