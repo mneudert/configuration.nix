@@ -5,12 +5,12 @@ let
   package = if oss then "elasticsearch-oss" else "elasticsearch";
   hash =
     if oss then
-      "0bk2hr3r4dqvdx2fldncpxs69x32qdlm4fqss7d2qgpalvvpfyx4"
+      "1idxlb14kspqvms9n1r3pc1ff4q4pj632433fm2dwiaslyvyv7kq"
     else
-      "1vy3z5f3zn9a2caa9jq1w4iagqrdmd27wr51bl6yf8v74169vpr4";
+      "07w6lvbapirpvpl5wa33fdzykg74hk8zyv97zs3if4zqj78kcwsg";
 in stdenv.mkDerivation rec {
   name = "${package}-${version}";
-  version = "7.8.0";
+  version = "7.8.1";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/elasticsearch/${package}-${version}-linux-x86_64.tar.gz";
