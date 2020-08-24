@@ -21,5 +21,6 @@ stdenv.mkDerivation rec {
     python2Packages.nose
     python2Packages.pep8
     python2Packages.pip
+    python2Packages.setuptools
   ];
 }
