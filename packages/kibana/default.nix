@@ -4,12 +4,12 @@ let
   package = if oss then "kibana-oss" else "kibana";
   hash =
     if oss then
-      "1ybd8hmigd0ac2q1b1081xf3facmx2qlzqk8p0yx48bcb4awhgxb"
+      "1h6ybjs87l5nr6gk2qx8p886dgdi48jgykm400mwlixa1amkawrw"
     else
-      "1mnxzw6is7n41v78hdi32sdy0zfv10wis39973770wki9w46w410";
+      "06fyj6mza7rxfqq83h9n7ai7dlf2gq5hdv9cwzcrq5dh8swp6lys";
 in stdenv.mkDerivation rec {
   name = "${package}-${version}";
-  version = "7.9.3";
+  version = "7.10.0";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/kibana/${package}-${version}-linux-x86_64.tar.gz";
