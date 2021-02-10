@@ -66,7 +66,7 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elasticsearch = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch { oss = false; };
+  elasticsearch = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch {};
 
   buildInputs = [
     elasticsearch

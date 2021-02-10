@@ -1,12 +1,12 @@
 { stdenv, fetchurl, zlib, autoPatchelfHook }:
 
 stdenv.mkDerivation rec {
-  name = "elasticsearch-${version}";
+  name = "elasticsearch-oss-${version}";
   version = "7.10.2";
 
   src = fetchurl {
-    url = "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}-linux-x86_64.tar.gz";
-    sha256 = "07p16n53fg513l4f04zq10hh5j9q6rjwz8hs8jj8y97jynvf6yiv";
+    url = "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-${version}-linux-x86_64.tar.gz";
+    sha256 = "1m6wpxs56qb6n473hawfw2n8nny8gj3dy8glq4x05005aa8dv6kh";
   };
 
   patches = [
