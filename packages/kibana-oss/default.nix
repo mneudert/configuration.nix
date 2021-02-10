@@ -1,12 +1,12 @@
 { stdenv, fetchurl, patchelf }:
 
 stdenv.mkDerivation rec {
-  name = "kibana-${version}";
+  name = "kibana-oss-${version}";
   version = "7.10.2";
 
   src = fetchurl {
-    url = "https://artifacts.elastic.co/downloads/kibana/kibana-${version}-linux-x86_64.tar.gz";
-    sha256 = "06p0v39ih606mdq2nsdgi5m7y1iynk9ljb9457h5rrx6jakc2cwm";
+    url = "https://artifacts.elastic.co/downloads/kibana/kibana-oss-${version}-linux-x86_64.tar.gz";
+    sha256 = "050rhx82rqpgqssp1rdflz1ska3f179kd2k2xznb39614nk0m6gs";
   };
 
   installPhase = ''
