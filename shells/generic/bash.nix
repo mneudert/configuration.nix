@@ -14,5 +14,6 @@ stdenv.mkDerivation rec {
   buildInputs = [
     bats
     shellcheck
+    shfmt
   ];
 }
