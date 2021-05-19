@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
     export PS1="[project:hidrd|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 {};
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.12 {};
   hidrd-convert = pkgs.callPackage /data/projects/private/configuration.nix/packages/hidrd-convert {};
 
   buildInputs = [

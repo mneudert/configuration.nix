@@ -63,7 +63,7 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 {};
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.12 {};
   postgresql_ip4r = pkgs.callPackage /data/projects/private/configuration.nix/packages/postgresql/ip4r {};
   postgresql = pkgs.postgresql.withPackages (_: [ postgresql_ip4r ]);
 
