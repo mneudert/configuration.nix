@@ -20,6 +20,5 @@ stdenv.mkDerivation rec {
     zlib
 
     ruby
-    bundler
   ];
 }
