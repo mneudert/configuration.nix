@@ -1,4 +1,4 @@
-{ stdenv, buildPerlPackage, fetchurl, perlPackages }:
+{ stdenv, lib, buildPerlPackage, fetchurl, perlPackages }:
 
 # nix-generate-from-cpan
 buildPerlPackage rec {
@@ -16,6 +16,6 @@ buildPerlPackage rec {
 
   meta = {
     description = "Data-driven test scaffold for Nginx C module and Nginx/OpenResty-based libraries and applications";
-    license = stdenv.lib.licenses.bsd3;
+    license = lib.licenses.bsd3;
   };
 }
