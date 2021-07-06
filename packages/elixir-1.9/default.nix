@@ -19,8 +19,6 @@ stdenv.mkDerivation rec {
   LANG = "en_US.UTF-8";
   LC_TYPE = "en_US.UTF-8";
 
-  setupHook = ./setup-hook.sh;
-
   buildFlags = "ERL_COMPILER_OPTIONS=debug_info";
 
   preBuild = ''
