@@ -7,14 +7,14 @@
     bind
     chromium
     dbeaver
+    evolution
     file
     firefox
     gimp
     git
     git-lfs
     gitAndTools.diff-so-fancy
-    gnome3.evolution
-    gnome3.gnome-tweak-tool
+    gnome.gnome-tweaks
     gnupg
     imagemagick
     iw
