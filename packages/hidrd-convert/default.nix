@@ -18,9 +18,5 @@ stdenv.mkDerivation rec {
     sed -i 's|/usr/bin/file|${pkgs.file}/bin/file|' ./configure
   '';
 
-  buildInputs = with pkgs; [
-    autoconf
-    automake
-    libtool
-  ];
+  buildInputs = with pkgs; [ autoconf automake libtool ];
 }

@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "generic-shell-cobol";
@@ -11,9 +11,9 @@ stdenv.mkDerivation rec {
     export PS1="[generic:cobol|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  gnu-cobol = pkgs.callPackage /data/projects/private/configuration.nix/packages/gnu-cobol {};
+  gnu-cobol =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/gnu-cobol
+    { };
 
-  buildInputs = [
-    gnu-cobol
-  ];
+  buildInputs = [ gnu-cobol ];
 }

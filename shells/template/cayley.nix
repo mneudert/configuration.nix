@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-cayley";
@@ -33,9 +33,9 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley {};
+  cayley =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley
+    { };
 
-  buildInputs = [
-    cayley
-  ];
+  buildInputs = [ cayley ];
 }

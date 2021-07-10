@@ -1,7 +1,6 @@
 { lib, ... }:
 
-with lib;
-{
+with lib; {
   users.users.mne = {
     description = "Marc Neudert";
     extraGroups = [ "wheel" ];
@@ -10,8 +9,7 @@ with lib;
   };
 
   system.activationScripts = {
-    dotfiles_mne = stringAfter [ "users" ]
-    ''
+    dotfiles_mne = stringAfter [ "users" ] ''
       cd /home/mne
 
       # symlink directories

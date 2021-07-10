@@ -1,5 +1,1 @@
-{
-  users.users.mne = {
-    extraGroups = [ "networkmanager" ];
-  };
-}
+{ users.users.mne = { extraGroups = [ "networkmanager" ]; }; }

@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-elasticsearch";
@@ -66,9 +66,8 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elasticsearch = pkgs.callPackage /data/projects/private/configuration.nix/packages/elasticsearch {};
+  elasticsearch = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/elasticsearch { };
 
-  buildInputs = [
-    elasticsearch
-  ];
+  buildInputs = [ elasticsearch ];
 }

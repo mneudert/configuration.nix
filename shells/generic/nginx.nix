@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "generic-shell-nginx";
@@ -12,11 +12,9 @@ stdenv.mkDerivation rec {
     export PS1="[generic:nginx|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  nginx = pkgs.nginx.override {
-    modules = [ pkgs.nginxModules.lua ];
-  };
+  nginx = pkgs.nginx.override { modules = [ pkgs.nginxModules.lua ]; };
 
-  perl_TestNginx = pkgs.callPackage ../../packages/perl/TestNginx {};
+  perl_TestNginx = pkgs.callPackage ../../packages/perl/TestNginx { };
 
   buildInputs = [
     nginx

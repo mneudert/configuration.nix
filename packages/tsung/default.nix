@@ -9,7 +9,5 @@ stdenv.mkDerivation rec {
     sha256 = "0ap55kx7y42i069bqi8i60bvq1mj7idajvf4z3nzld7gc1c49533";
   };
 
-  buildInputs = with pkgs; [
-    erlang
-  ];
+  buildInputs = with pkgs; [ erlang ];
 }

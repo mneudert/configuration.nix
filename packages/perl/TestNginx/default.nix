@@ -11,11 +11,18 @@ buildPerlPackage rec {
   };
 
   propagatedBuildInputs = with perlPackages; [
-    HTTPMessage LWP ListMoreUtils TestBase TestLongString TextDiff URI
+    HTTPMessage
+    LWP
+    ListMoreUtils
+    TestBase
+    TestLongString
+    TextDiff
+    URI
   ];
 
   meta = {
-    description = "Data-driven test scaffold for Nginx C module and Nginx/OpenResty-based libraries and applications";
+    description =
+      "Data-driven test scaffold for Nginx C module and Nginx/OpenResty-based libraries and applications";
     license = lib.licenses.bsd3;
   };
 }

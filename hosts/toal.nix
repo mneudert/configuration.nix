@@ -2,24 +2,24 @@
 
 let
 
-    host = "toal";
-    secret_base = "/data/projects/secret/configuration.nix";
+  host = "toal";
+  secret_base = "/data/projects/secret/configuration.nix";
 
-    secret = if builtins.pathExists "${secret_base}/hosts/${host}.nix"
-             then "${secret_base}/hosts/${host}.nix"
-             else {};
+  secret = if builtins.pathExists "${secret_base}/hosts/${host}.nix" then
+    "${secret_base}/hosts/${host}.nix"
+  else
+    { };
 
 in {
-  imports =
-    [
-      ./toal/system-packages.nix
+  imports = [
+    ./toal/system-packages.nix
 
-      ../system/default.nix
-      ../users/mne.nix
-      ../users/mne.nixpkgs.nix
+    ../system/default.nix
+    ../users/mne.nix
+    ../users/mne.nixpkgs.nix
 
-      secret
-    ];
+    secret
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;

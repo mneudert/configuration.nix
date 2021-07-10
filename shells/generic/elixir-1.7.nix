@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.7";
@@ -16,10 +16,8 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.7|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 {};
+  elixir = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/elixir-1.7 { };
 
-  buildInputs = [
-    elixir
-    erlang
-  ];
+  buildInputs = [ elixir erlang ];
 }

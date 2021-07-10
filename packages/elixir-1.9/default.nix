@@ -1,4 +1,5 @@
-{ pkgs, lib, stdenv, fetchFromGitHub, erlang, makeWrapper, coreutils, curl, bash }:
+{ pkgs, lib, stdenv, fetchFromGitHub, erlang, makeWrapper, coreutils, curl, bash
+}:
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";

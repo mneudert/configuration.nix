@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "project-shell-instream";
@@ -97,12 +97,11 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 {};
-  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb {};
+  elixir = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/elixir-1.7 { };
+  influxdb =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb
+    { };
 
-  buildInputs = [
-    elixir
-    erlang
-    influxdb
-  ];
+  buildInputs = [ elixir erlang influxdb ];
 }

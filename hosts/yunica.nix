@@ -2,24 +2,24 @@
 
 let
 
-    host = "yunica";
-    secret_base = "/data/projects/secret/configuration.nix";
+  host = "yunica";
+  secret_base = "/data/projects/secret/configuration.nix";
 
-    secret = if builtins.pathExists "${secret_base}/hosts/${host}.nix"
-             then "${secret_base}/hosts/${host}.nix"
-             else {};
+  secret = if builtins.pathExists "${secret_base}/hosts/${host}.nix" then
+    "${secret_base}/hosts/${host}.nix"
+  else
+    { };
 
 in {
-  imports =
-    [
-      ./yunica/system-packages.nix
+  imports = [
+    ./yunica/system-packages.nix
 
-      ../system/default.nix
-      ../users/mne.nix
-      ../users/mne.nixpkgs.nix
+    ../system/default.nix
+    ../users/mne.nix
+    ../users/mne.nixpkgs.nix
 
-      secret
-    ];
+    secret
+  ];
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;

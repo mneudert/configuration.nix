@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "project-shell-caylir_showcase";
@@ -37,8 +37,11 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley {};
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 {};
+  cayley =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley
+    { };
+  elixir = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/elixir-1.7 { };
 
   buildInputs = [
     cayley

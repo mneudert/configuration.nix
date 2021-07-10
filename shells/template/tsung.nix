@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-tsung";
@@ -11,9 +11,9 @@ stdenv.mkDerivation rec {
     export PS1="[template:tsung|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  tsung = pkgs.callPackage /data/projects/private/configuration.nix/packages/tsung {};
+  tsung =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/tsung
+    { };
 
-  buildInputs = [
-    tsung
-  ];
+  buildInputs = [ tsung ];
 }

@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-next";
@@ -16,10 +16,8 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-next|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-next {};
+  elixir = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/elixir-next { };
 
-  buildInputs = [
-    elixir
-    erlang
-  ];
+  buildInputs = [ elixir erlang ];
 }

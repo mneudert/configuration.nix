@@ -6,9 +6,7 @@
     keyMap = "de";
   };
 
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
+  i18n = { defaultLocale = "en_US.UTF-8"; };
 
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;

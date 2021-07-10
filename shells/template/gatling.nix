@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-gatling";
@@ -31,9 +31,9 @@ stdenv.mkDerivation rec {
     export PS1="[template:gatling|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  gatling = pkgs.callPackage /data/projects/private/configuration.nix/packages/gatling {};
+  gatling =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/gatling
+    { };
 
-  buildInputs = [
-    gatling
-  ];
+  buildInputs = [ gatling ];
 }

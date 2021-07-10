@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "project-shell-phoenix";
@@ -18,7 +18,8 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.12 {};
+  elixir = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/elixir-1.12 { };
 
   buildInputs = [
     elixir

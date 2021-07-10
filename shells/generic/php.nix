@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "generic-shell-php";
@@ -11,8 +11,5 @@ stdenv.mkDerivation rec {
     export PS1="[generic:php|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  buildInputs = [
-    php
-    phpPackages.composer
-  ];
+  buildInputs = [ php phpPackages.composer ];
 }
