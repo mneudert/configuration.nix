@@ -20,6 +20,7 @@
     iw
     lshw
     minikube
+    nixfmt
     nssTools
     openssl
     openvpn
