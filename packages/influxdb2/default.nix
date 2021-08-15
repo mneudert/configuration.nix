@@ -1,7 +1,7 @@
 { stdenv, fetchurl }:
 
 stdenv.mkDerivation rec {
-  name = "influxdb-${version}";
+  name = "influxdb2-${version}";
   version = "2.0.8";
 
   src = fetchurl {
