@@ -7,6 +7,7 @@
     git
     gnupg
     ipmitool
+    nixfmt
     openssl
     pinentry
     vim
