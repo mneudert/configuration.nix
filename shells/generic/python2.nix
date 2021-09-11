@@ -12,8 +12,8 @@ stdenv.mkDerivation rec {
 
     export PATH="$SHELL_DATA_DIR/bin:$PATH"
     export PS1="[generic:python2|\[\e[1m\]\w\[\e[0m\]]$ "
-    export PYTHONPATH="$SHELL_DATA_DIR/lib/python2.7/site-packages:$PYTHONPATH"
     export PYTHONUSERBASE="$SHELL_DATA_DIR"
+    export PYTHONPATH="$(python -m site --user-site):$PYTHONPATH"
   '';
 
   buildInputs = [
