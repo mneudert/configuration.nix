@@ -14,7 +14,8 @@ stdenv.mkDerivation rec {
 
   nginx = pkgs.nginx.override { modules = [ pkgs.nginxModules.lua ]; };
 
-  perl_TestNginx = pkgs.callPackage ../../packages/perl/TestNginx { };
+  perl_TestNginx = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/perl/TestNginx { };
 
   buildInputs = [
     nginx
