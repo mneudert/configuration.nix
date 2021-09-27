@@ -3,15 +3,16 @@
 # nix-generate-from-cpan
 buildPerlPackage rec {
   pname = "Test-Nginx";
-  version = "0.26";
+  version = "0.29";
 
   src = fetchurl {
-    url = "mirror://cpan/authors/id/A/AG/AGENT/${pname}-${version}.tar.gz";
-    sha256 = "7ee10fb976c77a363b3af743c5eb8dd82cc2be726dfffe09066e2034199c6969";
+    url = "mirror://cpan/authors/id/A/AG/AGENT/Test-Nginx-0.29.tar.gz";
+    sha256 = "b72668f119bce9593c68429fdc1ad4f44f1c3e7f914c026936453997287be817";
   };
 
   propagatedBuildInputs = with perlPackages; [
     HTTPMessage
+    IPCRun
     LWP
     ListMoreUtils
     TestBase
