@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   shellHook = ''
     SHELL_NAME="project:phoenix"
 
-    export SHELL_DATA_DIR="$HOME/.nix-shells-data/${name}"
+    export SHELL_DATA_DIR="/data/nix-shells/${name}"
 
     export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_path '\"$SHELL_DATA_DIR/erlang-history\"'"
     export HEX_HOME="$SHELL_DATA_DIR/hex"

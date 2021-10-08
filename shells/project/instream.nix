@@ -87,7 +87,7 @@ stdenv.mkDerivation rec {
       trap finish EXIT
     fi
 
-    export SHELL_DATA_DIR="$HOME/.nix-shells-data/${name}"
+    export SHELL_DATA_DIR="/data/nix-shells/${name}"
 
     export INFLUXDB_SOCKET="$PROJECT_ROOT/influxdb.sock"
 

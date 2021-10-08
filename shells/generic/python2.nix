@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
-    export SHELL_DATA_DIR="$HOME/.nix-shells-data/${name}"
+    export SHELL_DATA_DIR="/data/nix-shells/${name}"
 
     export PATH="$SHELL_DATA_DIR/bin:$PATH"
     export PS1="[generic:python2|\[\e[1m\]\w\[\e[0m\]]$ "
