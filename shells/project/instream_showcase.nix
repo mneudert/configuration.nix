@@ -87,7 +87,7 @@ stdenv.mkDerivation rec {
   '';
 
   elixir = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/elixir-1.7 { };
+    /data/projects/private/configuration.nix/packages/elixir-1.9 { };
   influxdb =
     pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb
     { };
