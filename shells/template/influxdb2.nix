@@ -17,5 +17,8 @@ stdenv.mkDerivation rec {
     pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb2
     { };
 
-  buildInputs = [ influxdb2 ];
+  influxdb2-client = pkgs.callPackage
+    /data/projects/private/configuration.nix/packages/influxdb2-client { };
+
+  buildInputs = [ influxdb2 influxdb2-client ];
 }
