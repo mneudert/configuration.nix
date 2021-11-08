@@ -12,6 +12,6 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -R * $out/bin
+    cp -R influx $out/bin
   '';
 }
