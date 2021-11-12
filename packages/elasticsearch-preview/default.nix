@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   name = "elasticsearch-${version}";
-  version = "8.0.0-alpha2";
+  version = "8.0.0-beta1";
 
   src = fetchurl {
     url =
       "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}-linux-x86_64.tar.gz";
-    sha256 = "1fya9gj0vdgqzdwj4j9pkdvby0ahix5rkzski0lbdpx2bky3rjpj";
+    sha256 = "0aiy1xg0xnnl2fbwhw1s2lcdi4870kca1c2m7yfi5bhh36ymwwfd";
   };
 
   patches = [ ./elasticsearch-env.patch ];
@@ -32,6 +32,22 @@ stdenv.mkDerivation rec {
 
   postFixup = ''
     if [ -d "$out/modules/x-pack-ml/platform/linux-x86_64" ]; then
+      if [ -f "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_context-gcc10-mt-x64-1_71.so" ]; then
+        if [ ! -f "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_context-gcc10-mt-x64-1_71.so.1.71.0" ]; then
+          cp \
+            "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_context-gcc10-mt-x64-1_71.so" \
+            "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_context-gcc10-mt-x64-1_71.so.1.71.0"
+        fi
+      fi
+
+      if [ -f "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_serialization-gcc10-mt-x64-1_71.so" ]; then
+        if [ ! -f "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_serialization-gcc10-mt-x64-1_71.so.1.71.0" ]; then
+          cp \
+            "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_serialization-gcc10-mt-x64-1_71.so" \
+            "$out/modules/x-pack-ml/platform/linux-x86_64/lib/libboost_serialization-gcc10-mt-x64-1_71.so.1.71.0"
+        fi
+      fi
+
       autoPatchelf "$out/modules/x-pack-ml/platform/linux-x86_64"
     fi
   '';
