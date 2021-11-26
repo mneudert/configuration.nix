@@ -19,5 +19,5 @@ stdenv.mkDerivation rec {
   elixir = pkgs.callPackage
     /data/projects/private/configuration.nix/packages/elixir-1.9 { };
 
-  buildInputs = [ elixir erlang ];
+  buildInputs = [ glibcLocales elixir erlang ];
 }

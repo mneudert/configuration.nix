@@ -69,5 +69,5 @@ stdenv.mkDerivation rec {
     /data/projects/private/configuration.nix/packages/postgresql/ip4r { };
   postgresql = pkgs.postgresql.withPackages (_: [ postgresql_ip4r ]);
 
-  buildInputs = [ elixir postgresql ];
+  buildInputs = [ glibcLocales elixir postgresql ];
 }

@@ -103,5 +103,5 @@ stdenv.mkDerivation rec {
     pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb
     { };
 
-  buildInputs = [ elixir erlang influxdb ];
+  buildInputs = [ glibcLocales elixir erlang influxdb ];
 }

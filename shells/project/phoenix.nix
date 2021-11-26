@@ -22,6 +22,7 @@ stdenv.mkDerivation rec {
     /data/projects/private/configuration.nix/packages/elixir-1.12 { };
 
   buildInputs = [
+    glibcLocales
     elixir
     erlang
     nodejs

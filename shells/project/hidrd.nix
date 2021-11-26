@@ -24,6 +24,7 @@ stdenv.mkDerivation rec {
     /data/projects/private/configuration.nix/packages/hidrd-convert { };
 
   buildInputs = [
+    glibcLocales
     elixir
     erlang
 
