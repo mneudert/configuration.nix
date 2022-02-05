@@ -2,7 +2,7 @@ interactiveSetup.enabled: false
 
 pid.file: {{PATH_PROJECT}}/runtime/kibana-preview/kibana.pid
 path.data: {{PATH_PROJECT}}/runtime/kibana-preview/
-elasticsearch.username: "elastic"
+elasticsearch.username: "kibana"
 elasticsearch.password: "elasticpass"
 
 logging:
