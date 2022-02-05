@@ -1,6 +1,6 @@
 { fetchFromGitHub, pkgs }:
 
-pkgs.python37Packages.buildPythonPackage rec {
+pkgs.python3Packages.buildPythonPackage rec {
   name = "gitcheck-${version}";
   version = "2019-05-19-fork";
 
@@ -14,7 +14,7 @@ pkgs.python37Packages.buildPythonPackage rec {
   doCheck = false;
 
   propagatedBuildInputs = with pkgs; [
-    python37Packages.colored
-    python37Packages.GitPython
+    python3Packages.colored
+    python3Packages.GitPython
   ];
 }
