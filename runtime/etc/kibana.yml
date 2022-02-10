@@ -1,2 +1,16 @@
-logging.dest: {{PATH_PROJECT}}/runtime/kibana/kibana.log
+interactiveSetup.enabled: false
+
 pid.file: {{PATH_PROJECT}}/runtime/kibana/kibana.pid
+path.data: {{PATH_PROJECT}}/runtime/kibana/
+elasticsearch.username: "kibana"
+elasticsearch.password: "elasticpass"
+
+logging:
+  appenders:
+    file:
+      type: file
+      fileName: {{PATH_PROJECT}}/runtime/kibana/kibana.log
+      layout:
+        type: pattern
+  root:
+    appenders: [file]

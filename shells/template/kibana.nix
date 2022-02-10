@@ -39,7 +39,6 @@ stdenv.mkDerivation rec {
       setup_kibana
 
       BABEL_CACHE_PATH="$PROJECT_ROOT/runtime/kibana/.babelcache.json" \
-          DATA_PATH="$PROJECT_ROOT/runtime/kibana/" \
           kibana -c "$PROJECT_ROOT/runtime/kibana/kibana.yml" &
 
       trap finish EXIT
