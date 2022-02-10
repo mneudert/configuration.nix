@@ -47,7 +47,11 @@ stdenv.mkDerivation rec {
           ln -fs "${elasticsearch}/config/log4j2.properties"
         popd > /dev/null
       popd > /dev/null
+
+      echo "elasticpass" | elasticsearch-keystore add --force --stdin "bootstrap.password"
     }
+
+    export ES_HOME="$PROJECT_ROOT/runtime/elasticsearch"
 
     if [ ! -f "$SHELL_LOCK" ]; then
       mkdir -p "$(dirname "$SHELL_LOCK")"
@@ -57,8 +61,7 @@ stdenv.mkDerivation rec {
 
       setup_elasticsearch
 
-      ES_HOME="$PROJECT_ROOT/runtime/elasticsearch" \
-          elasticsearch -d -p "$PID_ELASTICSEARCH"
+      elasticsearch -d -p "$PID_ELASTICSEARCH"
 
       trap finish EXIT
     fi
