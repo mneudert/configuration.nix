@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   name = "gatling-${version}";
-  version = "3.7.5";
+  version = "3.7.6";
 
   src = fetchzip {
     url =
       "mirror://maven/io/gatling/highcharts/gatling-charts-highcharts-bundle/${version}/gatling-charts-highcharts-bundle-${version}-bundle.zip";
-    hash = "sha256-HIqEpe8OKjym1GymMRcA1PvxOOfX6Gi2fbLY7Fkeq7A=";
+    hash = "sha256-SnYuGEd2GFYm8Ffh5lBviiSQ0nRDpBnhJliLZZzC2/8=";
   };
 
   buildInputs = [ makeWrapper jdk ];
