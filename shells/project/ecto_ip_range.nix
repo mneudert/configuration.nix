@@ -64,7 +64,7 @@ stdenv.mkDerivation rec {
   '';
 
   elixir = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/elixir-1.12 { };
+    /data/projects/private/configuration.nix/packages/elixir-1.11 { };
   postgresql_ip4r = pkgs.callPackage
     /data/projects/private/configuration.nix/packages/postgresql/ip4r { };
   postgresql = pkgs.postgresql.withPackages (_: [ postgresql_ip4r ]);
