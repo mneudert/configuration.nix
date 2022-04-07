@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     owner = "elixir-lang";
     repo = "elixir";
     rev = "v${version}";
-    sha256 = "1n77cpcl2b773gmj3m9s24akvj9gph9byqbmj2pvlsmby4aqwckq";
+    hash = "sha256-eDKOFfGrarqvkHVhvxK8L8k9FRE61SHrG+csQdll59g=";
   };
 
   buildInputs = [ erlang makeWrapper ];
