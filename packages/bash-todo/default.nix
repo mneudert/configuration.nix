@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
     owner = "mneudert";
     repo = "bash-todo";
     rev = "12fa02d906f6d311b79fa32ec6665de9791087b4";
-    sha256 = "17avnyywqlxw5aw45cbspcl6vpnnjdxy4ri627w3a6k5rwf855x2";
+    hash = "sha256-opeCHM9lGjX4ESZm4nuT1t5tKLt6sUK4KrxTzL23W50=";
   };
 
   patchPhase = "patchShebangs ./todo";

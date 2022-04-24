@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
     owner = "RhodiumToad";
     repo = "ip4r";
     rev = version;
-    sha256 = "1rnjmqhzkzkj9phbhvkw1rcf7q9f5w6mwihwdz2p2jqh90pbfqmj";
+    hash = "sha256-smK3LkgQS3HFbxxGXg0vLuHjWA58brjgTXL++SGu0uY=";
   };
 
   buildInputs = [ postgresql ];

@@ -8,7 +8,7 @@ pkgs.python3Packages.buildPythonPackage rec {
     owner = "mneudert";
     repo = "gitcheck";
     rev = "a2a5f5105877e0e1f0dea860315c4af62d976dff";
-    sha256 = "03b7vjcdqx26hamb7623xa8ybabnivsdmqz9nklddh99253msdqf";
+    hash = "sha256-DjddRxEpwdbotOnj2vSOdqnlkepDmLOqgkZ03JjcZw0=";
   };
 
   doCheck = false;

@@ -7,7 +7,7 @@ stdenv.mkDerivation rec {
   src = fetchurl {
     url =
       "https://github.com/cayleygraph/cayley/releases/download/v${version}/cayley_${version}_linux_amd64.tar.gz";
-    sha256 = "1hm69hhrw5x9qrd8174lw619v8kb42dbrm3xh7m31va9lpsllq62";
+    hash = "sha256-wmBK9aVJ7TDqgX3UvJoga6KdguGUnIBaxqkXniFMpsI=";
   };
 
   installPhase = ''

@@ -7,7 +7,7 @@ buildPerlPackage rec {
 
   src = fetchurl {
     url = "mirror://cpan/authors/id/A/AG/AGENT/Test-Nginx-0.29.tar.gz";
-    sha256 = "b72668f119bce9593c68429fdc1ad4f44f1c3e7f914c026936453997287be817";
+    hash = "sha256-tyZo8Rm86Vk8aEKf3BrU9E8cPn+RTAJpNkU5lyh76Bc=";
   };
 
   propagatedBuildInputs = with perlPackages; [

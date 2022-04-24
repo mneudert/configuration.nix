@@ -9,7 +9,7 @@ buildGoModule rec {
     owner = "influxdata";
     repo = "influxdb";
     rev = "v${version}";
-    sha256 = "0k9kfh86vp82hzdsd9rqwrhqc42b2hdh4i4ax2j552sj3b2w0jiw";
+    hash = "sha256-PErAxRpSi1Kk6IpEAhsUSxCGYeY4p6bbhwLdbRB0M00=";
   };
 
   doCheck = false;

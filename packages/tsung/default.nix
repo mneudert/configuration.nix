@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "http://tsung.erlang-projects.org/dist/tsung-${version}.tar.gz";
-    sha256 = "0ap55kx7y42i069bqi8i60bvq1mj7idajvf4z3nzld7gc1c49533";
+    hash = "sha256-Y5REWGDvNPrt+MRtqVo8sga8FzARRbySAVEQf/os5So=";
   };
 
   buildInputs = with pkgs; [ erlang ];
