@@ -18,6 +18,7 @@
     gnupg
     imagemagick
     iw
+    jq
     lshw
     minikube
     nixfmt
