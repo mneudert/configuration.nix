@@ -1,7 +1,7 @@
-{ stdenv, lib, buildPerlPackage, fetchurl, perlPackages }:
+{ stdenv, lib, fetchurl, perlPackages }:
 
 # nix-generate-from-cpan
-buildPerlPackage rec {
+perlPackages.buildPerlPackage rec {
   pname = "Test-Nginx";
   version = "0.29";
 
