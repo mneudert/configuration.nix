@@ -1,7 +1,7 @@
 with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
-  name = "generic-shell-python3";
+  name = "generic-shell-python";
   env = buildEnv {
     name = name;
     paths = buildInputs;
@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     export SHELL_DATA_DIR="/data/nix-shells/${name}"
 
     export PATH="$SHELL_DATA_DIR/bin:$PATH"
-    export PS1="[generic:python3|\[\e[1m\]\w\[\e[0m\]]$ "
+    export PS1="[generic:python|\[\e[1m\]\w\[\e[0m\]]$ "
     export PYTHONUSERBASE="$SHELL_DATA_DIR"
     export PYTHONPATH="$(python -m site --user-site):$PYTHONPATH"
   '';
