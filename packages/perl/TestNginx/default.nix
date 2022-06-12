@@ -3,11 +3,11 @@
 # nix-generate-from-cpan
 perlPackages.buildPerlPackage rec {
   pname = "Test-Nginx";
-  version = "0.29";
+  version = "0.30";
 
   src = fetchurl {
-    url = "mirror://cpan/authors/id/A/AG/AGENT/Test-Nginx-0.29.tar.gz";
-    hash = "sha256-tyZo8Rm86Vk8aEKf3BrU9E8cPn+RTAJpNkU5lyh76Bc=";
+    url = "mirror://cpan/authors/id/A/AG/AGENT/Test-Nginx-${version}.tar.gz";
+    hash = "sha256-gJdYU1HsIOLANWByNv54tSeevmJDXh/7kokV0m6xJrI=";
   };
 
   propagatedBuildInputs = with perlPackages; [
