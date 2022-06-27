@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "bash-todo-${version}";
-  version = "2021-02-24";
+  version = "2022-06-27";
 
   src = fetchFromGitHub {
     owner = "mneudert";
     repo = "bash-todo";
-    rev = "12fa02d906f6d311b79fa32ec6665de9791087b4";
-    hash = "sha256-opeCHM9lGjX4ESZm4nuT1t5tKLt6sUK4KrxTzL23W50=";
+    rev = "7829492054e12f00b52af04af1ade154c0b4dd70";
+    hash = "sha256-7dTAQcXC5nyF0dSjDrRgbVAs34QUGKJJN4UHQonw8uw=";
   };
 
   patchPhase = "patchShebangs ./todo";
