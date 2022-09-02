@@ -1,3 +1,3 @@
 with import <nixpkgs> { };
 
-import ./elixir-1.13.nix
+import ./elixir-1.14.nix
