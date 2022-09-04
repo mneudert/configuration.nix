@@ -25,8 +25,8 @@ stdenv.mkDerivation rec {
   preBuild = ''
     patchShebangs lib/elixir/generate_app.escript || true
 
-    substituteInPlace Makefile --replace "/usr/local" $out
-    echo -n $version > VERSION
+    substituteInPlace Makefile \
+      --replace "/usr/local" $out
   '';
 
   postFixup = ''
