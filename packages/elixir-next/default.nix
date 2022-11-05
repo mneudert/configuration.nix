@@ -3,12 +3,12 @@
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";
-  version = "1.15.0-dev-2022-09-21";
+  version = "1.15.0-dev-2022-11-05";
 
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
-    rev = "aabfd191f983f51610b554d596887a32b7d30c69";
+    rev = "c868260ec221fd391e96d89036e3fc6f0f73381c";
     hash = "sha256-bBlposGOjwaekuHkxB5+u31c9nl9bzOGGaKyhUphOLU=";
   };
 
