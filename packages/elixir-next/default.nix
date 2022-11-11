@@ -3,13 +3,13 @@
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";
-  version = "1.15.0-dev-2022-11-05";
+  version = "1.15.0-dev-2022-11-11";
 
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
-    rev = "c868260ec221fd391e96d89036e3fc6f0f73381c";
-    hash = "sha256-bBlposGOjwaekuHkxB5+u31c9nl9bzOGGaKyhUphOLU=";
+    rev = "cca1f3ca499f37d5bc76c0b114a44966507c9ff5";
+    hash = "sha256-c1sxIhzeG0UUXDRvfYZ+hVEHMvVR/akd3+XYoczh0Yg=";
   };
 
   buildInputs = [ erlang makeWrapper ];
@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   buildFlags = "ERL_COMPILER_OPTIONS=debug_info";
 
   preBuild = ''
-    patchShebangs lib/elixir/generate_app.escript || true
+    patchShebangs lib/elixir/scripts/generate_app.escript || true
 
     substituteInPlace Makefile --replace "/usr/local" $out
     echo -n $version > VERSION
