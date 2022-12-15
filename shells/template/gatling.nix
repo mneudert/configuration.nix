@@ -21,6 +21,7 @@ stdenv.mkDerivation rec {
         mkdir -p results
         mkdir -p user-files/bodies
         mkdir -p user-files/data
+        mkdir -p user-files/lib
         mkdir -p user-files/simulations
       popd > /dev/null
     }
