@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   '';
 
   elixir = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/elixir-1.13 { };
+    /data/projects/private/configuration.nix/packages/elixir-1.14 { };
   hidrd-convert = pkgs.callPackage
     /data/projects/private/configuration.nix/packages/hidrd-convert { };
 
