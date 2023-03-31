@@ -1,5 +1,7 @@
 interactiveSetup.enabled: false
 
+server.host: '::'
+
 pid.file: {{PATH_PROJECT}}/runtime/kibana/kibana.pid
 path.data: {{PATH_PROJECT}}/runtime/kibana/
 elasticsearch.username: "kibana"
