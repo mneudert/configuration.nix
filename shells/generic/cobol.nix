@@ -8,8 +8,9 @@ stdenv.mkDerivation rec {
   };
 
   shellHook = ''
+    export PATH="${gnu-cobol}/bin:$PATH"
     export PS1="[generic:cobol|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  buildInputs = [ gnu-cobol ];
+  buildInputs = [ gmp gnu-cobol ];
 }
