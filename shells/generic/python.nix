@@ -21,6 +21,7 @@ stdenv.mkDerivation rec {
     python3Packages.nose
     python3Packages.pep8
     python3Packages.pip
+    python3Packages.pipx
     python3Packages.setuptools
   ];
 }
