@@ -22,6 +22,7 @@ stdenv.mkDerivation rec {
     python3Packages.pep8
     python3Packages.pip
     python3Packages.pipx
+    python3Packages.poetry
     python3Packages.setuptools
   ];
 }
