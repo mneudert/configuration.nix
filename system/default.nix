@@ -1,5 +1,5 @@
 {
-  boot.tmpOnTmpfs = true;
+  boot.tmp.useTmpfs = true;
 
   console = {
     font = "Lat2-Terminus16";
@@ -17,7 +17,8 @@
 
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
+
+    settings = { PasswordAuthentication = false; };
   };
 
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
