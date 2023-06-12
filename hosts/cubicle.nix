@@ -37,6 +37,7 @@ in {
   networking.hostName = host;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
 
   programs.gnupg.agent.enable = true;
 
