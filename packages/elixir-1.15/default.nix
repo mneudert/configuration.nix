@@ -3,13 +3,13 @@
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";
-  version = "1.15.1";
+  version = "1.15.2";
 
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
     rev = "v${version}";
-    hash = "sha256-TP97vnhX+ZZGmOzAfqKf0dSqObPMh+34xcVpFnSb11w=";
+    hash = "sha256-JLDjLO78p1i3FqGCbgl22SZFGPxJxKGKskzAJhHV8NE=";
   };
 
   buildInputs = [ erlang makeWrapper ];
