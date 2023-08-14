@@ -41,7 +41,7 @@ stdenv.mkDerivation rec {
     pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley
     { };
   elixir = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/elixir-1.9 { };
+    /data/projects/private/configuration.nix/packages/elixir-1.11 { };
 
   buildInputs = [ glibcLocales cayley elixir erlang ];
 }
