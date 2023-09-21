@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   name = "elasticsearch-${version}";
-  version = "8.10.1";
+  version = "8.10.2";
 
   src = fetchurl {
     url =
       "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}-linux-x86_64.tar.gz";
-    hash = "sha256-F6iLi9HPXn2ZEBZpMzbYXvSA4jomlnsz1UXytnZeTUI=";
+    hash = "sha256-/Zuclcd+r7IPM86QGQpnPiHi3TLdxlIqIl/ct5IaFUY=";
   };
 
   patches = [ ./elasticsearch-env.patch ];
