@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   name = "kibana-${version}";
-  version = "8.10.3";
+  version = "8.10.4";
 
   src = fetchurl {
     url =
       "https://artifacts.elastic.co/downloads/kibana/kibana-${version}-linux-x86_64.tar.gz";
-    hash = "sha256-xdHxxfieZBE4S828FxfCZGDwEjZzdHz43Db5fKJmM04=";
+    hash = "sha256-eVq/2b0Bcj9+Zgl2y8ErqduNc0z7x4o1eiZqZrOkmuA=";
   };
 
   installPhase = ''
