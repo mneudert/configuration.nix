@@ -1,5 +1,5 @@
---- elasticsearch-8.10.4/bin/elasticsearch-env   1970-00-00 00:00:00.000000001 +0000
-+++ elasticsearch-8.10.4/bin/elasticsearch-env   1970-00-00 00:00:00.000000001 +0000
+--- elasticsearch-8.11.0/bin/elasticsearch-env   1970-00-00 00:00:00.000000001 +0000
++++ elasticsearch-8.11.0/bin/elasticsearch-env   1970-00-00 00:00:00.000000001 +0000
 @@ -19,19 +19,16 @@
    fi
  done
