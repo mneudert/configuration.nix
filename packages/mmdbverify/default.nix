@@ -3,7 +3,7 @@
 buildGoModule rec {
   name = "mmdbverify-${version}";
   version = "git.2023-06-05";
-  vendorSha256 = "sha256-spwlkP4Qsz7+GeX9Ol1fLRcotLVuH33ufoYjo3q7Nsw=";
+  vendorHash = "sha256-spwlkP4Qsz7+GeX9Ol1fLRcotLVuH33ufoYjo3q7Nsw=";
 
   src = fetchFromGitHub {
     owner = "maxmind";

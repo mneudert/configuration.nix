@@ -3,7 +3,7 @@
 buildGoModule rec {
   name = "mmdbinspect-${version}";
   version = "git.2023-10-30";
-  vendorSha256 = "sha256-HNgofsfMsqXttnrNDIPgLHag+2hqQTREomcesWldpMo=";
+  vendorHash = "sha256-HNgofsfMsqXttnrNDIPgLHag+2hqQTREomcesWldpMo=";
 
   src = fetchFromGitHub {
     owner = "maxmind";
