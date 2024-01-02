@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
     export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_path '\"$SHELL_DATA_DIR/erlang-history\"'"
     export HEX_HOME="$SHELL_DATA_DIR/hex"
     export MIX_HOME="$SHELL_DATA_DIR/mix"
-    export PS1="[generic:elixir-1.15|\[\e[1m\]\w\[\e[0m\]]$ "
+    export PS1="[generic:elixir-1.16|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   elixir = pkgs.callPackage
