@@ -1,16 +1,17 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{ stdenv, fetchurl }:
 
-buildGoModule rec {
+stdenv.mkDerivation rec {
   name = "mmdbinspect-${version}";
-  version = "git.2023-12-13";
-  vendorHash = "sha256-HNgofsfMsqXttnrNDIPgLHag+2hqQTREomcesWldpMo=";
+  version = "0.2.0";
 
-  src = fetchFromGitHub {
-    owner = "maxmind";
-    repo = "mmdbinspect";
-    rev = "6101ed839d9d132498fed30b1c30866a7fad6e53";
-    hash = "sha256-hrbwOMpVAMXVxmx643/RXUVUhs7nR5GLs/wJ/R1iPds=";
+  src = fetchurl {
+    url =
+      "https://github.com/maxmind/mmdbinspect/releases/download/v${version}/mmdbinspect_${version}_linux_amd64.tar.gz";
+    sha256 = "sha256-hXdIctmUUJsJ1qyXmpuDMVnOeXDoQoMqpRCo0j1fFXc=l";
   };
 
-  doCheck = false;
+  installPhase = ''
+    mkdir -p $out/bin/
+    cp -R mmdbinspect $out/bin/
+  '';
 }
