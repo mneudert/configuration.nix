@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   '';
 
   elixir = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/elixir-1.16 { };
+    /data/projects/private/configuration.nix/packages/elixir-1.17 { };
 
   buildInputs = [
     glibcLocales
