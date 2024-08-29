@@ -2,14 +2,14 @@
 
 buildGoModule rec {
   name = "mmdbverify-${version}";
-  version = "git.2024-06-05";
-  vendorHash = "sha256-bsTBOGrm0hPSWxky9pkkFDTlRaPVBJjlUc2DKdH0fUM=";
+  version = "git.2024-07-01";
+  vendorHash = "sha256-ccE2WQ9q/LjqgSuwBlT36EvDVzuMBwXfB+il5zLG0fQ=";
 
   src = fetchFromGitHub {
     owner = "maxmind";
     repo = "mmdbverify";
-    rev = "68e2b5bd3b2866d610a2bef42674ed4e86f1984b";
-    hash = "sha256-NZOAcrxPbH3b553EQ6nEJCaUF9IOKCzaJVV92UDRTTU=";
+    rev = "d18fe372f29f1b89601b8b83fa140001261f2a7d";
+    hash = "sha256-HLyrC8Mx1uUqtWvlxYE8mE2vqv8vcwwPqpQ+v1MpYqY=";
   };
 
   doCheck = false;
