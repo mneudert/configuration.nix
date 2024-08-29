@@ -2,14 +2,14 @@
 
 buildGoModule rec {
   name = "mmdbinspect-${version}";
-  version = "git.2024-06-05";
-  vendorHash = "sha256-c/YRssKIme7BO4slDLCSfa8ap4f6qSfW2eDaH1xaD0I=";
+  version = "git.2024-08-14";
+  vendorHash = "sha256-MuTZmuVXerzo2+NgMHvMPysvWo90M7iNbBs5npj+KTw=";
 
   src = fetchFromGitHub {
     owner = "maxmind";
     repo = "mmdbinspect";
-    rev = "8769f5e9951a0b932c99cf4034fe248add51171c";
-    hash = "sha256-Own/wpcZ4O0S8yb99I5zuGZ1sdxlsD0VAIoTgRwSy5A=";
+    rev = "75fb13e176b40d84e867049dc45d0ba1fb251c07";
+    hash = "sha256-0EuU0LO2qE2HUFMyxmu3C7HG4n3j++ims4Zgl/5CxY8=";
   };
 
   doCheck = false;
