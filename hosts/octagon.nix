@@ -30,6 +30,8 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  environment.etc.hosts.mode = "0644";
+
   networking.hostName = host;
 
   nixpkgs.config.allowUnfree = true;
