@@ -19,10 +19,10 @@ stdenv.mkDerivation rec {
   buildInputs = [
     poetry
     python3
-    python3Packages.nose
     python3Packages.pip
     python3Packages.pipx
     python3Packages.pycodestyle
+    python3Packages.pytest
     python3Packages.setuptools
   ];
 }
