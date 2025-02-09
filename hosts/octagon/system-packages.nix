@@ -17,7 +17,7 @@
     imagemagick
     jq
     lshw
-    nixfmt
+    nixfmt-rfc-style
     nssTools
     openssl
     pciutils

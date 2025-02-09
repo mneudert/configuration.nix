@@ -7,7 +7,7 @@
     git
     gnupg
     ipmitool
-    nixfmt
+    nixfmt-rfc-style
     openssl
     pinentry
     vim

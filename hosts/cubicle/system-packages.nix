@@ -21,7 +21,7 @@
     jq
     lshw
     minikube
-    nixfmt
+    nixfmt-rfc-style
     nssTools
     openssl
     openvpn
