@@ -3,9 +3,8 @@
     enable = true;
     exportConfiguration = true;
 
-    layout = "de";
-
     displayManager.gdm.enable = true;
+    xkb.layout = "de";
 
     desktopManager = { gnome.enable = true; };
   };

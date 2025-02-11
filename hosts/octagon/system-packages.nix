@@ -12,7 +12,7 @@
     git
     git-lfs
     gitAndTools.diff-so-fancy
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnupg
     imagemagick
     jq
