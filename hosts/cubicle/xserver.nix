@@ -6,6 +6,8 @@
     displayManager.gdm.enable = true;
     xkb.layout = "de";
 
-    desktopManager = { gnome.enable = true; };
+    desktopManager = {
+      gnome.enable = true;
+    };
   };
 }

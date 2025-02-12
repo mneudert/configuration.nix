@@ -97,11 +97,13 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/elixir-1.9 { };
-  influxdb =
-    pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb
-    { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.9 { };
+  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb { };
 
-  buildInputs = [ glibcLocales elixir erlang influxdb ];
+  buildInputs = [
+    glibcLocales
+    elixir
+    erlang
+    influxdb
+  ];
 }

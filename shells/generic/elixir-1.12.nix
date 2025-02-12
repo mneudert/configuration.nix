@@ -16,8 +16,11 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.12|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/elixir-1.12 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.12 { };
 
-  buildInputs = [ glibcLocales elixir erlang ];
+  buildInputs = [
+    glibcLocales
+    elixir
+    erlang
+  ];
 }

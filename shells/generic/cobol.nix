@@ -12,5 +12,8 @@ stdenv.mkDerivation rec {
     export PS1="[generic:cobol|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  buildInputs = [ gmp gnu-cobol ];
+  buildInputs = [
+    gmp
+    gnu-cobol
+  ];
 }

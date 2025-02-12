@@ -1,6 +1,7 @@
 { lib, ... }:
 
-with lib; {
+with lib;
+{
   users.users.mne = {
     description = "Marc Neudert";
     extraGroups = [ "wheel" ];

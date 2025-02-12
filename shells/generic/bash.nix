@@ -11,5 +11,9 @@ stdenv.mkDerivation rec {
     export PS1="[generic:bash|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  buildInputs = [ bats shellcheck shfmt ];
+  buildInputs = [
+    bats
+    shellcheck
+    shfmt
+  ];
 }

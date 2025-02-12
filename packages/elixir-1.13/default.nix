@@ -1,4 +1,13 @@
-{ pkgs, lib, stdenv, fetchFromGitHub, erlang, makeWrapper, coreutils, curl, bash
+{
+  pkgs,
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  erlang,
+  makeWrapper,
+  coreutils,
+  curl,
+  bash,
 }:
 
 stdenv.mkDerivation rec {
@@ -12,10 +21,12 @@ stdenv.mkDerivation rec {
     hash = "sha256-xGKq62wzaIfgZN2j808fL3b8ykizQVPuePWzsy2HKfw=";
   };
 
-  buildInputs = [ erlang makeWrapper ];
+  buildInputs = [
+    erlang
+    makeWrapper
+  ];
 
-  LOCALE_ARCHIVE = lib.optionalString stdenv.isLinux
-    "${pkgs.glibcLocales}/lib/locale/locale-archive";
+  LOCALE_ARCHIVE = lib.optionalString stdenv.isLinux "${pkgs.glibcLocales}/lib/locale/locale-archive";
 
   LANG = "en_US.UTF-8";
   LC_TYPE = "en_US.UTF-8";
@@ -37,7 +48,14 @@ stdenv.mkDerivation rec {
      b=$(basename $f)
       if [ $b == "mix" ]; then continue; fi
       wrapProgram $f \
-        --prefix PATH ":" "${lib.makeBinPath [ erlang coreutils curl bash ]}" \
+        --prefix PATH ":" "${
+          lib.makeBinPath [
+            erlang
+            coreutils
+            curl
+            bash
+          ]
+        }" \
         --set CURL_CA_BUNDLE /etc/ssl/certs/ca-certificates.crt
     done
 

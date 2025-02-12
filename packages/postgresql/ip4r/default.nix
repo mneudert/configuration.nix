@@ -1,4 +1,9 @@
-{ pkgs, stdenv, fetchFromGitHub, postgresql }:
+{
+  pkgs,
+  stdenv,
+  fetchFromGitHub,
+  postgresql,
+}:
 
 stdenv.mkDerivation rec {
   name = "postgresql_ip4r-${version}";

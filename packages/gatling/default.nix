@@ -1,16 +1,23 @@
-{ stdenv, fetchzip, makeWrapper, jdk }:
+{
+  stdenv,
+  fetchzip,
+  makeWrapper,
+  jdk,
+}:
 
 stdenv.mkDerivation rec {
   name = "gatling-${version}";
   version = "3.10.5";
 
   src = fetchzip {
-    url =
-      "mirror://maven/io/gatling/highcharts/gatling-charts-highcharts-bundle/${version}/gatling-charts-highcharts-bundle-${version}-bundle.zip";
+    url = "mirror://maven/io/gatling/highcharts/gatling-charts-highcharts-bundle/${version}/gatling-charts-highcharts-bundle-${version}-bundle.zip";
     hash = "sha256-2YsMKEuLesVgaBm5KiqpQd8u6ne/1kUe0GyzxXxJ1Sw=";
   };
 
-  buildInputs = [ makeWrapper jdk ];
+  buildInputs = [
+    makeWrapper
+    jdk
+  ];
 
   buildPhase = "patchShebangs bin";
   installPhase = ''

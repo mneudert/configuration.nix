@@ -5,12 +5,14 @@ let
   host = "yunica";
   secret_base = "/data/projects/secret/configuration.nix";
 
-  secret = if builtins.pathExists "${secret_base}/hosts/${host}.nix" then
-    "${secret_base}/hosts/${host}.nix"
-  else
-    { };
+  secret =
+    if builtins.pathExists "${secret_base}/hosts/${host}.nix" then
+      "${secret_base}/hosts/${host}.nix"
+    else
+      { };
 
-in {
+in
+{
   imports = [
     ./yunica/system-packages.nix
 

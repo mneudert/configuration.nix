@@ -13,12 +13,14 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  influxdb2 =
-    pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb2
-    { };
+  influxdb2 = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb2 { };
 
-  influxdb2-client = pkgs.callPackage
-    /data/projects/private/configuration.nix/packages/influxdb2-client { };
+  influxdb2-client =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb2-client
+      { };
 
-  buildInputs = [ influxdb2 influxdb2-client ];
+  buildInputs = [
+    influxdb2
+    influxdb2-client
+  ];
 }

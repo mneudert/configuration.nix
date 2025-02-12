@@ -47,9 +47,7 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  kibana =
-    pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana
-    { };
+  kibana = pkgs.callPackage /data/projects/private/configuration.nix/packages/kibana { };
 
   buildInputs = [ kibana ];
 }

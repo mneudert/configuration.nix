@@ -1,12 +1,16 @@
-{ stdenv, fetchurl, zlib, autoPatchelfHook }:
+{
+  stdenv,
+  fetchurl,
+  zlib,
+  autoPatchelfHook,
+}:
 
 stdenv.mkDerivation rec {
   name = "elasticsearch-${version}";
   version = "8.17.1";
 
   src = fetchurl {
-    url =
-      "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}-linux-x86_64.tar.gz";
+    url = "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}-linux-x86_64.tar.gz";
     hash = "sha256-R3d6eG7FxxLnbWynTG1kfThSUc8ElYJNe/E9tCEHDCo=";
   };
 

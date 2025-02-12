@@ -5,12 +5,14 @@ let
   host = "octagon";
   secret_base = "/data/projects/secret/configuration.nix";
 
-  secret = if builtins.pathExists "${secret_base}/hosts/${host}.nix" then
-    "${secret_base}/hosts/${host}.nix"
-  else
-    { };
+  secret =
+    if builtins.pathExists "${secret_base}/hosts/${host}.nix" then
+      "${secret_base}/hosts/${host}.nix"
+    else
+      { };
 
-in {
+in
+{
   imports = [
     ./octagon/xserver.nix
 
@@ -43,9 +45,13 @@ in {
 
   virtualisation.docker.enable = true;
   virtualisation.docker.extraOptions = "--config-file=${
-      pkgs.writeText "daemon.json" (builtins.toJSON {
+    pkgs.writeText "daemon.json" (
+      builtins.toJSON {
         data-root = "/data/docker";
-        features = { buildkit = true; };
-      })
-    }";
+        features = {
+          buildkit = true;
+        };
+      }
+    )
+  }";
 }

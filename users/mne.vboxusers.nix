@@ -1,1 +1,5 @@
-{ users.users.mne = { extraGroups = [ "vboxusers" ]; }; }
+{
+  users.users.mne = {
+    extraGroups = [ "vboxusers" ];
+  };
+}

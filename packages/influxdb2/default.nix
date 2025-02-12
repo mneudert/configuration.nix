@@ -5,8 +5,7 @@ stdenv.mkDerivation rec {
   version = "2.7.11";
 
   src = fetchurl {
-    url =
-      "https://dl.influxdata.com/influxdb/releases/influxdb2-${version}_linux_amd64.tar.gz";
+    url = "https://dl.influxdata.com/influxdb/releases/influxdb2-${version}_linux_amd64.tar.gz";
     hash = "sha256-jXhyATytNST7coyoSD0K3DASWtGvJiq4Jtz10YARWc8=";
   };
 

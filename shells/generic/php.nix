@@ -1,7 +1,9 @@
 with import <nixpkgs> { };
 
-let php = pkgs.php.withExtensions ({ enabled, all }: enabled ++ [ all.xdebug ]);
-in stdenv.mkDerivation rec {
+let
+  php = pkgs.php.withExtensions ({ enabled, all }: enabled ++ [ all.xdebug ]);
+in
+stdenv.mkDerivation rec {
   name = "generic-shell-php";
   env = buildEnv {
     name = name;
@@ -12,5 +14,8 @@ in stdenv.mkDerivation rec {
     export PS1="[generic:php|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  buildInputs = [ php phpPackages.composer ];
+  buildInputs = [
+    php
+    phpPackages.composer
+  ];
 }
