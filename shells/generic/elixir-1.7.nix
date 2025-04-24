@@ -1,5 +1,12 @@
-with import <nixpkgs> { };
+with import <nixos-22.11> { };
 
+let
+  pkgs = import <nixos-22.11> {
+    config = {
+      permittedInsecurePackages = [ "erlang-22.3.4.24" ];
+    };
+  };
+in
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.7";
   env = buildEnv {
@@ -16,11 +23,13 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.7|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.7 {
+    erlang = pkgs.erlangR22;
+  };
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     glibcLocales
     elixir
-    erlang
+    erlangR22
   ];
 }
