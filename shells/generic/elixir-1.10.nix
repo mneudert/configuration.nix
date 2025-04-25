@@ -1,5 +1,12 @@
-with import <nixpkgs> { };
+with import <nixos-23.05> { };
 
+let
+  pkgs = import <nixos-23.05> {
+    config = {
+      permittedInsecurePackages = [ "openssl-1.1.1w" ];
+    };
+  };
+in
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.10";
   env = buildEnv {
@@ -16,11 +23,13 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.10|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.10 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.10 {
+    erlang = pkgs.erlangR23;
+  };
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     glibcLocales
     elixir
-    erlang
+    erlangR23
   ];
 }
