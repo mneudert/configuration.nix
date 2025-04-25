@@ -1,4 +1,4 @@
-with import <nixpkgs> { };
+with import <nixos-24.11> { };
 
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.15";
@@ -16,11 +16,13 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.15|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.15 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.15 {
+    erlang = erlang_26;
+  };
 
   buildInputs = [
     glibcLocales
     elixir
-    erlang
+    erlang_26
   ];
 }
