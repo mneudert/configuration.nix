@@ -1,5 +1,12 @@
-with import <nixpkgs> { };
+with import <nixos-24.11> { };
 
+let
+  pkgs = import <nixos-24.11> {
+    config = {
+      permittedInsecurePackages = [ "erlang-24.3.4.17" ];
+    };
+  };
+in
 stdenv.mkDerivation rec {
   name = "project-shell-ecto_ip_range";
   env = buildEnv {
@@ -63,15 +70,16 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 { erlang = pkgs.erlangR24; };
   postgresql_ip4r =
     pkgs.callPackage /data/projects/private/configuration.nix/packages/postgresql/ip4r
       { };
   postgresql = pkgs.postgresql.withPackages (_: [ postgresql_ip4r ]);
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     glibcLocales
     elixir
+    erlangR24
     postgresql
   ];
 }

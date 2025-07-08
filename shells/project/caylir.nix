@@ -1,5 +1,12 @@
-with import <nixpkgs> { };
+with import <nixos-24.11> { };
 
+let
+  pkgs = import <nixos-24.11> {
+    config = {
+      permittedInsecurePackages = [ "erlang-24.3.4.17" ];
+    };
+  };
+in
 stdenv.mkDerivation rec {
   name = "project-shell-caylir";
   env = buildEnv {
@@ -38,12 +45,12 @@ stdenv.mkDerivation rec {
   '';
 
   cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley { };
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 { erlang = pkgs.erlangR24; };
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     glibcLocales
     cayley
     elixir
-    erlang
+    erlangR24
   ];
 }
