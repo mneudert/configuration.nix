@@ -18,7 +18,9 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
+    erlang = erlang_28;
+  };
 
   buildInputs = [
     glibcLocales

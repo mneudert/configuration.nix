@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   '';
 
   elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-next {
-    erlang = erlang_27;
+    erlang = erlang_28;
   };
 
   buildInputs = [
