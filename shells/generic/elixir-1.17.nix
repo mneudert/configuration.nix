@@ -23,6 +23,6 @@ stdenv.mkDerivation rec {
   buildInputs = [
     glibcLocales
     elixir
-    erlang
+    erlang_27
   ];
 }

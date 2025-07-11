@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     glibcLocales
     elixir
-    erlang
+    erlang_28
     nodejs
 
     inotify-tools
