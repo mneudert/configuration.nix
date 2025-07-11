@@ -22,7 +22,9 @@ stdenv.mkDerivation rec {
     export PS1="[project:hidrd|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 { };
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
+    erlang = erlang_28;
+  };
   hidrd-convert =
     pkgs.callPackage /data/projects/private/configuration.nix/packages/hidrd-convert
       { };
@@ -30,7 +32,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     glibcLocales
     elixir
-    erlang
+    erlang_28
 
     hidrd-convert
     usbutils
