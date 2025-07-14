@@ -6,6 +6,9 @@ let
       permittedInsecurePackages = [ "openssl-1.1.1w" ];
     };
   };
+
+  erlang = pkgs.beam.interpreters.erlangR23;
+  elixir = pkgs.beam.packages.erlangR23.elixir_1_10;
 in
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.10";
@@ -23,13 +26,9 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.10|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.10 {
-    erlang = pkgs.erlangR23;
-  };
-
   buildInputs = with pkgs; [
     glibcLocales
     elixir
-    erlangR23
+    erlang
   ];
 }
