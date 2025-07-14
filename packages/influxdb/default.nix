@@ -8,6 +8,7 @@ buildGoModule rec {
   name = "influxdb-${version}";
   version = "1.8.10";
   vendorHash = "sha256-jgAbEWXL1LYRN7ud9ij0Z1KBGHPZ0sRq78tsK92ob8k=";
+  vendorSha256 = "sha256-jgAbEWXL1LYRN7ud9ij0Z1KBGHPZ0sRq78tsK92ob8k=";
 
   src = fetchFromGitHub {
     owner = "influxdata";

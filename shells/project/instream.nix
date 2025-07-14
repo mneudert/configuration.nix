@@ -1,11 +1,14 @@
-with import <nixos-22.11> { };
+with import <nixos-22.05> { };
 
 let
-  pkgs = import <nixos-22.11> {
+  pkgs = import <nixos-22.05> {
     config = {
       permittedInsecurePackages = [ "erlang-22.3.4.24" ];
     };
   };
+
+  erlang = pkgs.beam.interpreters.erlangR22;
+  elixir = pkgs.beam.packages.erlangR22.elixir_1_9;
 in
 stdenv.mkDerivation rec {
   name = "project-shell-instream";
@@ -104,15 +107,12 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.9 {
-    erlang = pkgs.erlangR22;
-  };
   influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb { };
 
   buildInputs = with pkgs; [
     glibcLocales
     elixir
-    erlangR22
+    erlang
     influxdb
   ];
 }
