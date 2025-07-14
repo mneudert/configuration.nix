@@ -6,6 +6,9 @@ let
       permittedInsecurePackages = [ "erlang-24.3.4.17" ];
     };
   };
+
+  erlang = pkgs.beam.interpreters.erlang_24;
+  elixir = pkgs.beam.packages.erlang_24.elixir_1_11;
 in
 stdenv.mkDerivation rec {
   name = "project-shell-ecto_ip_range";
@@ -70,9 +73,6 @@ stdenv.mkDerivation rec {
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 {
-    erlang = pkgs.erlangR24;
-  };
   postgresql_ip4r =
     pkgs.callPackage /data/projects/private/configuration.nix/packages/postgresql/ip4r
       { };
@@ -81,7 +81,7 @@ stdenv.mkDerivation rec {
   buildInputs = with pkgs; [
     glibcLocales
     elixir
-    erlangR24
+    erlang
     postgresql
   ];
 }

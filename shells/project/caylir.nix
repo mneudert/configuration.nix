@@ -6,6 +6,9 @@ let
       permittedInsecurePackages = [ "erlang-24.3.4.17" ];
     };
   };
+
+  erlang = pkgs.beam.interpreters.erlang_24;
+  elixir = pkgs.beam.packages.erlang_24.elixir_1_11;
 in
 stdenv.mkDerivation rec {
   name = "project-shell-caylir";
@@ -45,14 +48,11 @@ stdenv.mkDerivation rec {
   '';
 
   cayley = pkgs.callPackage /data/projects/private/configuration.nix/packages/cayley { };
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.11 {
-    erlang = pkgs.erlangR24;
-  };
 
   buildInputs = with pkgs; [
     glibcLocales
     cayley
     elixir
-    erlangR24
+    erlang
   ];
 }
