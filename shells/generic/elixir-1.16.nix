@@ -1,5 +1,9 @@
 with import <nixos-24.11> { };
 
+let
+  erlang = pkgs.beam.interpreters.erlang_26;
+  elixir = pkgs.beam.packages.erlang_26.elixir_1_16;
+in
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.16";
   env = buildEnv {
@@ -16,13 +20,9 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-1.16|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.16 {
-    erlang = erlang_26;
-  };
-
   buildInputs = [
     glibcLocales
     elixir
-    erlang_26
+    erlang
   ];
 }
