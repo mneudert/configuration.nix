@@ -9,6 +9,7 @@ let
 
   erlang = pkgs.beam.interpreters.erlangR22;
   elixir = pkgs.beam.packages.erlangR22.elixir_1_9;
+  influxdb = pkgs.influxdb;
 in
 stdenv.mkDerivation rec {
   name = "project-shell-instream";
@@ -106,8 +107,6 @@ stdenv.mkDerivation rec {
     export MIX_HOME="$SHELL_DATA_DIR/mix"
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
-
-  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb { };
 
   buildInputs = with pkgs; [
     glibcLocales

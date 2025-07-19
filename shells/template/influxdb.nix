@@ -1,4 +1,4 @@
-with import <nixpkgs> { };
+with import <nixos-22.05> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-influxdb";
@@ -65,8 +65,6 @@ stdenv.mkDerivation rec {
     export ERL_AFLAGS="-kernel shell_history enabled"
     export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
-
-  influxdb = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb { };
 
   buildInputs = [ influxdb ];
 }
