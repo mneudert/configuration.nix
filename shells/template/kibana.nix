@@ -2,10 +2,6 @@ with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-kibana";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"

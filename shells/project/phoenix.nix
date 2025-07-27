@@ -2,10 +2,6 @@ with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "project-shell-phoenix";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     SHELL_NAME="project:phoenix"

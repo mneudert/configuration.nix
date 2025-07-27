@@ -2,10 +2,6 @@ with import <nixos-22.05> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-influxdb";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"

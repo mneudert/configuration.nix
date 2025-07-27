@@ -2,10 +2,6 @@ with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-influxdb3";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     SHELL_NAME="template:influxdb3"

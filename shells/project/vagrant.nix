@@ -2,10 +2,6 @@ with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "project-shell-vagrant";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     export BUNDLE_PATH="$(pwd)/vendor"

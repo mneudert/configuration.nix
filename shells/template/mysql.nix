@@ -2,10 +2,6 @@ with import <nixpkgs> { };
 
 stdenv.mkDerivation rec {
   name = "template-shell-mysql";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     PROJECT_ROOT="$(pwd)"

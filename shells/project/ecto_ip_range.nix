@@ -12,10 +12,6 @@ let
 in
 stdenv.mkDerivation rec {
   name = "project-shell-ecto_ip_range";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/ecto_ip_range"

@@ -13,10 +13,6 @@ let
 in
 stdenv.mkDerivation rec {
   name = "project-shell-caylir";
-  env = buildEnv {
-    name = name;
-    paths = buildInputs;
-  };
 
   shellHook = ''
     PROJECT_ROOT="/data/projects/private/configuration.nix/runtime/caylir"
