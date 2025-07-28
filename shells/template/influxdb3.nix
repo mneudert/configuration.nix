@@ -4,9 +4,7 @@ stdenv.mkDerivation rec {
   name = "template-shell-influxdb3";
 
   shellHook = ''
-    SHELL_NAME="template:influxdb3"
-
-    export PS1="[$SHELL_NAME|\[\e[1m\]\w\[\e[0m\]]$ "
+    export PS1="[template:influxdb3|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
   influxdb3 = pkgs.callPackage /data/projects/private/configuration.nix/packages/influxdb3 { };
