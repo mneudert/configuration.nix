@@ -1,5 +1,11 @@
 with import <nixpkgs> { };
 
+let
+  erlang = pkgs.beam.interpreters.erlang_28;
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
+    erlang = pkgs.beam.interpreters.erlang_28;
+  };
+in
 stdenv.mkDerivation rec {
   name = "project-shell-phoenix";
 
@@ -12,14 +18,10 @@ stdenv.mkDerivation rec {
     export PS1="[project:phoenix|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
-    erlang = erlang_28;
-  };
-
   buildInputs = [
     glibcLocales
     elixir
-    erlang_28
+    erlang
     nodejs
 
     inotify-tools

@@ -1,5 +1,11 @@
 with import <nixpkgs> { };
 
+let
+  erlang = pkgs.beam.interpreters.erlang_28;
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
+    erlang = erlang_28;
+  };
+in
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-next";
 
@@ -12,13 +18,9 @@ stdenv.mkDerivation rec {
     export PS1="[generic:elixir-next|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-next {
-    erlang = erlang_28;
-  };
-
   buildInputs = [
     glibcLocales
     elixir
-    erlang_28
+    erlang
   ];
 }

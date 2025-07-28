@@ -1,5 +1,15 @@
 with import <nixpkgs> { };
 
+let
+  erlang = pkgs.beam.interpreters.erlang_28;
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
+    erlang = erlang_28;
+  };
+
+  hidrd-convert =
+    pkgs.callPackage /data/projects/private/configuration.nix/packages/hidrd-convert
+      { };
+in
 stdenv.mkDerivation rec {
   name = "project-shell-hidrd";
 
@@ -18,17 +28,10 @@ stdenv.mkDerivation rec {
     export PS1="[project:hidrd|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
-    erlang = erlang_28;
-  };
-  hidrd-convert =
-    pkgs.callPackage /data/projects/private/configuration.nix/packages/hidrd-convert
-      { };
-
   buildInputs = [
     glibcLocales
     elixir
-    erlang_28
+    erlang
 
     hidrd-convert
     usbutils
