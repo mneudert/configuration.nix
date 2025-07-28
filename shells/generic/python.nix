@@ -9,7 +9,6 @@ stdenv.mkDerivation rec {
     virtualenv "$SHELL_DATA_DIR/venv"
     source "$SHELL_DATA_DIR/venv/bin/activate"
 
-    export PATH="$SHELL_DATA_DIR/bin:$PATH"
     export PS1="[generic:python|\[\e[1m\]\w\[\e[0m\]]$ "
   '';
 
