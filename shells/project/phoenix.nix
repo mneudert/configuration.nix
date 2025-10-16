@@ -2,7 +2,7 @@ with import <nixpkgs> { };
 
 let
   erlang = pkgs.beam.interpreters.erlang_28;
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.18 {
+  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.19 {
     erlang = pkgs.beam.interpreters.erlang_28;
   };
 in
