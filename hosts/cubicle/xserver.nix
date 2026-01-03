@@ -1,13 +1,12 @@
 {
-  services.xserver = {
-    enable = true;
-    exportConfiguration = true;
-
+  services = {
+    desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
-    xkb.layout = "de";
 
-    desktopManager = {
-      gnome.enable = true;
+    xserver = {
+      enable = true;
+      exportConfiguration = true;
+      xkb.layout = "de";
     };
   };
 }

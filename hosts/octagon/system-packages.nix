@@ -5,13 +5,13 @@
     atop
     bind
     chromium
+    diff-so-fancy
     evolution
     file
     firefox
     gimp
     git
     git-lfs
-    gitAndTools.diff-so-fancy
     gnome-tweaks
     gnupg
     imagemagick

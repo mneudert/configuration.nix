@@ -11,10 +11,12 @@ pkgs.python3Packages.buildPythonPackage rec {
     hash = "sha256-DjddRxEpwdbotOnj2vSOdqnlkepDmLOqgkZ03JjcZw0=";
   };
 
-  doCheck = false;
-
   propagatedBuildInputs = with pkgs; [
     python3Packages.colored
-    python3Packages.GitPython
+    python3Packages.gitpython
   ];
+
+  build-system = with pkgs; [ python3Packages.setuptools ];
+  doCheck = false;
+  pyproject = true;
 }
