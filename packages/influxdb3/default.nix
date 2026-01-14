@@ -6,11 +6,11 @@
 
 stdenv.mkDerivation rec {
   name = "influxdb3-${version}";
-  version = "3.8.0";
+  version = "3.8.1";
 
   src = fetchurl {
     url = "https://dl.influxdata.com/influxdb/releases/influxdb3-core-${version}_linux_amd64.tar.gz";
-    hash = "sha256-+KUQAZY5K+kmkXhBRCnFEv9zenwLW3Ysy/XuMYZQwaU=";
+    hash = "sha256-VU0A2I9rQx6VrztwOhQEUhIR19P+6TYLr8WBcbXUWJo=";
   };
 
   dontPatchELF = true;
