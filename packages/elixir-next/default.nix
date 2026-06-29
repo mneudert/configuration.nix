@@ -12,13 +12,13 @@
 
 stdenv.mkDerivation rec {
   name = "elixir-${version}";
-  version = "1.21.0-dev-2026-06-10";
+  version = "1.21.0-dev-2026-06-28";
 
   src = fetchFromGitHub {
     owner = "elixir-lang";
     repo = "elixir";
-    rev = "f8ffaf01b586d94bbeeadd3b9dc77c7aa69f0d11";
-    hash = "sha256-tEwQYkkou4sCeVFZRTVr+MwwOSAtSCtqSD3dgMYvofU=";
+    rev = "b680bea383f93318ebebf275a0865d9f20c807bd";
+    hash = "sha256-g3lZkWuwzOMIa9hl6hLYDbqdj4fkeWUjufOmRaMafSE=";
   };
 
   buildInputs = [
