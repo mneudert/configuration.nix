@@ -1,10 +1,8 @@
-with import <nixpkgs> { };
+with import <nixos-25.11> { };
 
 let
   erlang = pkgs.beam.interpreters.erlang_28;
-  elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-1.19 {
-    erlang = erlang_28;
-  };
+  elixir = pkgs.beam.packages.erlang_28.elixir_1_19;
 in
 stdenv.mkDerivation rec {
   name = "generic-shell-elixir-1.19";
