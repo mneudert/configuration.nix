@@ -1,9 +1,9 @@
 with import <nixpkgs> { };
 
 let
-  erlang = pkgs.beam.interpreters.erlang_28;
+  erlang = pkgs.beam29Packages.erlang;
   elixir = pkgs.callPackage /data/projects/private/configuration.nix/packages/elixir-next {
-    erlang = erlang_28;
+    erlang = pkgs.beam29Packages.erlang;
   };
 in
 stdenv.mkDerivation rec {
