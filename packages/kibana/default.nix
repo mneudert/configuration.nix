@@ -6,11 +6,11 @@
 
 stdenv.mkDerivation rec {
   name = "kibana-${version}";
-  version = "9.5.6";
+  version = "9.5.7";
 
   src = fetchurl {
     url = "https://artifacts.elastic.co/downloads/kibana/kibana-${version}-linux-x86_64.tar.gz";
-    hash = "sha256-SXiovo7hD58G9CWT/NOORS4PcraHuVpSQbGSzfgyplM=";
+    hash = "sha256-9h/0Aue2UIt9lQ7ePS4o6xc97xiAFpkrq9TavXBkPFg=";
   };
 
   installPhase = ''
